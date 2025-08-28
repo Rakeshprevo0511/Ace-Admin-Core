@@ -81,6 +81,17 @@ namespace Ace_Admin.Controllers
             }
             return RedirectToAction("List");
         }
+        [HttpPost]
+        public IActionResult Create(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Employees.Add(employee);
+                _context.SaveChanges();
+                return RedirectToAction("List"); // reload the list after adding
+            }
+            return View("List"); // or return same view if validation fails
+        }
         public IActionResult Privacy()
         {
             return View();

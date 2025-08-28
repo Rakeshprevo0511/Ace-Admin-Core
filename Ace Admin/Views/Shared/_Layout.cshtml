@@ -31,7 +31,7 @@
 
                 <div class="navbar-intro justify-content-xl-between">
 
-                    <button type="button" class="btn btn-burger burger-arrowed static collapsed ml-2 d-flex d-xl-none" data-toggle-mobile="sidebar" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle sidebar">
+                    <button type="button" class="btn btn-burger burger-arrowed static collapsed ml-2 d-flex d-xl-none " data-toggle-mobile="sidebar" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle sidebar">
                         <span class="bars"></span>
                     </button><!-- mobile sidebar toggler button -->
 
@@ -41,7 +41,7 @@
                         <span>App</span>
                     </a><!-- /.navbar-brand -->
 
-                    <button type="button" class="btn btn-burger mr-2 d-none d-xl-flex" data-toggle="sidebar" data-target="#sidebar" aria-controls="sidebar" aria-expanded="true" aria-label="Toggle sidebar">
+                    <button type="button" class="btn btn-burger mr-2 d-none d-xl-flex collapsed" data-toggle="sidebar" data-target="#sidebar" aria-controls="sidebar" aria-expanded="true" aria-label="Toggle sidebar">
                         <span class="bars"></span>
                     </button><!-- sidebar toggler button -->
 
@@ -499,7 +499,7 @@
         </nav>
 
         <div class="main-container bgc-white">
-            <div id="sidebar" class="sidebar sidebar-fixed expandable sidebar-light">
+            <div id="sidebar" class="sidebar sidebar-fixed expandable sidebar-light ">
                 <div class="sidebar-inner">
 
                     <div class="flex-grow-1 ace-scroll" data-ace-scroll="{}">
@@ -1596,16 +1596,17 @@
             </div>
         </footer>
     </div>
+   
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/bootstrap.js"></script>
     <script src="~/dist/js/ace.js"></script>
     <script src="~/js/ace.js"></script>
     <script src="~/js/demo.js"></script>
     <script src="~/js/site.js"></script>
     <script src="~/js/popper.js"></script>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/js/bootstrap.js"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
     
 </body>
