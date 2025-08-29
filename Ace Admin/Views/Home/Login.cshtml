@@ -51,7 +51,7 @@
                                         <div class="carousel-inner minw-100 h-100">
                                             <div class="carousel-item active minw-100 h-100">
                                                 <!-- default carousel section that you see when you open login page -->
-                                                <div style="background-image: url(assets/image/login-bg-1.svg);" class="px-3 bgc-blue-l4 d-flex flex-column align-items-center justify-content-center">
+                                                <div style="background-image: url('@Url.Content("~/assets/image/login-bg-1.svg")');" class="px-3 bgc-blue-l4 d-flex flex-column align-items-center justify-content-center">
                                                     <a class="mt-5 mb-2" href="dashboard.html">
                                                         <i class="fa fa-leaf text-success-m2 fa-3x"></i>
                                                     </a>
@@ -93,7 +93,7 @@
 
                                             <div class="carousel-item minw-100 h-100">
                                                 <!-- the second carousel item with dark background -->
-                                                <div style="background-image: url(assets/image/login-bg-2.svg);" class="d-flex flex-column align-items-center justify-content-start">
+                                                <div style="background-image: url('@Url.Content("~/assets/image/login-bg-2.svg")');" class="d-flex flex-column align-items-center justify-content-start">
                                                     <a class="mt-5 mb-2" href="dashboard.html">
                                                         <i class="fa fa-leaf text-success-m2 fa-3x"></i>
                                                     </a>
@@ -107,7 +107,7 @@
 
 
                                             <div class="carousel-item minw-100 h-100">
-                                                <div style="background-image: url(assets/image/login-bg-3.jpg);" class="d-flex flex-column align-items-center justify-content-start">
+                                                <div style="background-image: url('@Url.Content("~/assets/image/login-bg-3.svg")');" class="d-flex flex-column align-items-center justify-content-start">
                                                     <div class="bgc-black-tp4 radius-1 p-3 w-90 text-center my-3 h-100">
                                                         <a class="mt-5 mb-2" href="dashboard.html">
                                                             <i class="fa fa-leaf text-success-m2 fa-3x"></i>
@@ -123,7 +123,7 @@
 
 
                                             <div class="carousel-item minw-100 h-100">
-                                                <div style="background-image: url(assets/image/login-bg-4.jpg);" class="d-flex flex-column align-items-center justify-content-start">
+                                                <div style="background-image: url('@Url.Content("~/assets/image/login-bg-4.svg")');" class="d-flex flex-column align-items-center justify-content-start">
                                                     <a class="mt-5 mb-2" href="dashboard.html">
                                                         <i class="fa fa-leaf text-success-m2 fa-3x"></i>
                                                     </a>
@@ -181,28 +181,28 @@
                                             </div>
 
 
-                                            <form autocomplete="off" class="form-row mt-4">
+                                            @model Ace_Admin.Dto.LoginView
+
+                                            <form asp-action="Login" asp-controller="Home" method="post" autocomplete="off" class="form-row mt-4">
+                                                @Html.AntiForgeryToken()
+
                                                 <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
                                                     <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
-                                                        <input placeholder="Username" type="text" class="form-control form-control-lg pr-4 shadow-none" id="id-login-username" />
+                                                        <input asp-for="Username" class="form-control form-control-lg pr-4 shadow-none" placeholder="Username" />
                                                         <i class="fa fa-user text-grey-m2 ml-n4"></i>
-                                                        <label class="floating-label text-grey-l1 ml-n3" for="id-login-username">
-                                                            Username
-                                                        </label>
+                                                        <label asp-for="Username" class="floating-label text-grey-l1 ml-n3">Username</label>
                                                     </div>
+                                                    <span asp-validation-for="Username" class="text-danger"></span>
                                                 </div>
-
 
                                                 <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mt-md-1">
                                                     <div class="d-flex align-items-center input-floating-label text-blue brc-blue-m2">
-                                                        <input placeholder="Password" type="password" class="form-control form-control-lg pr-4 shadow-none" id="id-login-password" />
+                                                        <input asp-for="Password" type="password" class="form-control form-control-lg pr-4 shadow-none" placeholder="Password" />
                                                         <i class="fa fa-key text-grey-m2 ml-n4"></i>
-                                                        <label class="floating-label text-grey-l1 ml-n3" for="id-login-password">
-                                                            Password
-                                                        </label>
+                                                        <label asp-for="Password" class="floating-label text-grey-l1 ml-n3">Password</label>
                                                     </div>
+                                                    <span asp-validation-for="Password" class="text-danger"></span>
                                                 </div>
-
 
                                                 <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-right text-md-right mt-n2 mb-2">
                                                     <a href="#" class="text-primary-m1 text-95" data-toggle="tab" data-target="#id-tab-forgot">
@@ -210,18 +210,18 @@
                                                     </a>
                                                 </div>
 
-
                                                 <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
                                                     <label class="d-inline-block mt-3 mb-0 text-dark-l1">
-                                                        <input type="checkbox" class="mr-1" id="id-remember-me" />
-                                                        Remember me
+                                                        <input type="checkbox" class="mr-1" id="id-remember-me" /> Remember me
                                                     </label>
 
-                                                    <button type="button" class="btn btn-primary btn-block px-4 btn-bold mt-2 mb-4">
+                                                    <!-- ✅ IMPORTANT: Must be type="submit" -->
+                                                    <button type="submit" class="btn btn-primary btn-block px-4 btn-bold mt-2 mb-4">
                                                         Sign In
                                                     </button>
                                                 </div>
                                             </form>
+
 
 
                                             <div class="form-row">
@@ -453,5 +453,74 @@
     <script src="~/js/site.js"></script>
     <script src="~/js/popper.js"></script>
     <script src="~/views/pages/page-login/@@page-script.js"></script>
+   
+    <script>
+        $(document).ready(function(){
+            var message = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.Message ?? TempData["Message"] ?? ""));
+            var type = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.AlertType ?? TempData["AlertType"] ?? "error"));
+
+            console.log("Message:", message, "Type:", type);
+
+            if(message && message !== "") {
+                showAlert(type, message);
+            }
+        });
+
+                function showAlert(type, message) {
+            let bgClass = 'bgc-white-tp1 shadow border-0'; // outer container
+            let iconClass = '';
+            let iconBgClass = '';
+            let title = '';
+
+            switch(type.toLowerCase()) {
+                case 'success':
+                    iconClass = 'fa fa-check text-150';
+                    iconBgClass = 'bgc-green-d1 text-white';
+                    title = 'Success';
+                    break;
+                case 'error':
+                    iconClass = 'fa fa-times text-150';
+                    iconBgClass = 'bgc-red-d1 text-white';
+                    title = 'Error';
+                    break;
+                case 'warning':
+                    iconClass = 'fa fa-exclamation-triangle text-150';
+                    iconBgClass = 'bgc-orange-d1 text-white';
+                    title = 'Warning';
+                    break;
+                default:
+                    iconClass = 'fa fa-info text-150';
+                    iconBgClass = 'bgc-blue-d1 text-white';
+                    title = 'Info';
+            }
+
+            $.aceToaster.add({
+                placement: 'tr',
+                width: 420,
+                delay: 5000,
+                close: false,
+                className: bgClass,
+                bodyClass: 'd-flex border-0 p-0 text-dark-tp2',
+                headerClass: 'd-none',
+                body: `
+                    <div class="${iconBgClass} px-3 pt-3">
+                        <div class="border-2 brc-white px-3 py-25 radius-round">
+                            <i class="${iconClass}"></i>
+                        </div>
+                    </div>
+                    <div class="p-3 mb-0 flex-grow-1">
+                        <h4 class="text-130">${title}</h4>
+                        ${message}
+                    </div>
+                    <button data-dismiss="toast" class="align-self-start btn btn-xs btn-outline-grey btn-h-light-grey py-2px mr-1 mt-1 border-0 text-150">&times;</button>
+                `
+            });
+        }
+
+        
+    </script>
+
+
+
 </body>
 </html>

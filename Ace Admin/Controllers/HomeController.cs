@@ -1,8 +1,13 @@
+﻿using Ace_Admin.Dto;
 using Ace_Admin.Models;
+using Ace_Admin.Models;
+using dotnet_core_MVC.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
-using Ace_Admin.Models;
+
+    
 
 namespace Ace_Admin.Controllers
 {
@@ -11,49 +16,83 @@ namespace Ace_Admin.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly PracticeDbContext _context;
-        public HomeController(ILogger<HomeController> logger,PracticeDbContext context)
+        private readonly IConfiguration _config;
+        public HomeController(ILogger<HomeController> logger,PracticeDbContext context, IConfiguration config)
         {
             _logger = logger;
             _context = context;
+            _config = config;
         }
-
+        #region*****View Pages ****
+       
         public IActionResult Index()
         {
             return View();
         }
-        public IActionResult List (int? id, int page = 1, int pageSize = 5)
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        #endregion
+
+        public IActionResult List(int? id, string search, int page = 1, int pageSize = 5)
         {
             ViewBag.Title = "Employee List";
-            ViewBag.PageTitle = "Employees";           // <-- must set
-            ViewBag.PageSubtitle = "overview & stats"; // <-- must set
-            List<Employee> employees;
-            int totalEmployees;
+            ViewBag.PageTitle = "Employees";
+            ViewBag.PageSubtitle = "overview & stats";
+
+            IQueryable<Employee> query = _context.Employees;
 
             if (id.HasValue)
             {
-                employees = _context.Employees.Where(e => e.Id == id.Value).ToList();
-                ViewBag.Title = "Employee List";
+                // Filter by Id
+                query = query.Where(e => e.Id == id.Value);
                 ViewBag.DisableViewButton = true;
-                ViewBag.TotalPages = 1;
-                ViewBag.CurrentPage = 1;
             }
             else
             {
                 ViewBag.DisableViewButton = false;
-                ViewBag.Title = "Employee List";
-                totalEmployees = _context.Employees.Count();
-                employees = _context.Employees
-                                    .OrderBy(e => e.Id)
-                                    .Skip((page - 1) * pageSize)
-                                    .Take(pageSize)
-                                    .ToList();
 
-                ViewBag.TotalPages = (int)Math.Ceiling((double)totalEmployees / pageSize);
-                ViewBag.CurrentPage = page;
+                // Search filter
+                if (!string.IsNullOrWhiteSpace(search))
+                {
+                    search = search.ToLower();
+                    query = query.Where(e =>
+                        e.EmpName.ToLower().Contains(search) ||
+                        e.Email.ToLower().Contains(search) ||
+                        e.PhoneNumber.Contains(search));
+                      
+                }
             }
+
+            // Total count after filters
+            int totalEmployees = query.Count();
+
+            // Apply pagination
+            var employees = query
+                            .OrderBy(e => e.Id)
+                            .Skip((page - 1) * pageSize)
+                            .Take(pageSize)
+                            .ToList();
+
+            // ViewBag for pagination
+            ViewBag.TotalPages = (int)Math.Ceiling((double)totalEmployees / pageSize);
+            ViewBag.CurrentPage = page;
+            ViewBag.Search = search;
 
             return View(employees);
         }
+
         [HttpPost]
         public IActionResult Edit(Employee model)
         {
@@ -66,7 +105,12 @@ namespace Ace_Admin.Controllers
                     emp.Email = model.Email;
                     _context.SaveChanges();
                 }
+                TempData["Message"] = "Employee Update successfully!";
+                TempData["AlertType"] = "success";
+                return RedirectToAction("List");
             }
+            TempData["Message"] = "Error while adding employee!";
+            TempData["AlertType"] = "error";
             return RedirectToAction("List");
         }
 
@@ -88,24 +132,45 @@ namespace Ace_Admin.Controllers
             {
                 _context.Employees.Add(employee);
                 _context.SaveChanges();
-                return RedirectToAction("List"); // reload the list after adding
+                TempData["Message"] = "Employee added successfully!";
+                TempData["AlertType"] = "success";
+                return RedirectToAction("List"); 
             }
-            return View("List"); // or return same view if validation fails
+            TempData["Message"] = "Error while adding employee!";
+            TempData["AlertType"] = "error";
+            return View("List"); 
         }
-        public IActionResult Privacy()
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Login(LoginView model)
         {
-            return View();
-        }
-        [Route("login")]
-        public IActionResult Login()
-        {
-            return View();
-        }
+            if (ModelState.IsValid)
+            {
+                var employee = _context.Employees
+                    .FirstOrDefault(e => e.Username == model.Username && e.Password == model.Password);
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+                if (employee != null)
+                {
+                    var tokenService = new TokenService(_config);
+                    var token = tokenService.GenerateJwtToken(employee.Username);
+
+                    Response.Cookies.Append("AuthToken", token, new CookieOptions
+                    {
+                        HttpOnly = true,
+                        Secure = true,
+                        Expires = DateTimeOffset.UtcNow.AddMinutes(60)
+                    });
+
+                    TempData["Message"] = "Login Successful! Welcome " + employee.EmpName;
+                    TempData["AlertType"] = "success"; 
+                    return RedirectToAction("Index");
+                }
+
+                ViewBag.Message = "Invalid Username or Password";
+                ViewBag.AlertType = "error";
+            }
+            return View(model);
         }
     }
 }

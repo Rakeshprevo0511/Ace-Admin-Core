@@ -1607,7 +1607,69 @@
     <script src="~/js/demo.js"></script>
     <script src="~/js/site.js"></script>
     <script src="~/js/popper.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-    
+    <script>
+        $(document).ready(function () {
+            var message = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(TempData["Message"] ?? ""));
+            var type = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(TempData["AlertType"] ?? ""));
+
+            console.log("Message:", message, "Type:", type);
+
+            if (message && message !== "") {
+                showAlert(type, message);
+            }
+        });
+
+        function showAlert(type, message) {
+            let bgClass = 'bgc-white-tp1 shadow border-0'; // outer container
+            let iconClass = '';
+            let iconBgClass = '';
+            let title = '';
+
+            switch (type.toLowerCase()) {
+                case 'success':
+                    iconClass = 'fa fa-check text-150';
+                    iconBgClass = 'bgc-green-d1 text-white';
+                    title = 'Success';
+                    break;
+                case 'error':
+                    iconClass = 'fa fa-times text-150';
+                    iconBgClass = 'bgc-red-d1 text-white';
+                    title = 'Error';
+                    break;
+                case 'warning':
+                    iconClass = 'fa fa-exclamation-triangle text-150';
+                    iconBgClass = 'bgc-orange-d1 text-white';
+                    title = 'Warning';
+                    break;
+                default:
+                    iconClass = 'fa fa-info text-150';
+                    iconBgClass = 'bgc-blue-d1 text-white';
+                    title = 'Info';
+            }
+
+            $.aceToaster.add({
+                placement: 'tr',
+                width: 420,
+                delay: 5000,
+                close: false,
+                className: bgClass,
+                bodyClass: 'd-flex border-0 p-0 text-dark-tp2',
+                headerClass: 'd-none',
+                body: `
+                    <div class="${iconBgClass} px-3 pt-3">
+                        <div class="border-2 brc-white px-3 py-25 radius-round">
+                            <i class="${iconClass}"></i>
+                        </div>
+                    </div>
+                    <div class="p-3 mb-0 flex-grow-1">
+                        <h4 class="text-130">${title}</h4>
+                        ${message}
+                    </div>
+                    <button data-dismiss="toast" class="align-self-start btn btn-xs btn-outline-grey btn-h-light-grey py-2px mr-1 mt-1 border-0 text-150">&times;</button>
+                `
+            });
+        }
+    </script>
+
 </body>
 </html>

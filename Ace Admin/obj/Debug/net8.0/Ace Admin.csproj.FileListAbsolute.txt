@@ -164,5 +164,5 @@ C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.
 C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\node_pro\Ace Admin\Ace Admin\obj\Debug\net8.0\Ace Admin.csproj.AssemblyReference.cache
-C:\node_pro\Ace Admin\Ace Admin\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\node_pro\Ace Admin\Ace Admin\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

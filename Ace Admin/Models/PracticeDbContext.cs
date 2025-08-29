@@ -77,10 +77,8 @@ public partial class PracticeDbContext : DbContext
                 .HasMaxLength(400)
                 .HasColumnName("FilePath_pic");
             entity.Property(e => e.JoiningDate).HasColumnType("datetime");
-            entity.Property(e => e.Location).HasMaxLength(100);
             entity.Property(e => e.Password).HasDefaultValue("");
             entity.Property(e => e.PhoneNumber).HasDefaultValue("");
-            entity.Property(e => e.Position).HasMaxLength(60);
             entity.Property(e => e.Username).HasDefaultValue("");
         });
 

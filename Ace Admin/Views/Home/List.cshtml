@@ -45,34 +45,29 @@
                            onclick="openModal()">Add New</button>
                         </div>
                    </div>
-             </div>
-             </div>
-          
-             </div>
-          
+                   
+                         <table class="mb-0 table table-borderless table-bordered-x brc-secondary-l3 text-dark-m2 radius-1 overflow-hidden">
 
-          <table class="mb-0 table table-borderless table-bordered-x brc-secondary-l3 text-dark-m2 radius-1 overflow-hidden">
-
-        <thead class="text-dark-tp3 bgc-grey-l4 text-90 border-b-1 brc-transparent">
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Mobile</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
+                             <thead class="text-dark-tp3 bgc-grey-l4 text-90 border-b-1 brc-transparent">
+                             <tr>
+                               <th >Id</th>      <!-- hidden on xs -->
+                               <th>Name</th>                                   <!-- always visible -->
+                               <th class="d-none d-md-table-cell">Email</th>  <!-- hidden on sm -->
+                               <th class="d-none d-md-table-cell">Mobile</th> <!-- hidden on sm -->
+                               <th>Action</th>                                <!-- always visible -->
+                              </tr>
+                              </thead>
+          <tbody>
             @foreach (var emp in Model)
             {
                 <tr>
-                    <td>@emp.Id</td>
-                    <td>@emp.EmpName</td>
-                    <td>@emp.Email</td>
-                    <td>@emp.PhoneNumber</td>
+                     <td >@emp.Id</td>
+                     <td>@emp.EmpName</td>
+                     <td class="d-none d-md-table-cell">@emp.Email</td>
+                     <td class="d-none d-md-table-cell">@emp.PhoneNumber</td>
                     <td>
                         <!-- Edit Button -->
-                      <button type="button" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success" data-bs-toggle="modal,tooltip" data-bs-target="#employeeModal"
+                      <button type="button" class="mx-2px btn radius-1 border-2 btn-xs btn-brc-tp btn-light-secondary btn-h-lighter-success btn-a-lighter-success" data-bs-toggle="modal" data-bs-target="#employeeModal"
                         onclick="openModal(@emp.Id, '@emp.EmpName', '@emp.Email', '@emp.PhoneNumber')" ><i class="fa fa-pencil-alt"  data-bs-toggle="tooltip" title="Edit Employee"></i></button>
 
                         <!-- Delete Button -->
@@ -144,8 +139,8 @@
         </tbody>
     </table>
 
-    <!-- Pagination -->
-    <nav aria-label="Page navigation">
+             </div>
+             <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center ">
             <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
                 <a class="page-link" href="@Url.Action("List", new { page = ViewBag.CurrentPage - 1 })">Previous</a>
@@ -163,12 +158,20 @@
             </li>
         </ul>
     </nav>
+             </div>
+          
+             </div>
+          
+
+    <!-- Pagination -->
+    
 </div>
 
   
     
 
 </div>
+
 <script>
     function openModal(id = 0, name = '', email = '', phone = '') {
     document.getElementById('EmpId').value = id;

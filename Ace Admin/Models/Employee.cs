@@ -9,9 +9,9 @@ public partial class Employee
 
     public string EmpName { get; set; } = null!;
 
-    public string Position { get; set; } = null!;
+    public string? Position { get; set; }
 
-    public string Location { get; set; } = null!;
+    public string? Location { get; set; }
 
     public int? Age { get; set; }
 
@@ -21,9 +21,9 @@ public partial class Employee
 
     public string PhoneNumber { get; set; } = null!;
 
-    public string Password { get; set; } = null!;
+    public string? Password { get; set; }
 
-    public string Username { get; set; } = null!;
+    public string? Username { get; set; }
 
     public DateTime? JoiningDate { get; set; }
 

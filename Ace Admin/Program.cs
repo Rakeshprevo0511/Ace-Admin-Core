@@ -1,4 +1,4 @@
-using Ace_Admin.Models;
+﻿using Ace_Admin.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -26,7 +26,20 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidAudience = jwtSettings["Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"]))
         };
+        // Redirect to login if token invalid
+        options.Events = new JwtBearerEvents
+        {
+            OnChallenge = context =>
+            {
+                // Skip the default 401 response
+                context.HandleResponse();
+
+                context.Response.Redirect("/Home/Login");
+                return Task.CompletedTask;
+            }
+        };
     });
+builder.Services.AddAuthorization();
 var app = builder.Build();
 
 
@@ -44,10 +57,10 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();  // ✅ must be before Authorization
 app.UseAuthorization();
-
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Login}/{id?}");
 
 app.Run();
