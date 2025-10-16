@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="~/dist/css/ace-font.css" />
     <link rel="stylesheet" href="~/dist/css/ace.css" />
 
-  
-     <link href="~/views/pages/page-login/@@page-style.css" rel="stylesheet" />
+
+    <link href="~/views/pages/page-login/@@page-style.css" rel="stylesheet" />
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="~/assets/favicon.png" />
     @{
@@ -183,7 +183,7 @@
 
                                             @model Ace_Admin.Dto.LoginView
 
-                                            <form asp-action="Login" asp-controller="Home" method="post" autocomplete="off" class="form-row mt-4">
+                                            <form id="login-form" autocomplete="off" class="form-row mt-4">
                                                 @Html.AntiForgeryToken()
 
                                                 <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
@@ -192,7 +192,7 @@
                                                         <i class="fa fa-user text-grey-m2 ml-n4"></i>
                                                         <label asp-for="Username" class="floating-label text-grey-l1 ml-n3">Username</label>
                                                     </div>
-                                                    <span asp-validation-for="Username" class="text-danger"></span>
+                                                    <span id="username-error" class="text-danger"></span>
                                                 </div>
 
                                                 <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mt-md-1">
@@ -201,7 +201,7 @@
                                                         <i class="fa fa-key text-grey-m2 ml-n4"></i>
                                                         <label asp-for="Password" class="floating-label text-grey-l1 ml-n3">Password</label>
                                                     </div>
-                                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                                    <span id="password-error" class="text-danger"></span>
                                                 </div>
 
                                                 <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-right text-md-right mt-n2 mb-2">
@@ -211,13 +211,9 @@
                                                 </div>
 
                                                 <div class="form-group col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-                                                    <label class="d-inline-block mt-3 mb-0 text-dark-l1">
-                                                        <input type="checkbox" class="mr-1" id="id-remember-me" /> Remember me
-                                                    </label>
-
-                                                    <!-- ✅ IMPORTANT: Must be type="submit" -->
-                                                    <button type="submit" class="btn btn-primary btn-block px-4 btn-bold mt-2 mb-4">
-                                                        Sign In
+                                                    <button type="button" id="login-btn" class="btn btn-primary btn-block px-4 btn-bold mt-2 mb-4">
+                                                        <span id="login-text">Sign In</span>
+                                                        <span id="login-loader" class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
                                                     </button>
                                                 </div>
                                             </form>
@@ -453,7 +449,84 @@
     <script src="~/js/site.js"></script>
     <script src="~/js/popper.js"></script>
     <script src="~/views/pages/page-login/@@page-script.js"></script>
-   
+    <script>
+                       $(document).ready(function () {
+            $('#login-btn').click(function (e) {
+                e.preventDefault(); // prevent normal form submit
+
+                login();
+            });
+        });
+        function login() {
+
+                // Clear previous errors
+        $('#username-error').text('');
+        $('#password-error').text('');
+
+        var username = $('input[name="Username"]').val().trim();
+        var password = $('input[name="Password"]').val().trim();
+        var token = $('input[name="__RequestVerificationToken"]').val();
+
+        // Client-side validation
+        let hasError = false;
+        if (!username) {
+            $('#username-error').text('Username is required');
+            hasError = true;
+        }
+        if (!password) {
+            $('#password-error').text('Password is required');
+            hasError = true;
+        }
+         
+         
+        if (hasError) return;
+
+           $('#login-btn').prop('disabled', true);
+           $('#login-text').text('Signing In...');
+           $('#login-loader').removeClass('d-none');
+
+                var data = {
+                    Username: $('input[name="Username"]').val(),
+                    Password: $('input[name="Password"]').val()
+                };
+
+                $.ajax({
+                    url: '/Home/Login',
+                    type: 'POST',
+                    headers: {
+                        'RequestVerificationToken': token
+                    },
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    success: function(response) {
+                        if(response.success) {
+                            // Save JWT to localStorage
+                            localStorage.setItem('employeeToken', response.token);
+
+                    showAlert({
+                   type: response.success ? 'success' : 'error',
+                   message: response.message || (response.success ? 'Login successful!' : 'Login failed!')
+                    });
+
+                        if(response.success) {
+                            localStorage.setItem('employeeToken', response.token);
+                              setTimeout(function () {
+                window.location.href = response.redirectUrl;
+            }, 1500);
+
+                        }
+                        } else {
+                             showAlert({ type: 'error', message: response.message || 'Invalid login' });
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                          showAlert({ type: 'error', message: 'Server error. Please try again.' });
+                    }
+                    
+                });
+         }
+
+    </script>
     <script>
         $(document).ready(function(){
             var message = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.Message ?? TempData["Message"] ?? ""));
@@ -517,10 +590,65 @@
             });
         }
 
-        
+                function showAlert(jsonData) {
+            if (!jsonData) return;
+
+            // Extract type and message from JSON object
+            let type = jsonData.type || 'info';
+            let message = jsonData.message || '';
+
+            if (!message) return;
+
+            let bgClass = 'bgc-white-tp1 shadow border-0'; // outer container
+            let iconClass = '';
+            let iconBgClass = '';
+            let title = '';
+
+            switch (type.toLowerCase()) {
+                case 'success':
+                    iconClass = 'fa fa-check text-150';
+                    iconBgClass = 'bgc-green-d1 text-white';
+                    title = 'Success';
+                    break;
+                case 'error':
+                    iconClass = 'fa fa-times text-150';
+                    iconBgClass = 'bgc-red-d1 text-white';
+                    title = 'Error';
+                    break;
+                case 'warning':
+                    iconClass = 'fa fa-exclamation-triangle text-150';
+                    iconBgClass = 'bgc-orange-d1 text-white';
+                    title = 'Warning';
+                    break;
+                default:
+                    iconClass = 'fa fa-info text-150';
+                    iconBgClass = 'bgc-blue-d1 text-white';
+                    title = 'Info';
+            }
+
+            $.aceToaster.add({
+                placement: 'tr',
+                width: 420,
+                delay: 5000,
+                close: false,
+                className: bgClass,
+                bodyClass: 'd-flex border-0 p-0 text-dark-tp2',
+                headerClass: 'd-none',
+                body: `
+                    <div class="${iconBgClass} px-3 pt-3">
+                        <div class="border-2 brc-white px-3 py-25 radius-round">
+                            <i class="${iconClass}"></i>
+                        </div>
+                    </div>
+                    <div class="p-3 mb-0 flex-grow-1">
+                        <h4 class="text-130">${title}</h4>
+                        ${message}
+                    </div>
+                    <button data-dismiss="toast" class="align-self-start btn btn-xs btn-outline-grey btn-h-light-grey py-2px mr-1 mt-1 border-0 text-150">&times;</button>
+                `
+            });
+        }
     </script>
-
-
 
 </body>
 </html>

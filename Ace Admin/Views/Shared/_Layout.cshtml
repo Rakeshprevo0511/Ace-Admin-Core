@@ -16,14 +16,19 @@
     <!-- Ace Template -->
     <link rel="stylesheet" href="~/dist/css/ace-font.css" />
     <link rel="stylesheet" href="~/dist/css/ace.css" />
- 
+
     <!-- Page specific CSS -->
     <link rel="stylesheet" href="~/views/pages/dashboard/@@page-style.css" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="~/assets/favicon.png" />
-    
+    <style>
+        body {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
     <div class="body-container">
         <nav class="navbar navbar-expand-lg navbar-fixed navbar-blue">
@@ -445,8 +450,8 @@
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                     <img id="id-navbar-user-image" class="d-none d-lg-inline-block radius-round border-2 brc-white-tp1 mr-2 w-6" src="~/assets/image/avatar/avatar6.jpg" alt="Jason's Photo">
                                     <span class="d-inline-block d-lg-none d-xl-inline-block">
-                                        <span class="text-90" id="id-user-welcome">Welcome,</span>
-                                        <span class="nav-user-name">Jason</span>
+                                        <span class="text-90" >Welcome,</span>
+                                        <span class="nav-user-name" id="id-user-welcome">Jason</span>
                                     </span>
 
                                     <i class="caret fa fa-angle-down d-none d-xl-block"></i>
@@ -456,7 +461,7 @@
                                 <div class="dropdown-menu dropdown-caret dropdown-menu-right dropdown-animated brc-primary-m3 py-1">
                                     <div class="d-none d-lg-block d-xl-none">
                                         <div class="dropdown-header">
-                                            Welcome, Jason
+                                            Welcome,<span id="id-user-welcome1"></span>
                                         </div>
                                         <div class="dropdown-divider"></div>
                                     </div>
@@ -470,7 +475,8 @@
                                         </div>
                                     </div>
 
-                                    <a class="mt-1 dropdown-item btn btn-outline-grey bgc-h-primary-l3 btn-h-light-primary btn-a-light-primary" href="page-profile.html">
+                                    <a href="@Url.Action("EmpProfile", "Home")"
+                                       class="mt-1 dropdown-item btn btn-outline-grey bgc-h-primary-l3 btn-h-light-primary btn-a-light-primary">
                                         <i class="fa fa-user text-primary-m1 text-105 mr-1"></i>
                                         Profile
                                     </a>
@@ -482,8 +488,10 @@
 
                                     <div class="dropdown-divider brc-primary-l2"></div>
 
-                                    <a class="dropdown-item btn btn-outline-grey bgc-h-secondary-l3 btn-h-light-secondary btn-a-light-secondary" href="page-login.html">
+                                    <a class="dropdown-item btn btn-outline-grey bgc-h-secondary-l3 btn-h-light-secondary btn-a-light-secondary" href="javascript:void(0);"
+                                       onclick="logoutUser()">
                                         <i class="fa fa-power-off text-warning-d1 text-105 mr-1"></i>
+
                                         Logout
                                     </a>
                                 </div>
@@ -1545,11 +1553,11 @@
                 </div>
             </div>
             <div class="main-content">
-               
-                    @RenderBody()
-                
+
+                @RenderBody()
+
             </div>
-            
+
         </div>
         <footer class="footer d-none d-sm-block">
             <div class="footer-inner bgc-white-tp1">
@@ -1596,7 +1604,7 @@
             </div>
         </footer>
     </div>
-   
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -1609,6 +1617,7 @@
     <script src="~/js/popper.js"></script>
     <script>
         $(document).ready(function () {
+            login_check();
             var message = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(TempData["Message"] ?? ""));
             var type = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(TempData["AlertType"] ?? ""));
 
@@ -1668,6 +1677,132 @@
                     <button data-dismiss="toast" class="align-self-start btn btn-xs btn-outline-grey btn-h-light-grey py-2px mr-1 mt-1 border-0 text-150">&times;</button>
                 `
             });
+        }
+
+             function showAlert(jsonData) {
+            if (!jsonData) return;
+
+            // Extract type and message from JSON object
+            let type = jsonData.type || 'info';
+            let message = jsonData.message || '';
+
+            if (!message) return;
+
+            let bgClass = 'bgc-white-tp1 shadow border-0'; // outer container
+            let iconClass = '';
+            let iconBgClass = '';
+            let title = '';
+
+            switch (type.toLowerCase()) {
+                case 'success':
+                    iconClass = 'fa fa-check text-150';
+                    iconBgClass = 'bgc-green-d1 text-white';
+                    title = 'Success';
+                    break;
+                case 'error':
+                    iconClass = 'fa fa-times text-150';
+                    iconBgClass = 'bgc-red-d1 text-white';
+                    title = 'Error';
+                    break;
+                case 'warning':
+                    iconClass = 'fa fa-exclamation-triangle text-150';
+                    iconBgClass = 'bgc-orange-d1 text-white';
+                    title = 'Warning';
+                    break;
+                default:
+                    iconClass = 'fa fa-info text-150';
+                    iconBgClass = 'bgc-blue-d1 text-white';
+                    title = 'Info';
+            }
+
+            $.aceToaster.add({
+                placement: 'tr',
+                width: 420,
+                delay: 5000,
+                close: false,
+                className: bgClass,
+                bodyClass: 'd-flex border-0 p-0 text-dark-tp2',
+                headerClass: 'd-none',
+                body: `
+                    <div class="${iconBgClass} px-3 pt-3">
+                        <div class="border-2 brc-white px-3 py-25 radius-round">
+                            <i class="${iconClass}"></i>
+                        </div>
+                    </div>
+                    <div class="p-3 mb-0 flex-grow-1">
+                        <h4 class="text-130">${title}</h4>
+                        ${message}
+                    </div>
+                    <button data-dismiss="toast" class="align-self-start btn btn-xs btn-outline-grey btn-h-light-grey py-2px mr-1 mt-1 border-0 text-150">&times;</button>
+                `
+            });
+        }
+        function login_check() {
+                const token = localStorage.getItem('employeeToken');
+
+                if (!token) {
+                    // Token missing — redirect to login
+                    window.location.href = "/Home/Login";
+                    return;
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "/token-check",
+                    data: {},
+                    contentType: "application/json; charset=utf-8",
+                    async: false,
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem('employeeToken')
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.success) {
+                                             $("body").show();
+                                            const user = response.data; // <-- use 'data' here
+                                           
+                                            $("#id-user-welcome").text(user.empName);
+                                            $("#id-user-welcome1").text(user.empName);
+                                           
+                                            let imageUrl = "";
+                                           
+                                            if (!user.filePathPic || user.filePathPic.trim() === "") {
+                                                imageUrl = user.gender === 0
+                                                    ? "../Administrator/Theme/assets/img/avatars/1.png"
+                                                    : "../Administrator/Theme/assets/img/avatars/6.png";
+                                            } else {
+                                                imageUrl = user.filePathPic;
+                                            }
+                                           
+                                            $(".user-avatar").attr("src", imageUrl);
+                                            $("#currentProfilePic").attr("src", imageUrl);
+                        } else {
+                            // Token exists but user invalid0
+                            localStorage.removeItem('employeeToken');
+                            window.location.href = "/Home/Login";
+                        }
+                    },
+                    error: function (xhr) {
+                        // If 401 Unauthorized or anything else goes wrong
+                        localStorage.removeItem('employeeToken');
+                        window.location.href = "/Home/Login";
+                    }
+                });
+            }
+                    function logoutUser() {
+            // Clear token
+            localStorage.removeItem('employeeToken');
+
+            // Show alert
+            showAlert({
+                type: 'success',
+                message: 'You have been logged out successfully!'
+            });
+
+            // Redirect after short delay
+            setTimeout(function () {
+                window.location.href = '/Home/Login'; // or your login page URL
+            }, 1500);
         }
     </script>
 

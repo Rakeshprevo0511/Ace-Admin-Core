@@ -6,12 +6,14 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// 🔹 Add services
 builder.Services.AddControllersWithViews();
+
 builder.Services.AddDbContext<PracticeDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
-// JWT Auth
+
+// 🔹 Configure Authentication with JWT
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -22,45 +24,55 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = jwtSettings["Issuer"],
-            ValidAudience = jwtSettings["Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"]))
+            ValidIssuer = jwtSettings["Issuer"],     // "Ace_Admin"
+            ValidAudience = jwtSettings["Audience"], // "CUD"
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(jwtSettings["Key"])),
+            ClockSkew = TimeSpan.FromMinutes(2) // allow minor clock drift
         };
-        // Redirect to login if token invalid
+
         options.Events = new JwtBearerEvents
         {
-            OnChallenge = context =>
+            OnAuthenticationFailed = context =>
             {
-                // Skip the default 401 response
-                context.HandleResponse();
-
-                context.Response.Redirect("/Home/Login");
+                Console.WriteLine("JWT Authentication Failed: " + context.Exception.Message);
+                return Task.CompletedTask;
+            },
+            OnMessageReceived = context =>
+            {
+                Console.WriteLine("Token received: " + context.Token);
+                return Task.CompletedTask;
+            },
+            OnTokenValidated = context =>
+            {
+                Console.WriteLine("Token Validated for user: " + context.Principal.Identity.Name);
                 return Task.CompletedTask;
             }
         };
     });
+
 builder.Services.AddAuthorization();
+
 var app = builder.Build();
 
-
-// Configure the HTTP request pipeline.
+// 🔹 Middleware pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication();  // ✅ must be before Authorization
+app.UseAuthentication();   // ✅ authentication must come before authorization
 app.UseAuthorization();
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Login}/{id?}");
+    pattern: "{controller=Home}/{action=Login}/{id?}"
+);
 
 app.Run();

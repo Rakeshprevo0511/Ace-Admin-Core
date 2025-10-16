@@ -1,8 +1,9 @@
 ﻿@model List<Ace_Admin.Models.Employee>
 @{
-   
+
     int totalPages = ViewBag.TotalPages;
     int currentPage = ViewBag.CurrentPage;
+   int startIndex = ((currentPage - 1) * ViewBag.PageSize) + 1;
 }
 <div class="page-content container container-plus">
     <div class="page-header pb-2">
@@ -61,7 +62,7 @@
             @foreach (var emp in Model)
             {
                 <tr>
-                     <td >@emp.Id</td>
+                     <td class="text-center">@startIndex</td>
                      <td>@emp.EmpName</td>
                      <td class="d-none d-md-table-cell">@emp.Email</td>
                      <td class="d-none d-md-table-cell">@emp.PhoneNumber</td>
@@ -76,7 +77,7 @@
                         </button>
                     </td>
                 </tr>
-
+                startIndex++;
               <!-- Employee Modal -->
                   <div class="modal fade" id="employeeModal" tabindex="-1" aria-labelledby="employeeModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
@@ -162,9 +163,6 @@
           
              </div>
           
-
-    <!-- Pagination -->
-    
 </div>
 
   
