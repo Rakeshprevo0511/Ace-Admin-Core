@@ -29,5 +29,7 @@ public partial class Employee
 
     public string? FilePathPic { get; set; }
 
+    public string? EmpCode { get; set; }
+
     public virtual ICollection<EmployeeCourse> EmployeeCourses { get; set; } = new List<EmployeeCourse>();
 }

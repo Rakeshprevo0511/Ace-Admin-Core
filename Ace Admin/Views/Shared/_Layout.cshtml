@@ -16,7 +16,7 @@
     <!-- Ace Template -->
     <link rel="stylesheet" href="~/dist/css/ace-font.css" />
     <link rel="stylesheet" href="~/dist/css/ace.css" />
-
+    <link href="~/css/chatbot.css" rel="stylesheet" />
     <!-- Page specific CSS -->
     <link rel="stylesheet" href="~/views/pages/dashboard/@@page-style.css" />
 
@@ -27,6 +27,7 @@
             display: none;
         }
     </style>
+  
 </head>
 
 <body>
@@ -581,7 +582,7 @@
 
                             <li class="nav-item active">
 
-                                <a href="dashboard.html" class="nav-link">
+                                <a href="/home" class="nav-link">
                                     <i class="nav-icon fa fa-tachometer-alt"></i>
                                     <span class="nav-text fadeable">
                                         <span>Dashboard</span>
@@ -1553,9 +1554,46 @@
                 </div>
             </div>
             <div class="main-content">
+                <div class="page-content container container-plus">
+               
+                    <div class="page-header pb-2">
+                        <h1 class="page-title text-primary-d2 text-150">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb bg-transparent pl-0" id="breadcrumbNav"></ol>
+                            </nav>
+                        </h1>
 
+                        <div class="page-tools d-inline-flex">
+                            <button type="button" class="btn btn-light-green btn-h-green btn-a-green border-0 radius-3 py-2 text-600 text-90">
+                                <span class="d-none d-sm-inline mr-1">
+                                    Save
+                                </span>
+                                <i class="fa fa-save text-110 w-2 h-2"></i>
+                            </button>
+
+                            <button type="button" class="mx-2px btn btn-light-purple btn-h-purple btn-a-purple border-0 radius-3 py-2 text-90">
+                                <i class="fa fa-undo text-110 w-2 h-2"></i>
+                            </button>
+
+                            <div class="btn-group dropdown dd-backdrop dd-backdrop-none-md">
+                                <button type="button" class="btn btn-light-primary btn-h-primary btn-a-primary border-0 radius-3 py-2 text-90 dropdown-toggle" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-search text-110 w-2 h-2"></i>
+                                </button>
+
+                                <div class="dropdown-menu dropdown-menu-right dropdown-caret dropdown-animated animated-2 dd-slide-up dd-slide-none-md">
+                                    <div class="dropdown-inner">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Separated link</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @RenderBody()
-
+                </div>
             </div>
 
         </div>
@@ -1604,8 +1642,64 @@
             </div>
         </footer>
     </div>
+    <div class="ai-chat-container">
+        <button class="ai-chat-button" id="aiChatToggle">
+            <i class="fas fa-robot"></i>
+            <span class="ai-chat-badge" id="aiChatBadge" style="display: none;">1</span>
+        </button>
 
+        <div class="ai-chat-window" id="aiChatWindow">
+            <div class="ai-chat-header">
+                <div class="ai-chat-header-left">
+                    <div class="ai-chat-avatar">
+                        <i class="fas fa-robot"></i>
+                        <span class="ai-chat-status"></span>
+                    </div>
+                    <div class="ai-chat-title">
+                        <h4>AI Assistant</h4>
+                        <p>Online - Ready to help</p>
+                    </div>
+                </div>
+                <button class="ai-chat-close" id="aiChatClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
 
+            <div class="ai-chat-messages" id="aiChatMessages">
+                <div class="ai-chat-message bot">
+                    <div class="ai-message-avatar bot">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="ai-message-content">
+                        <div class="ai-message-bubble bot">
+                            Hi! I'm your AI assistant. How can I help you today?
+                        </div>
+                        <div class="ai-message-time" id="botMessageTime"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ai-chat-input-area">
+                <div class="ai-chat-suggestions" id="aiChatSuggestions">
+                    <div class="ai-suggestion-chip" data-suggestion="What can you help me with?">
+                        What can you help me with?
+                    </div>
+                    <div class="ai-suggestion-chip" data-suggestion="Tell me about this system">
+                        Tell me about this system
+                    </div>
+                    <div class="ai-suggestion-chip" data-suggestion="How do I get started?">
+                        How do I get started?
+                    </div>
+                </div>
+                <div class="ai-chat-input-wrapper">
+                    <input type="text" class="ai-chat-input" id="aiChatInput" placeholder="Type your message..." />
+                    <button class="ai-chat-send" id="aiChatSend">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -1615,13 +1709,14 @@
     <script src="~/js/demo.js"></script>
     <script src="~/js/site.js"></script>
     <script src="~/js/popper.js"></script>
+    <script src="~/js/chatbot.js"></script>
     <script>
         $(document).ready(function () {
             login_check();
             var message = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(TempData["Message"] ?? ""));
             var type = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(TempData["AlertType"] ?? ""));
 
-            console.log("Message:", message, "Type:", type);
+            
 
             if (message && message !== "") {
                 showAlert(type, message);
@@ -1737,58 +1832,87 @@
                 `
             });
         }
-        function login_check() {
-                const token = localStorage.getItem('employeeToken');
+                function login_check() {
+            const token = localStorage.getItem('employeeToken');
 
-                if (!token) {
-                    // Token missing — redirect to login
-                    window.location.href = "/Home/Login";
-                    return;
-                }
-
-                $.ajax({
-                    type: "POST",
-                    url: "/token-check",
-                    data: {},
-                    contentType: "application/json; charset=utf-8",
-                    async: false,
-                    headers: {
-                        'Authorization': 'Bearer ' + localStorage.getItem('employeeToken')
-                    },
-                    dataType: "json",
-                    success: function (response) {
-                        if (response.success) {
-                                             $("body").show();
-                                            const user = response.data; // <-- use 'data' here
-                                           
-                                            $("#id-user-welcome").text(user.empName);
-                                            $("#id-user-welcome1").text(user.empName);
-                                           
-                                            let imageUrl = "";
-                                           
-                                            if (!user.filePathPic || user.filePathPic.trim() === "") {
-                                                imageUrl = user.gender === 0
-                                                    ? "../Administrator/Theme/assets/img/avatars/1.png"
-                                                    : "../Administrator/Theme/assets/img/avatars/6.png";
-                                            } else {
-                                                imageUrl = user.filePathPic;
-                                            }
-                                           
-                                            $(".user-avatar").attr("src", imageUrl);
-                                            $("#currentProfilePic").attr("src", imageUrl);
-                        } else {
-                            // Token exists but user invalid0
-                            localStorage.removeItem('employeeToken');
-                            window.location.href = "/Home/Login";
-                        }
-                    },
-                    error: function (xhr) {
-                        // If 401 Unauthorized or anything else goes wrong
-                        localStorage.removeItem('employeeToken');
-                        window.location.href = "/Home/Login";
-                    }
-                });
+            if (!token) {
+                // 🔒 Token missing — redirect to login
+                window.location.href = "/login";
+                return;
             }
+
+            $.ajax({
+                type: "POST",
+                url: "/token-check",
+                contentType: "application/json; charset=utf-8",
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                },
+                dataType: "json",
+                success: function (response) {
+                    if (response.success && response.statusCode === 200) {
+                        // ✅ Token valid — show page and load user data
+                        $("body").show();
+
+                        const user = response.data;
+                        if (!user) {
+                            // In case no user data returned
+                            localStorage.removeItem('employeeToken');
+                            window.location.href = "/login";
+                            return;
+                        }
+
+                        // ✅ Display employee name
+                        $("#id-user-welcome").text(user.empName || user.EmpName || "User");
+                        $("#id-user-welcome1").text(user.empName || user.EmpName || "User");
+
+                        // ✅ Handle profile image
+                        let imageUrl = "";
+                        if (!user.filePathPic || user.filePathPic.trim() === "") {
+                            imageUrl = user.gender === 0
+                                ? "../Administrator/Theme/assets/img/avatars/1.png"
+                                : "../Administrator/Theme/assets/img/avatars/6.png";
+                        } else {
+                            imageUrl = user.filePathPic;
+                        }
+
+                        $(".user-avatar").attr("src", imageUrl);
+                        $("#currentProfilePic").attr("src", imageUrl);
+
+                        localStorage.setItem("currentUserId", user.empId || user.EmpId || user.id);
+
+                
+                    }
+                    else if (response.statusCode === 401) {
+                        // ❌ Unauthorized
+                        localStorage.removeItem('employeeToken');
+                        showAlert({
+                            type: 'error',
+                            message: response.message || 'Session expired. Please log in again.'
+                        });
+                        setTimeout(() => window.location.href = "/login", 1500);
+                    }
+                    else {
+                        // ❌ Any other issue
+                        localStorage.removeItem('employeeToken');
+                        showAlert({
+                            type: 'error',
+                            message: response.message || 'Authentication failed.'
+                        });
+                        setTimeout(() => window.location.href = "/login", 1500);
+                    }
+                },
+                error: function (xhr) {
+                    // ❌ Handles 401 or server failure
+                    localStorage.removeItem('employeeToken');
+                    showAlert({
+                        type: 'error',
+                        message: 'Server error or unauthorized. Please log in again.'
+                    });
+                    setTimeout(() => window.location.href = "/login", 1500);
+                }
+            });
+        }
                     function logoutUser() {
             // Clear token
             localStorage.removeItem('employeeToken');
@@ -1801,10 +1925,45 @@
 
             // Redirect after short delay
             setTimeout(function () {
-                window.location.href = '/Home/Login'; // or your login page URL
+                window.location.href = '/login'; // or your login page URL
             }, 1500);
         }
     </script>
+    <script>
+        // AI Chatbot functionality for MVC + AJAX
+       
+    </script>
+    <script>
+        // Get the breadcrumb container
+        const breadcrumbNav = document.getElementById('breadcrumbNav');
 
+        // Get current path and split it
+        const pathSegments = window.location.pathname.split('/').filter(seg => seg);
+
+        // Always start with Home
+        const homeLi = document.createElement('li');
+        homeLi.classList.add('breadcrumb-item');
+        homeLi.innerHTML = `<a href="/home"><i class="fa fa-home mr-1"></i>Home</a>`;
+        breadcrumbNav.appendChild(homeLi);
+
+        let accumulatedPath = '';
+        pathSegments.forEach((segment, index) => {
+            accumulatedPath += '/' + segment;
+
+            const li = document.createElement('li');
+            li.classList.add('breadcrumb-item');
+
+            // Last segment is active
+            if (index === pathSegments.length - 1) {
+                li.classList.add('active');
+                li.setAttribute('aria-current', 'page');
+                li.textContent = decodeURIComponent(segment.replace(/-/g, ' '));
+            } else {
+                li.innerHTML = `<a href="${accumulatedPath}">${decodeURIComponent(segment.replace(/-/g, ' '))}</a>`;
+            }
+
+            breadcrumbNav.appendChild(li);
+        });
+    </script>
 </body>
 </html>

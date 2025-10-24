@@ -39,6 +39,9 @@ public partial class PracticeDbContext : DbContext
 
     public virtual DbSet<UserToken> UserTokens { get; set; }
 
+    public virtual DbSet<PayoutMethod> PayoutMethods { get; set; }
+    public virtual DbSet<Wallet> Wallets { get; set; }
+    public virtual DbSet<Transaction> Transactions { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Name=DefaultConnection");
 
@@ -73,6 +76,9 @@ public partial class PracticeDbContext : DbContext
             entity.ToTable("Employee");
 
             entity.Property(e => e.Email).HasDefaultValue("");
+            entity.Property(e => e.EmpCode)
+                .HasMaxLength(10)
+                .IsFixedLength();
             entity.Property(e => e.FilePathPic)
                 .HasMaxLength(400)
                 .HasColumnName("FilePath_pic");

@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Security.Claims;
-using Microsoft.EntityFrameworkCore; // ✅ Needed for FirstOrDefaultAsync
+using Microsoft.EntityFrameworkCore;
+using System.Net; // ✅ Needed for FirstOrDefaultAsync
 
 
 
@@ -25,6 +26,7 @@ namespace Ace_Admin.Controllers
         }
         #region*****View Pages ****
         [AllowAnonymous]
+        [Route("home")]
         public IActionResult Index()
         {
             return View();
@@ -34,6 +36,7 @@ namespace Ace_Admin.Controllers
             return View();
         }
         [AllowAnonymous]
+        [Route("login")]
         public IActionResult Login()
         {
             return View();
@@ -136,7 +139,15 @@ namespace Ace_Admin.Controllers
             }
             return RedirectToAction("List");
         }
+        [HttpGet("api/users")]
+        public async Task<IActionResult> GetUsers()
+        {
+            var users = await _context.Employees
+                .Select(u => new { id = u.Id, name = u.EmpName })
+                .ToListAsync();
 
+            return Ok(users);
+        }
         [HttpPost]
         public IActionResult Create(Employee employee)
         {
@@ -170,27 +181,67 @@ namespace Ace_Admin.Controllers
                 var tokenService = new TokenService(_config);
                 var token = tokenService.GenerateJwtToken(employee.Username, employee.Id);
 
-                return Json(new
-                {
-                    success = true,
-                    token = token,
-                    redirectUrl = Url.Action("Index", "Home"),
-                    message = "Login successful!"
-                });
+            return Json(new ApiResponse<object>
+                (
+                    true,
+                    "Login Successful",
+                    HttpStatusCode.OK,
+                    new
+                    {
+                        token = token,
+                        employee = new
+                        {
+                            employee.Id,
+                            employee.Username,
+                            employee.EmpName,
+                            employee.Email,
+                            employee.PhoneNumber,
+                            employee.Position
+                        }
+                    }
+                ));
             }
 
-            return Json(new { success = false, message = "Invalid Username or Password" });
+            return Json(new ApiResponse<object>(
+                false,
+                "Failed To login ",
+                HttpStatusCode.InternalServerError,
+                null
+                ));
         }
 
         [HttpPost]
         [Route("token-check")]
-        public ActionResult loginCheck()
+        public ActionResult LoginCheck()
         {
-            int _empid = 0;
-            _empid = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
-            var Userdetails = _context.Employees.FirstOrDefault(e => e.Id == _empid);
+            try
+            {
+                // ✅ Extract Employee ID from the JWT claims
+                var empIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-            return Json(new { success = true, message = "Login Succesfull", data = Userdetails });
+                if (string.IsNullOrEmpty(empIdClaim) || !int.TryParse(empIdClaim, out int empId) || empId <= 0)
+                {
+                    // ❌ Unauthorized (invalid or missing token)
+                    return Json(ApiResponse<object>.Unauthorized("Invalid or expired token"));
+                }
+
+                // ✅ Find the user in database
+                var userDetails = _context.Employees.FirstOrDefault(e => e.Id == empId);
+
+                if (userDetails == null)
+                {
+                    // ❌ No employee found
+                    return Json(ApiResponse<object>.Unauthorized("Employee not found or unauthorized"));
+                }
+
+                // ✅ Success response
+                return Json(ApiResponse<object>.Ok(userDetails, "Token Verified "));
+            }
+            catch (Exception ex)
+            {
+                // ❌ Internal server error
+                return Json(ApiResponse<object>.InternalServerError($"Error: {ex.Message}"));
+            }
         }
 
         [HttpGet]
@@ -201,25 +252,45 @@ namespace Ace_Admin.Controllers
             if (empId == 0)
                 return Unauthorized(new { success = false, message = "User not logged in" });
 
+            // Fetch employee details
             var user = await _context.Employees
                 .Where(e => e.Id == empId)
                 .Select(e => new EmpProfileDto
                 {
                     Id = e.Id,
-                    Username= e.Username,
+                    Username = e.Username,
                     FullName = e.EmpName,
                     Email = e.Email,
                     Phone = e.PhoneNumber,
                     Location = e.Location,
                     AvatarUrl = e.FilePathPic,
-                    Designation =e.Position,
+                    Designation = e.Position,
                 })
-                .FirstOrDefaultAsync(); // ✅ works after adding Microsoft.EntityFrameworkCore
+                .FirstOrDefaultAsync();
 
             if (user == null)
                 return NotFound(new { success = false, message = "Employee not found" });
 
-            return Ok(new { success = true, data = user });
+            // Fetch related course info (example)
+            var completedCourses = await (from ec in _context.EmployeeCourses
+                                          join cs in _context.Courses on ec.CourseId equals cs.CourseId
+                                          where ec.EmployeeId == empId && ec.Status == "Completed"
+                                          select new
+                                          {
+                                              cs.CourseId,
+                                              cs.CourseName,
+                                              ec.Status
+                                          }).ToListAsync();
+
+
+            // Combine both into one object
+            var result = new
+            {
+                User = user,
+                Courses = completedCourses
+            };
+
+            return Ok(new { success = true, data = result });
         }
 
         [HttpPost]
@@ -244,5 +315,6 @@ namespace Ace_Admin.Controllers
 
             return Ok(new { success = true, message = "Profile updated successfully." });
         }
+
     }
 }

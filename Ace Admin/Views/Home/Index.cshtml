@@ -1,48 +1,22 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+<style>
+    .tick::after {
+        content: "✔✔";
+        color: gray;
+        font-size: 12px;
+    }
+
+    .tick.seen::after {
+        color: #007bff; /* blue tick */
+    }
+</style>
 
 
-<div class="page-content container container-plus">
     <!-- page header and toolbox -->
-    <div class="page-header pb-2">
-        <h1 class="page-title text-primary-d2 text-150">
-            Dashboard
-            <small class="page-info text-secondary-d2 text-nowrap">
-                <i class="fa fa-angle-double-right text-80"></i>
-                overview &amp; stats
-            </small>
-        </h1>
-
-        <div class="page-tools d-inline-flex">
-            <button type="button" class="btn btn-light-green btn-h-green btn-a-green border-0 radius-3 py-2 text-600 text-90">
-                <span class="d-none d-sm-inline mr-1">
-                    Save
-                </span>
-                <i class="fa fa-save text-110 w-2 h-2"></i>
-            </button>
-
-            <button type="button" class="mx-2px btn btn-light-purple btn-h-purple btn-a-purple border-0 radius-3 py-2 text-90">
-                <i class="fa fa-undo text-110 w-2 h-2"></i>
-            </button>
-
-            <div class="btn-group dropdown dd-backdrop dd-backdrop-none-md">
-                <button type="button" class="btn btn-light-primary btn-h-primary btn-a-primary border-0 radius-3 py-2 text-90 dropdown-toggle" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-search text-110 w-2 h-2"></i>
-                </button>
-
-                <div class="dropdown-menu dropdown-menu-right dropdown-caret dropdown-animated animated-2 dd-slide-up dd-slide-none-md">
-                    <div class="dropdown-inner">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
     <div class="row mt-3">
     
@@ -300,169 +274,6 @@
             </div><!-- /.card -->
         </div>
     </div>
-
-
-
-
-
-    <div class="row pt-3 mt-1 mt-lg-3">
-        <div class="col-lg-5 order-last order-lg-first mt-lg-3">
-            <div class="card border-0">
-                <div class="card-header bg-transparent border-0 pl-1">
-                    <h5 class="card-title mb-2 mb-md-0 text-120 text-grey-d3">
-                        <i class="fa fa-star mr-1 text-orange text-90"></i>
-                        Best Sellers
-                    </h5>
-
-                    <div class="card-toolbar align-self-center">
-                        <a href="#" data-action="toggle" class="card-toolbar-btn text-grey text-110">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card-body p-0 ccard overflow-hidden">
-                    <table class="table brc-black-tp11">
-                        <thead class="border-0">
-                            <tr class="border-0 bgc-dark-l5 text-dark-tp5">
-                                <th class="border-0 pl-4">
-                                    name
-                                </th>
-                                <th class="border-0">
-                                    price
-                                </th>
-                                <th class="border-0">
-                                    status
-                                </th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr class="bgc-h-secondary-l4">
-                                <td class="text-dark-tp3 opacity-1 text-95 text-600 pl-4">
-                                    Hoverboard
-                                </td>
-
-                                <td>
-                                    <small><s class="text-danger-m1">$229.99</s></small>
-                                    <span class="text-success-m1 font-bolder text-95">
-                                        $119.99
-                                    </span>
-                                </td>
-
-                                <td>
-                                    <span class="badge text-75 border-l-3 brc-black-tp8 bgc-info-d2 text-white">on sale</span>
-                                </td>
-                            </tr>
-                            <tr class="bgc-h-secondary-l4">
-                                <td class="text-dark-tp3 opacity-1 text-95 text-600 pl-4">
-                                    Hiking Shoe
-                                </td>
-
-                                <td>
-                                    <span class="text-info-d2 text-95 font-bolder">
-                                        $46.45
-                                    </span>
-                                </td>
-
-                                <td>
-                                    <span class="badge text-75 border-l-3 brc-black-tp8 bgc-success text-white">approved</span>
-                                </td>
-                            </tr>
-                            <tr class="bgc-h-secondary-l4">
-                                <td class="text-dark-tp3 opacity-1 text-95 text-600 pl-4">
-                                    Gaming Console
-                                </td>
-
-                                <td>
-                                    <span class="text-info-d2 text-95 font-bolder">
-                                        $355.00
-                                    </span>
-                                </td>
-
-                                <td>
-                                    <span class="badge text-75 border-l-3 brc-black-tp8 bgc-danger text-white">pending</span>
-                                </td>
-                            </tr>
-                            <tr class="bgc-h-secondary-l4">
-                                <td class="text-dark-tp3 opacity-1 text-95 text-600 pl-4">
-                                    Digital Camera
-                                </td>
-
-                                <td>
-                                    <small><s class="text-danger-m1">$324.99</s></small>
-                                    <span class="text-success-m1 font-bolder text-95">
-                                        $219.95
-                                    </span>
-                                </td>
-
-                                <td>
-                                    <span class="badge bgc-secondary-l1 text-dark-tp4 border-1 brc-black-tp10"><s>out of stock</s></span>
-                                </td>
-                            </tr>
-                            <tr class="bgc-h-secondary-l4">
-                                <td class="text-dark-tp3 opacity-1 text-95 text-600 pl-4">
-                                    Laptop
-                                </td>
-
-                                <td>
-                                    <span class="text-info-d2 text-95 font-bolder">
-                                        $899.00
-                                    </span>
-                                </td>
-
-                                <td>
-                                    <span class="badge text-75 border-l-3 brc-black-tp8 bgc-orange text-white">SOLD</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-7 mb-4 mb-lg-0 mt-3">
-            <div class="card border-0 h-100">
-                <div class="card-header border-0 bgc-transparent pl-1">
-                    <h5 class="card-title mb-2 mb-md-0 text-120 text-grey-d3">
-                        <i class="fas fa-chart-line text-primary-m2 mr-1 text-105"></i>
-                        Sale Stats
-                    </h5>
-
-                    <div class="card-toolbar no-border dd-backdrop dd-backdrop-none-md">
-                        <a href="#" class="btn btn-xs btn-light-secondary border-1 text-600 px-4 radius-round dropdown-toggle" role="button" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                            2020
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right dropdown-caret dropdown-animated dd-appear-center dd-slide-none-md mw-auto">
-                            <div class="dropdown-inner">
-                                <a class="dropdown-item active" href="#">2021</a>
-                                <a class="dropdown-item" href="#">2020</a>
-                                <a class="dropdown-item" href="#">2019</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-toolbar align-self-center">
-                        <a href="#" data-action="reload" class="card-toolbar-btn text-success-m2 text-100">
-                            <i class="fas fa-sync-alt"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card-body p-0 ccard px-1 mx-n1 mx-md-0 h-100 d-flex align-items-center">
-                    <div class="mx-n2 px-0 mx-md-0 my-2 w-100">
-                        <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                        <canvas id="saleschart" height="199" width="569" style="display: block; height: 249px; width: 712px;" class="chartjs-render-monitor"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
 
     <div class="row mt-5 pt-lg-3">
         <div class="col-12 col-lg-3">
@@ -771,272 +582,45 @@
         </div>
 
         <div class="col-12 col-lg-5 mt-4 mt-lg-0">
-            <div id="conversations" class="card border-0 shadow-sm h-100">
+            <div id="chatCard" class="card border-0 shadow-sm h-100">
 
+                <!-- Card header -->
                 <div class="card-header bgc-primary-d1">
                     <h6 class="card-title text-white font-normal">
                         <i class="far fa-comment-dots text-130 mr-1"></i>
-                        <span class="text-110">
-                            Conversation
-                        </span>
-                        <span class="text-95 d-block d-sm-inline text-center">
-                            (6 online)
-                        </span>
+                        <span class="text-110">Conversation</span>
+                        <span class="text-95 d-block d-sm-inline text-center">(Online)</span>
                     </h6>
-
                     <div class="card-toolbar align-self-center text-white text-90 no-border p-2px">
-                        Jack is typing
-                        <div class="typing-dots text-160 text-white mx-md-1">
-                            <span class="typing-dot">.</span>
-                            <span class="typing-dot">.</span>
-                            <span class="typing-dot">.</span>
-                        </div>
+                        <span id="typingStatus"> </span>
                     </div>
-
-                    <div class="card-toolbar align-self-center">
-                        <a href="#" data-action="reload" class="card-toolbar-btn text-white">
-                            <i class="fas fa-sync-alt"></i>
-                        </a>
-                    </div>
+                    <select id="userListDropdown" class="form-select bg-white text-dark rounded px-2 py-1 border-0 shadow-sm"
+                            style="min-width: 180px; font-size: 14px;">
+                        <option value="">Select User</option>
+                    </select>
                 </div>
 
-
+                <!-- Card body -->
                 <div class="card-body border-x-1 brc-primary-l1 p-0">
                     <div class="ace-scroll ace-scroll-wrap" data-ace-scroll="{&quot;height&quot;: 380, &quot;smooth&quot;:true}" style="max-height: 398px;">
-                        <div class="ace-scroll-inner" style="color: rgb(65, 70, 77);">
-                            <!-- if conversation item is on left -->
-                            <div class="px-3 conversation mt-425">
-                                <div class="d-flex align-items-start col px-0">
-                                    <div class="mr-3 mt-2px">
-                                        <div class="pos-rel">
-                                            <img alt="Max's avatar" src="/assets/image/avatar/avatar1.jpg" class="radius-round w-4 h-4">
-                                            <span class="position-tr bgc-success-d1 brc-white border-2 p-1 mt-n1 radius-round"></span>
-                                        </div>
-                                        <div class="text-600 text-90 ml-1">
-                                            <a href="#" class="font-bolder btn-text-dark btn-h-text-primary">
-                                                Max
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="col px-0">
-                                        <div class="d-flex mb-15 pos-rel">
-                                            <!-- the triangle -->
-                                            <span class="position-tl ml-n15 mt-15 w-3 h-3 bgc-grey-l3 rotate-n45"></span>
-
-                                            <div class="py-2 px-3 radius-1 bgc-grey-l3 text-dark-m1 pos-rel">
-                                                <div class="text-90" style="max-width: 480px;">
-                                                    Raw denim you probably haven't heard of actively? So lorem ipsum indeed! <span class="fa-stack w-auto"> <i class="fas fa-circle text-dark fa-stack-1x text-100"></i> <i class="fas fa-smile-beam text-warning-m3 text-125 fa-stack-1x pos-rel"></i> </span>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-80 text-grey-m2 ml-2 mt-2">
-                                                10:21
-                                            </div>
-                                        </div>
-                                        <div class="d-flex mb-15 pos-rel">
-
-                                            <div class="py-2 px-3 radius-1 bgc-grey-l3 text-dark-m1 pos-rel">
-                                                <div class="text-90" style="max-width: 480px;">
-                                                    Tell you what, dolor sit amet forever!
-                                                </div>
-                                            </div>
-
-                                            <div class="text-80 text-grey-m2 ml-2 mt-2">
-                                                10:23
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-
-                            <!-- if conversation item is on left -->
-                            <div class="px-3 conversation text-right mt-425">
-                                <div class="d-flex flex-row-reverse align-items-start col px-0">
-                                    <div class="ml-3 mt-2px">
-                                        <div class="pos-rel">
-                                            <img alt="Mia's avatar" src="/assets/image/avatar/avatar7.jpg" class="radius-round w-4 h-4">
-                                            <span class="position-tr bgc-orange-d1 brc-white border-2 p-1 mt-n1 radius-round"></span>
-                                        </div>
-                                        <div class="text-600 text-90 ml-1">
-                                            <a href="#" class="font-bolder btn-text-dark btn-h-text-primary">
-                                                Mia
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="col px-0">
-                                        <div class="d-flex flex-row-reverse mb-15 pos-rel">
-                                            <!-- the triangle -->
-                                            <span class="position-tr mr-n15 mt-15 w-3 h-3 bgc-primary-l3 rotate-n45"></span>
-
-                                            <div class="py-2 px-3 radius-1 bgc-primary-l3 text-dark-m1 pos-rel">
-                                                <div class="text-90" style="max-width: 480px;">
-                                                    Consectetur adipiscing elit, quis nostrud exercitation.
-                                                </div>
-                                            </div>
-
-                                            <div class="text-80 text-grey-m2 mr-2 mt-2">
-                                                10:25
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-row-reverse mb-15 pos-rel">
-
-                                            <div class="py-2 px-3 radius-1 bgc-primary-l3 text-dark-m1 pos-rel">
-                                                <div class="text-90" style="max-width: 480px;">
-                                                    So count me in! <i class="fa fa-thumbs-up text-orange-m1 text-125 ml-1"></i>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-80 text-grey-m2 mr-2 mt-2">
-                                                10:25
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- if conversation item is on left -->
-                            <div class="px-3 conversation mt-425">
-                                <div class="d-flex align-items-start col px-0">
-                                    <div class="mr-3 mt-2px">
-                                        <div class="pos-rel">
-                                            <img alt="Max's avatar" src="/assets/image/avatar/avatar1.jpg" class="radius-round w-4 h-4">
-                                            <span class="position-tr bgc-success-d1 brc-white border-2 p-1 mt-n1 radius-round"></span>
-                                        </div>
-                                        <div class="text-600 text-90 ml-1">
-                                            <a href="#" class="font-bolder btn-text-dark btn-h-text-primary">
-                                                Max
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="col px-0">
-                                        <div class="d-flex mb-15 pos-rel">
-                                            <!-- the triangle -->
-                                            <span class="position-tl ml-n15 mt-15 w-3 h-3 bgc-grey-l3 rotate-n45"></span>
-
-                                            <div class="py-2 px-3 radius-1 bgc-grey-l3 text-dark-m1 pos-rel">
-                                                <div class="text-90" style="max-width: 480px;">
-                                                    Heard of them jean shorts Austin! Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                                                </div>
-                                            </div>
-
-                                            <div class="text-80 text-grey-m2 ml-2 mt-2">
-                                                10:26
-                                            </div>
-                                        </div>
-                                        <div class="d-flex mb-15 pos-rel">
-
-                                            <div class="mt-2px pos-rel">
-                                                <div class="d-flex">
-                                                    <div class="border-1 radius-2 mx-1 brc-primary-l1 shadow-sm d-style overflow-hidden"><img alt="Heedphones" src="/assets/image/product/wireless-headphone.jpg" width="64" class="d-zoom-2"></div>
-                                                    <div class="border-1 radius-2 mx-1 brc-primary-l1 shadow-sm d-style overflow-hidden"><img alt="Speakers" src="/assets/image/product/smart-speaker.jpg" class="d-zoom-2" width="64"></div>
-                                                    <div class="border-1 radius-2 mx-1 brc-primary-l1 shadow-sm d-style overflow-hidden"><img alt="Shoes" src="/assets/image/product/running-shoes.jpg" class="d-zoom-2" width="64"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-
-                            <!-- if conversation item is on left -->
-                            <div class="px-3 conversation text-right mt-425">
-                                <div class="d-flex flex-row-reverse align-items-start col px-0">
-                                    <div class="ml-3 mt-2px">
-                                        <div class="pos-rel">
-                                            <img alt="Mia's avatar" src="/assets/image/avatar/avatar7.jpg" class="radius-round w-4 h-4">
-                                            <span class="position-tr bgc-orange-d1 brc-white border-2 p-1 mt-n1 radius-round"></span>
-                                        </div>
-                                        <div class="text-600 text-90 ml-1">
-                                            <a href="#" class="font-bolder btn-text-dark btn-h-text-primary">
-                                                Mia
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="col px-0">
-                                        <div class="d-flex flex-row-reverse mb-15 pos-rel">
-                                            <!-- the triangle -->
-                                            <span class="position-tr mr-n15 mt-15 w-3 h-3 bgc-primary-l3 rotate-n45"></span>
-
-                                            <div class="py-2 px-3 radius-1 bgc-primary-l3 text-dark-m1 pos-rel">
-                                                <div class="text-90" style="max-width: 480px;">
-                                                    Are you sure fusce dapibus tellus ac cursus commodo??? <span class="fa-stack w-auto"> <i class="fas fa-circle text-dark fa-stack-1x text-100"></i> <i class="fas fa-grin-alt text-warning-m3 text-125 fa-stack-1x pos-rel"></i> </span>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-80 text-grey-m2 mr-2 mt-2">
-                                                10:49
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-row-reverse mb-15 pos-rel">
-
-                                            <div class="py-2 px-3 radius-1 bgc-primary-l3 text-dark-m1 pos-rel">
-                                                <div class="text-90" style="max-width: 480px;">
-                                                    Considering donec id elit non mi porta gravida at eget metus is undermined
-                                                </div>
-                                            </div>
-
-                                            <div class="text-80 text-grey-m2 mr-2 mt-2">
-                                                10:50
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="ace-scroll-inner" id="conversations" style="color: rgb(65, 70, 77);">
+                            <!-- Messages will be rendered here dynamically -->
+                            <div class="msg" id="msg-1">
+                                <span class="tick"></span>
                             </div>
                         </div>
+                       
                     </div>
                 </div>
 
-
-                <!-- conversation footer -->
+                <!-- Card footer: Input -->
                 <div class="card-footer px-25 pt-1px bgc-white border-1 border-t-0 brc-primary-l1 radius-b-2">
                     <div class="mb-0 p-3 dcard brc-grey-l1">
                         <div class="input-group input-group-fade">
                             <input id="id-reply" type="text" class="form-control pl-2 border-0 radius-0 shadow-none" placeholder="Write your message ...">
 
-                            <!-- smiley dropdown -->
-                            <div class="btn-group mx-2 dropup">
-                                <button type="button" class="btn btn-xs px-1 border-0 btn-lighter-warning btn-bgc-tp dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="fa-stack">
-                                        <i class="far fa-smile text-dark-tp5 text-150 fa-stack-1x"></i>
-                                    </span>
-                                </button>
-
-                                <div class="dropdown-menu dropdown-menu-right p-1">
-                                    <div class="d-flex">
-                                        <a class="dropdown-item px-25" href="#">
-                                            <span class="fa-stack w-auto">
-                                                <i class="fas fa-circle text-dark fa-stack-1x text-100"></i>
-                                                <i class="fas fa-smile text-warning-m3 text-125 fa-stack-1x pos-rel"></i>
-                                            </span>
-                                        </a>
-
-                                        <a class="dropdown-item px-25" href="#">
-                                            <span class="fa-stack w-auto">
-                                                <i class="fas fa-circle text-dark fa-stack-1x text-100"></i>
-                                                <i class="fas fa-smile-beam text-warning-m3 text-125 fa-stack-1x pos-rel"></i>
-                                            </span>
-                                        </a>
-
-                                        <a class="dropdown-item px-25" href="#">
-                                            <span class="fa-stack w-auto">
-                                                <i class="fas fa-circle text-dark fa-stack-1x text-100"></i>
-                                                <i class="fas fa-smile-wink text-warning-m3 text-125 fa-stack-1x pos-rel"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="input-group-append">
-                                <button class="btn btn-info radius-3px" type="button">
+                                <button id="sendBtn" class="btn btn-info radius-3px" type="button">
                                     Send
                                     <i class="fa fa-angle-right ml-1"></i>
                                 </button>
@@ -1048,7 +632,220 @@
             </div><!-- /.card -->
         </div>
     </div>
-</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.9/signalr.min.js"></script>
+<script>
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/chathub")
+        .build();
+
+    const sendBtn = document.getElementById("sendBtn");
+    const msgInput = document.getElementById("id-reply");
+    const chatContainer = document.getElementById("conversations");
+
+    const currentUserId = localStorage.getItem("currentUserId");
+    let receiverId = null; // initially no receiver selected
+   
+    sendBtn.disabled = true;
+
+    // ===== STYLE FOR BLUE TICKS =====
+    const style = document.createElement("style");
+    style.textContent = `
+        .tick::after {
+            content: "✔✔";
+            color: gray;
+            font-size: 12px;
+            margin-left: 4px;
+            transition: color 0.3s ease;
+        }
+        .tick.seen::after {
+            color: #007bff; /* blue */
+        }
+        .date-separator {
+            text-align: center;
+            margin: 10px 0;
+            font-weight: 600;
+            color: #666;
+            position: relative;
+        }
+        .date-separator::before,
+        .date-separator::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: #ccc;
+        }
+        .date-separator::before { left: 0; }
+        .date-separator::after { right: 0; }
+    `;
+    document.head.appendChild(style);
+
+    // ====== SIGNALR START ======
+    connection.start()
+        .then(() => {
+            console.log("✅ SignalR connected");
+            sendBtn.disabled = false;
+            loadUserList();
+            chatContainer.innerHTML = '';
+
+            connection.invoke("LoadHistory", currentUserId, receiverId)
+                .then(messages => {
+                    renderChatByDate(messages);
+                })
+                .catch(err => console.error(err));
+
+            sendBtn.addEventListener("click", () => {
+                const message = msgInput.value.trim();
+                if (!message) return;
+
+                connection.invoke("SendMessage",
+                    currentUserId,
+                    receiverId,
+                    message,
+                    "text",  // messageType
+                    null     // attachmentUrl
+                ).catch(err => console.error(err.toString()));
+
+                msgInput.value = "";
+            });
+        })
+        .catch(err => console.error("SignalR connection failed:", err));
+
+    // ====== RECEIVE MESSAGE ======
+    connection.on("ReceiveMessage", (msg) => {
+        appendMessage(msg);
+    });
+
+    // ====== MESSAGE SEEN UPDATE ======
+    connection.on("MessageSeen", (messageId) => {
+        const tick = document.getElementById(`tick-${messageId}`);
+        if (tick) tick.classList.add("seen"); // turn blue
+    });
+
+    // ====== RENDER CHAT GROUPED BY DATE ======
+    function renderChatByDate(messages) {
+        chatContainer.innerHTML = "";
+
+        let lastDate = null;
+
+        messages.forEach(msg => {
+            const sentDate = new Date(msg.sentAt || msg.SentAt);
+            const dateKey = sentDate.toDateString();
+
+            // Show a new date separator when date changes
+            if (dateKey !== lastDate) {
+                const separator = document.createElement("div");
+                separator.classList.add("date-separator");
+                separator.textContent = formatDateLabel(sentDate);
+                chatContainer.appendChild(separator);
+                lastDate = dateKey;
+            }
+
+            appendMessage(msg);
+        });
+    }
+
+    // ====== RENDER SINGLE MESSAGE ======
+    function appendMessage(msg) {
+        const userId = msg.userId || msg.UserId;
+        const message = msg.message || msg.Message;
+        const sentAt = msg.sentAt || msg.SentAt;
+        const attachmentUrl = msg.attachmentUrl || msg.AttachmentUrl;
+        const isSeen = msg.isSeen || msg.IsSeen || false;
+        const id = msg.id || msg.Id;
+
+        const sentTime = new Date(sentAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const tickClass = isSeen ? "tick seen" : "tick";
+
+        const msgDiv = document.createElement("div");
+        msgDiv.classList.add("px-3", "conversation", userId === currentUserId ? "text-right" : "text-left");
+
+        msgDiv.innerHTML = `
+            <div class="d-flex ${userId === currentUserId ? "flex-row-reverse" : ""} align-items-start col px-0 mb-2">
+                <div class="mr-3 mt-2px">
+                    <div class="pos-rel">
+                        <img src="/assets/image/avatar/avatar1.jpg" class="radius-round w-4 h-4" />
+                    </div>
+                </div>
+                <div class="col px-0">
+                    <div class="py-2 px-3 radius-1 ${userId === currentUserId ? "bgc-primary-l3 text-dark-m1" : "bgc-grey-l3 text-dark-m1"}">
+                        <div class="text-90" style="max-width: 480px;">
+                            ${message}
+                            ${attachmentUrl ? `<br><img src="${attachmentUrl}" width="100" />` : ""}
+                        </div>
+                        <div class="text-80 text-grey-m2 mt-1">
+                            ${sentTime} ${userId === currentUserId ? `<span class="${tickClass}" id="tick-${id}"></span>` : ""}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        chatContainer.appendChild(msgDiv);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    // ====== FORMAT DATE LABEL ======
+    function formatDateLabel(date) {
+        const today = new Date();
+        const yesterday = new Date();
+        yesterday.setDate(today.getDate() - 1);
+
+        if (date.toDateString() === today.toDateString()) {
+            return "Today";
+        } else if (date.toDateString() === yesterday.toDateString()) {
+            return "Yesterday";
+        } else {
+            return date.toLocaleDateString([], { day: 'numeric', month: 'short', year: 'numeric' });
+        }
+    }
+        function loadUserList() {
+        const token = localStorage.getItem("employeeToken");
+        const userDropdown = document.getElementById("userListDropdown");
+
+        fetch("/api/users", {
+            method: "GET",
+            headers: {
+                "Authorization": "Bearer " + token,
+                "Content-Type": "application/json"
+            }
+        })
+        .then(res => {
+            if (!res.ok) throw new Error("Failed to fetch users: " + res.status);
+            return res.json();
+        })
+        .then(users => {
+            userDropdown.innerHTML = `<option value="">Select User</option>`;
+            users.forEach(u => {
+                if (u.id != currentUserId) {
+                    const opt = document.createElement("option");
+                    opt.value = u.id;
+                    opt.textContent = u.name || u.fullName || `User ${u.id}`;
+                    userDropdown.appendChild(opt);
+                }
+            });
+        })
+        .catch(err => console.error("Error loading users:", err));
+    }
+
+    // ====== Update receiverId when user selects a new user =====
+       document.getElementById("userListDropdown").addEventListener("change", function() {
+        receiverId = this.value;
+        chatContainer.innerHTML = ""; // clear previous chat
+
+        if (receiverId) {
+            // Load chat history for selected user
+            connection.invoke("LoadHistory", currentUserId, receiverId)
+                .then(messages => renderChatByDate(messages))
+                .catch(err => console.error(err));
+        }
+    });
+</script>
+
+
+
 
 
 

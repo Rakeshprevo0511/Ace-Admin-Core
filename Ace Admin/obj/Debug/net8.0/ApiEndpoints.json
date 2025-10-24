@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "ContainingType": "Ace_Admin.Controllers.Api.ChatBotController",
+    "Method": "Chat",
+    "RelativePath": "api/ChatBot/chat",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Ace_Admin.Controllers.Api.ChatRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ace_Admin.Controllers.Api.ChatBotController",
+    "Method": "ChatFree",
+    "RelativePath": "api/ChatBot/ChatFree",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Ace_Admin.Controllers.Api.ChatRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ace_Admin.Controllers.PaymentController",
+    "Method": "VerifyPayment",
+    "RelativePath": "api/Payment/verify",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "Ace_Admin.Dto.VerifyPaymentDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

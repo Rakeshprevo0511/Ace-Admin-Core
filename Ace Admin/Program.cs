@@ -1,6 +1,7 @@
-﻿using Ace_Admin.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Ace_Admin.Dto;
+using Ace_Admin.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -50,7 +51,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             }
         };
     });
-
+builder.Services.AddSignalR(options =>
+{
+    options.EnableDetailedErrors = true;
+});
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
@@ -69,10 +73,10 @@ app.UseRouting();
 
 app.UseAuthentication();   // ✅ authentication must come before authorization
 app.UseAuthorization();
-
+app.MapHub<ChatHub>("/chathub");
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Login}/{id?}"
 );
-
+app.MapControllers();
 app.Run();

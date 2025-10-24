@@ -15,6 +15,12 @@ public partial class EmployeeCourse
 
     public string Status { get; set; } = null!;
 
+    public TimeOnly? StudyHours { get; set; }
+
+    public DateOnly? StartDate { get; set; }
+
+    public DateOnly? EndDate { get; set; }
+
     public virtual Course Course { get; set; } = null!;
 
     public virtual Employee Employee { get; set; } = null!;

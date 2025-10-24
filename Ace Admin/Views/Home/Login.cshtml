@@ -490,40 +490,55 @@
                     Password: $('input[name="Password"]').val()
                 };
 
-                $.ajax({
-                    url: '/Home/Login',
-                    type: 'POST',
-                    headers: {
-                        'RequestVerificationToken': token
-                    },
-                    contentType: 'application/json',
-                    data: JSON.stringify(data),
-                    success: function(response) {
-                        if(response.success) {
-                            // Save JWT to localStorage
-                            localStorage.setItem('employeeToken', response.token);
+                       $.ajax({
+            url: '/Home/Login',
+            type: 'POST',
+            headers: {
+                'RequestVerificationToken': token
+            },
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success: function (response) {
+                if (response.success) {
+                    // ✅ Access data properly
+                    const tokenValue = response.data?.token;
+                    const employee = response.data?.employee;
 
+                    // Save JWT to localStorage
+                    if (tokenValue) {
+                        localStorage.setItem('employeeToken', tokenValue);
+                    }
+
+                    // Optional: Save employee info if needed
+                    if (employee) {
+                        localStorage.setItem('employeeInfo', JSON.stringify(employee));
+                    }
+
+                    // ✅ Show success alert
                     showAlert({
-                   type: response.success ? 'success' : 'error',
-                   message: response.message || (response.success ? 'Login successful!' : 'Login failed!')
+                        type: 'success',
+                        message: response.message || 'Login successful!'
                     });
 
-                        if(response.success) {
-                            localStorage.setItem('employeeToken', response.token);
-                              setTimeout(function () {
-                window.location.href = response.redirectUrl;
-            }, 1500);
-
-                        }
-                        } else {
-                             showAlert({ type: 'error', message: response.message || 'Invalid login' });
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                          showAlert({ type: 'error', message: 'Server error. Please try again.' });
-                    }
-                    
+                    // ✅ Redirect after short delay
+                    setTimeout(function () {
+                        window.location.href = '/home';
+                    }, 1500);
+                } else {
+                    // ❌ Login failed
+                    showAlert({
+                        type: 'error',
+                        message: response.message || 'Invalid login credentials'
+                    });
+                }
+            },
+            error: function (xhr, status, error) {
+                showAlert({
+                    type: 'error',
+                    message: 'Server error. Please try again.'
                 });
+            }
+        });
          }
 
     </script>

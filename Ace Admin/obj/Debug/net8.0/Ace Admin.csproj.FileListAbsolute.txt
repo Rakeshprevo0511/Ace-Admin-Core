@@ -166,3 +166,7 @@ C:\node_pro\Ace Admin\Ace Admin\obj\Debug\net8.0\Ace Admin.pdb
 C:\node_pro\Ace Admin\Ace Admin\obj\Debug\net8.0\Ace Admin.genruntimeconfig.cache
 C:\node_pro\Ace Admin\Ace Admin\obj\Debug\net8.0\ref\Ace Admin.dll
 C:\node_pro\Ace Admin\Ace Admin\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\System.Net.Http.Formatting.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\System.Web.Http.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
