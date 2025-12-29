@@ -22202,4 +22202,38 @@ input.typeahead.scrollable ~ .dropdown-menu {
   content: "\00D7";
   font-size: 1.1em;
 }
-/*# sourceMappingURL=ace.css.map */
+
+.modern-toast {
+    border-radius: 12px !important;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+    border: none !important;
+    animation: slideInRight 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.toast-icon-circle {
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+

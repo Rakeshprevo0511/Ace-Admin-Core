@@ -15,5 +15,13 @@
         public int Followers { get; set; }
         public int Projects { get; set; }
         public string RevenueDisplay { get; set; } = ""; // e.g., "11k"
+
+        public string AccountType { get; set; } = "";
+        public decimal AccountBalance { get; set; }
+
+        // Wallet info
+        public decimal WalletAmount { get; set; }
+        public string Currency { get; set; } = "";
+        public List<EmployeeCourseDto>? Courses { get; set; }
     }
 }

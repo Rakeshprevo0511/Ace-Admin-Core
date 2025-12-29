@@ -1,13 +1,17 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 
-namespace Ace_Admin.Models
+namespace Ace_Admin.Models;
+
+public partial class Wallet
 {
-    public class Wallet
-    {
-        [Key]
-        public long Id { get; set; }
-        public long UserId { get; set; }
-        public double Balance { get; set; } = 0;
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-    }
+    public long Id { get; set; }
+
+    public int UserId { get; set; }
+
+    public double Balance { get; set; }
+
+    public DateTime CreatedAt { get; set; }
+
+    public virtual Employee User { get; set; } = null!;
 }

@@ -14,17 +14,21 @@ namespace dotnet_core_MVC.Models
             _config = config;
         }
 
+
         public string GenerateJwtToken(string username, int empId)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JwtSettings:Key"]));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var claims = new[]
-  {
-    new Claim(ClaimTypes.Name, username),
-    new Claim(ClaimTypes.NameIdentifier, empId.ToString()), // <-- standard
-    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-};
+              {
+                new Claim(ClaimTypes.Name, username),
+                new Claim(ClaimTypes.NameIdentifier, empId.ToString()),
+                new Claim(ClaimTypes.Role, "Admin"),
+                new Claim("Department", "HR"),
+                new Claim("AdminLevel", "Super"),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
 
             var token = new JwtSecurityToken(
                 _config["JwtSettings:Issuer"],
@@ -36,5 +40,7 @@ namespace dotnet_core_MVC.Models
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+        
+
     }
 }

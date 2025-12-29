@@ -1,8 +1,8 @@
 ﻿/* AI Chatbot Styles */
 .ai-chat-container {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 60px;
+    right: 31px;
     z-index: 9999;
 }
 
@@ -52,7 +52,7 @@
     bottom: 90px;
     right: 20px;
     width: 380px;
-    height: 600px;
+    height: 570px;
     background: white;
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);

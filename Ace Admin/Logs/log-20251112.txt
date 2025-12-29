@@ -1,0 +1,8 @@
+2025-11-12 11:50:40.279 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-12 11:50:44.760 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-12 11:50:47.442 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-12 11:50:49.157 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-11-12 11:50:49.484 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-12 11:51:19.773 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-12 12:10:25.752 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-12 12:10:27.538 +05:30 [INF] User rakesh.n logged in successfully.

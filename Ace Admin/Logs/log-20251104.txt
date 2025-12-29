@@ -1,0 +1,736 @@
+2025-11-04 15:06:08.137 +05:30 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-04 15:06:08.359 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/ - null null
+2025-11-04 15:06:08.459 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-04 15:06:08.460 +05:30 [INF] Hosting environment: Development
+2025-11-04 15:06:08.461 +05:30 [INF] Content root path: C:\node_pro\Ace Admin\Ace Admin
+2025-11-04 15:06:08.589 +05:30 [INF] Executing endpoint 'HTTP: GET /'
+2025-11-04 15:06:08.599 +05:30 [INF] Executing RedirectResult, redirecting to /login.
+2025-11-04 15:06:08.600 +05:30 [INF] Executed endpoint 'HTTP: GET /'
+2025-11-04 15:06:08.625 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/login - null null
+2025-11-04 15:06:08.659 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/ - 302 null null 309.7299ms
+2025-11-04 15:06:08.665 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:06:08.753 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:06:09.185 +05:30 [INF] Executing ViewResult, running view Login.
+2025-11-04 15:06:10.041 +05:30 [INF] Executed ViewResult - view Login executed in 862.7946ms.
+2025-11-04 15:06:10.043 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 1288.7755ms
+2025-11-04 15:06:10.043 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:06:10.067 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-04 15:06:10.068 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/login - 200 null text/html; charset=utf-8 1443.3567ms
+2025-11-04 15:06:10.077 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 3.8697ms
+2025-11-04 15:06:10.077 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_vs/browserLink - null null
+2025-11-04 15:06:10.215 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_vs/browserLink - 200 null text/javascript; charset=UTF-8 137.9526ms
+2025-11-04 15:06:34.552 +05:30 [INF] Request starting HTTP/2 POST https://localhost:44312/api/login - application/json 48
+2025-11-04 15:06:34.558 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:06:34.568 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(Ace_Admin.Dto.LoginView) on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:06:35.407 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 15:06:36.267 +05:30 [INF] Executed DbCommand (38ms) [Parameters=[@__model_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Age], [e].[Email], [e].[EmpCode], [e].[EmpName], [e].[FilePath_pic], [e].[JoiningDate], [e].[Location], [e].[Password], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Username]
+FROM [Employee] AS [e]
+WHERE [e].[Username] = @__model_Username_0
+2025-11-04 15:06:36.839 +05:30 [INF] Executing JsonResult, writing value of type 'Ace_Admin.Dto.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-04 15:06:36.847 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 2277.9173ms
+2025-11-04 15:06:36.847 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:06:36.854 +05:30 [INF] Request finished HTTP/2 POST https://localhost:44312/api/login - 200 null application/json; charset=utf-8 2302.2728ms
+2025-11-04 15:06:38.252 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-11-04 15:06:38.272 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - 404 null null 20.2515ms
+2025-11-04 15:06:38.273 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-11-04 15:06:38.375 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/ace.js.map - null null
+2025-11-04 15:06:38.397 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/ace.js.map - 404 null null 22.7431ms
+2025-11-04 15:06:38.397 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/ace.js.map, Response status code: 404
+2025-11-04 15:06:38.398 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - null null
+2025-11-04 15:06:38.398 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - 404 null null 0.7966ms
+2025-11-04 15:06:38.399 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/js/ace.js.map, Response status code: 404
+2025-11-04 15:06:38.399 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/popper.js.map - null null
+2025-11-04 15:06:38.400 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/popper.js.map - 404 null null 0.8976ms
+2025-11-04 15:06:38.400 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/popper.js.map, Response status code: 404
+2025-11-04 15:06:38.412 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - null null
+2025-11-04 15:06:38.415 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - 404 null null 2.9594ms
+2025-11-04 15:06:38.415 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/bootstrap.js.map, Response status code: 404
+2025-11-04 15:06:38.418 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - null null
+2025-11-04 15:06:38.420 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - 404 null null 1.9756ms
+2025-11-04 15:06:38.420 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/css/ace.css.map, Response status code: 404
+2025-11-04 15:06:53.671 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/login - null null
+2025-11-04 15:06:53.676 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:06:53.676 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:06:53.684 +05:30 [INF] Executing ViewResult, running view Login.
+2025-11-04 15:06:53.693 +05:30 [INF] Executed ViewResult - view Login executed in 9.6836ms.
+2025-11-04 15:06:53.693 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 15.6639ms
+2025-11-04 15:06:53.693 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:06:53.700 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/login - 200 null text/html; charset=utf-8 29.2783ms
+2025-11-04 15:06:53.751 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-11-04 15:06:53.855 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - 404 null null 103.4965ms
+2025-11-04 15:06:53.855 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-11-04 15:06:53.867 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-04 15:06:53.881 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 14.8279ms
+2025-11-04 15:06:53.882 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_vs/browserLink - null null
+2025-11-04 15:06:53.916 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.4684ms
+2025-11-04 15:06:53.929 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - null null
+2025-11-04 15:06:53.931 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - 404 null null 1.4666ms
+2025-11-04 15:06:53.931 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/css/ace.css.map, Response status code: 404
+2025-11-04 15:06:54.173 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - null null
+2025-11-04 15:06:54.175 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - 404 null null 1.7051ms
+2025-11-04 15:06:54.175 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/bootstrap.js.map, Response status code: 404
+2025-11-04 15:06:54.200 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - null null
+2025-11-04 15:06:54.202 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - 404 null null 2.0514ms
+2025-11-04 15:06:54.202 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/js/ace.js.map, Response status code: 404
+2025-11-04 15:06:54.256 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/ace.js.map - null null
+2025-11-04 15:06:54.258 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/ace.js.map - 404 null null 2.508ms
+2025-11-04 15:06:54.258 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/ace.js.map, Response status code: 404
+2025-11-04 15:06:54.258 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/popper.js.map - null null
+2025-11-04 15:06:54.260 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/popper.js.map - 404 null null 1.2774ms
+2025-11-04 15:06:54.260 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/popper.js.map, Response status code: 404
+2025-11-04 15:07:05.743 +05:30 [INF] Request starting HTTP/2 POST https://localhost:44312/api/login - application/json 48
+2025-11-04 15:07:05.745 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:07:05.746 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(Ace_Admin.Dto.LoginView) on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:07:05.771 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__model_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Age], [e].[Email], [e].[EmpCode], [e].[EmpName], [e].[FilePath_pic], [e].[JoiningDate], [e].[Location], [e].[Password], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Username]
+FROM [Employee] AS [e]
+WHERE [e].[Username] = @__model_Username_0
+2025-11-04 15:07:06.124 +05:30 [INF] Executing JsonResult, writing value of type 'Ace_Admin.Dto.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-04 15:07:06.124 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 378.5723ms
+2025-11-04 15:07:06.125 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:07:06.126 +05:30 [INF] Request finished HTTP/2 POST https://localhost:44312/api/login - 200 null application/json; charset=utf-8 382.5393ms
+2025-11-04 15:07:21.712 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/login - null null
+2025-11-04 15:07:21.717 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:07:21.717 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:07:21.719 +05:30 [INF] Executing ViewResult, running view Login.
+2025-11-04 15:07:21.728 +05:30 [INF] Executed ViewResult - view Login executed in 9.5719ms.
+2025-11-04 15:07:21.729 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 10.989ms
+2025-11-04 15:07:21.729 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:07:21.734 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/login - 200 null text/html; charset=utf-8 22.4808ms
+2025-11-04 15:07:21.791 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-04 15:07:21.792 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 1.2373ms
+2025-11-04 15:07:21.805 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_vs/browserLink - null null
+2025-11-04 15:07:21.815 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-11-04 15:07:21.816 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - 404 null null 1.3092ms
+2025-11-04 15:07:21.816 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-11-04 15:07:21.823 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.6727ms
+2025-11-04 15:07:21.849 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - null null
+2025-11-04 15:07:21.851 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - 404 null null 1.5167ms
+2025-11-04 15:07:21.851 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/css/ace.css.map, Response status code: 404
+2025-11-04 15:07:21.954 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - null null
+2025-11-04 15:07:21.955 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - null null
+2025-11-04 15:07:21.972 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - 404 null null 17.8297ms
+2025-11-04 15:07:21.974 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/js/ace.js.map, Response status code: 404
+2025-11-04 15:07:21.981 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - 404 null null 25.7623ms
+2025-11-04 15:07:21.981 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/bootstrap.js.map, Response status code: 404
+2025-11-04 15:07:22.018 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/ace.js.map - null null
+2025-11-04 15:07:22.020 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/ace.js.map - 404 null null 2.2905ms
+2025-11-04 15:07:22.020 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/ace.js.map, Response status code: 404
+2025-11-04 15:07:22.020 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/popper.js.map - null null
+2025-11-04 15:07:22.026 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/popper.js.map - 404 null null 6.0485ms
+2025-11-04 15:07:22.026 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/popper.js.map, Response status code: 404
+2025-11-04 15:07:41.022 +05:30 [INF] Request starting HTTP/2 POST https://localhost:44312/api/login - application/json 49
+2025-11-04 15:07:41.022 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:07:41.022 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(Ace_Admin.Dto.LoginView) on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:07:41.103 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__model_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Age], [e].[Email], [e].[EmpCode], [e].[EmpName], [e].[FilePath_pic], [e].[JoiningDate], [e].[Location], [e].[Password], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Username]
+FROM [Employee] AS [e]
+WHERE [e].[Username] = @__model_Username_0
+2025-11-04 15:07:41.307 +05:30 [INF] Executing JsonResult, writing value of type 'Ace_Admin.Dto.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-04 15:07:41.308 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 285.8188ms
+2025-11-04 15:07:41.308 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:07:41.309 +05:30 [INF] Request finished HTTP/2 POST https://localhost:44312/api/login - 200 null application/json; charset=utf-8 287.3525ms
+2025-11-04 15:08:09.460 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/login - null null
+2025-11-04 15:08:09.468 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:08:09.468 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:08:09.469 +05:30 [INF] Executing ViewResult, running view Login.
+2025-11-04 15:08:09.471 +05:30 [INF] Executed ViewResult - view Login executed in 1.9446ms.
+2025-11-04 15:08:09.471 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 2.3913ms
+2025-11-04 15:08:09.471 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:08:09.472 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/login - 200 null text/html; charset=utf-8 12.7086ms
+2025-11-04 15:08:09.501 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-04 15:08:09.506 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 4.7303ms
+2025-11-04 15:08:09.506 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_vs/browserLink - null null
+2025-11-04 15:08:09.535 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-11-04 15:08:09.537 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - 404 null null 1.3291ms
+2025-11-04 15:08:09.537 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-11-04 15:08:09.617 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_vs/browserLink - 200 null text/javascript; charset=UTF-8 111.0301ms
+2025-11-04 15:08:09.618 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - null null
+2025-11-04 15:08:09.622 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - 404 null null 3.9368ms
+2025-11-04 15:08:09.623 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/css/ace.css.map, Response status code: 404
+2025-11-04 15:08:09.699 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - null null
+2025-11-04 15:08:09.700 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - 404 null null 1.6654ms
+2025-11-04 15:08:09.700 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/bootstrap.js.map, Response status code: 404
+2025-11-04 15:08:09.701 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - null null
+2025-11-04 15:08:09.703 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - 404 null null 1.8628ms
+2025-11-04 15:08:09.703 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/js/ace.js.map, Response status code: 404
+2025-11-04 15:08:09.731 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/ace.js.map - null null
+2025-11-04 15:08:09.733 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/ace.js.map - 404 null null 0.8598ms
+2025-11-04 15:08:09.733 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/ace.js.map, Response status code: 404
+2025-11-04 15:08:09.739 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/popper.js.map - null null
+2025-11-04 15:08:09.740 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/popper.js.map - 404 null null 0.7838ms
+2025-11-04 15:08:09.740 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/popper.js.map, Response status code: 404
+2025-11-04 15:08:36.313 +05:30 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-04 15:08:36.537 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/ - null null
+2025-11-04 15:08:36.639 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-04 15:08:36.639 +05:30 [INF] Hosting environment: Development
+2025-11-04 15:08:36.639 +05:30 [INF] Content root path: C:\node_pro\Ace Admin\Ace Admin
+2025-11-04 15:08:36.768 +05:30 [INF] Executing endpoint 'HTTP: GET /'
+2025-11-04 15:08:36.777 +05:30 [INF] Executing RedirectResult, redirecting to /login.
+2025-11-04 15:08:36.778 +05:30 [INF] Executed endpoint 'HTTP: GET /'
+2025-11-04 15:08:36.820 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/login - null null
+2025-11-04 15:08:36.820 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/ - 302 null null 293.4087ms
+2025-11-04 15:08:36.832 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:08:36.849 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:08:37.146 +05:30 [INF] Executing ViewResult, running view Login.
+2025-11-04 15:08:37.638 +05:30 [INF] Executed ViewResult - view Login executed in 498.3579ms.
+2025-11-04 15:08:37.639 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 788.6648ms
+2025-11-04 15:08:37.639 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:08:37.658 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/login - 200 null text/html; charset=utf-8 838.5622ms
+2025-11-04 15:08:37.663 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/bootstrap/dist/css/bootstrap.css - null null
+2025-11-04 15:08:37.667 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/fontawesome/css/solid.css - null null
+2025-11-04 15:08:37.673 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/fontawesome/css/brands.css - null null
+2025-11-04 15:08:37.674 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/css/ace-font.css - null null
+2025-11-04 15:08:37.676 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/css/ace.css - null null
+2025-11-04 15:08:37.696 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/jquery/dist/jquery.min.js - null null
+2025-11-04 15:08:37.696 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/views/pages/page-login/@page-style.css - null null
+2025-11-04 15:08:37.707 +05:30 [INF] Sending file. Request path: '/dist/css/ace-font.css'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\dist\css\ace-font.css'
+2025-11-04 15:08:37.707 +05:30 [INF] Sending file. Request path: '/lib/fontawesome/css/solid.css'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\fontawesome\css\solid.css'
+2025-11-04 15:08:37.707 +05:30 [INF] Sending file. Request path: '/views/pages/page-login/@page-style.css'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\views\pages\page-login\@page-style.css'
+2025-11-04 15:08:37.708 +05:30 [INF] Sending file. Request path: '/lib/fontawesome/css/brands.css'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\fontawesome\css\brands.css'
+2025-11-04 15:08:37.708 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/fontawesome/css/brands.css - 200 750 text/css 35.2246ms
+2025-11-04 15:08:37.708 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/css/ace-font.css - 200 846 text/css 34.006ms
+2025-11-04 15:08:37.709 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/fontawesome/css/solid.css - 200 746 text/css 41.5027ms
+2025-11-04 15:08:37.709 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/views/pages/page-login/@page-style.css - 200 671 text/css 13.0103ms
+2025-11-04 15:08:37.709 +05:30 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\jquery\dist\jquery.min.js'
+2025-11-04 15:08:37.710 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/fontawesome/css/regular.css - null null
+2025-11-04 15:08:37.710 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/js/ace.js - null null
+2025-11-04 15:08:37.710 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/ace.js - null null
+2025-11-04 15:08:37.710 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/jquery/dist/jquery.js - null null
+2025-11-04 15:08:37.748 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/demo.js - null null
+2025-11-04 15:08:37.748 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/site.js - null null
+2025-11-04 15:08:37.750 +05:30 [INF] Sending file. Request path: '/js/demo.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\js\demo.js'
+2025-11-04 15:08:37.754 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/demo.js - 200 0 text/javascript 5.5034ms
+2025-11-04 15:08:37.756 +05:30 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\js\site.js'
+2025-11-04 15:08:37.756 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/popper.js - null null
+2025-11-04 15:08:37.756 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2025-11-04 15:08:37.756 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/site.js - 200 231 text/javascript 7.7577ms
+2025-11-04 15:08:37.759 +05:30 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.css'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\bootstrap\dist\css\bootstrap.css'
+2025-11-04 15:08:37.759 +05:30 [INF] Sending file. Request path: '/lib/fontawesome/css/regular.css'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\fontawesome\css\regular.css'
+2025-11-04 15:08:37.759 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/fontawesome/css/regular.css - 200 752 text/css 48.7544ms
+2025-11-04 15:08:37.759 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/views/pages/page-login/@page-script.js - null null
+2025-11-04 15:08:37.764 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-04 15:08:37.768 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/fontawesome/css/fontawesome.css - null null
+2025-11-04 15:08:37.772 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/bootstrap.js - null null
+2025-11-04 15:08:37.759 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_vs/browserLink - null null
+2025-11-04 15:08:37.779 +05:30 [INF] Sending file. Request path: '/views/pages/page-login/@page-script.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\views\pages\page-login\@page-script.js'
+2025-11-04 15:08:37.779 +05:30 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2025-11-04 15:08:37.779 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/views/pages/page-login/@page-script.js - 200 3421 text/javascript 19.6586ms
+2025-11-04 15:08:37.783 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/jquery/dist/jquery.min.js - 200 89501 text/javascript 86.5055ms
+2025-11-04 15:08:37.783 +05:30 [INF] Sending file. Request path: '/js/popper.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\js\popper.js'
+2025-11-04 15:08:37.783 +05:30 [INF] Sending file. Request path: '/lib/fontawesome/css/fontawesome.css'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\fontawesome\css\fontawesome.css'
+2025-11-04 15:08:37.784 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 19.7797ms
+2025-11-04 15:08:37.784 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/bootstrap/dist/css/bootstrap.css - 200 209709 text/css 120.8628ms
+2025-11-04 15:08:37.787 +05:30 [INF] Sending file. Request path: '/js/bootstrap.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\js\bootstrap.js'
+2025-11-04 15:08:37.787 +05:30 [INF] Sending file. Request path: '/dist/js/ace.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\dist\js\ace.js'
+2025-11-04 15:08:37.792 +05:30 [INF] Sending file. Request path: '/js/ace.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\js\ace.js'
+2025-11-04 15:08:37.796 +05:30 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\jquery\dist\jquery.js'
+2025-11-04 15:08:37.796 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78468 text/javascript 40.0719ms
+2025-11-04 15:08:37.797 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/fontawesome/css/fontawesome.css - 200 76575 text/css 28.8919ms
+2025-11-04 15:08:37.797 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/popper.js - 200 91360 text/javascript 41.1518ms
+2025-11-04 15:08:37.797 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/bootstrap.js - 200 148465 text/javascript 26.0263ms
+2025-11-04 15:08:37.797 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/js/ace.js - 200 213730 text/javascript 86.7307ms
+2025-11-04 15:08:37.799 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/ace.js - 200 213730 text/javascript 88.6136ms
+2025-11-04 15:08:37.799 +05:30 [INF] Sending file. Request path: '/dist/css/ace.css'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\dist\css\ace.css'
+2025-11-04 15:08:37.802 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/jquery/dist/jquery.js - 200 288580 text/javascript 92.1668ms
+2025-11-04 15:08:37.806 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/css/ace.css - 200 535428 text/css 130.5885ms
+2025-11-04 15:08:37.830 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_vs/browserLink - 200 null text/javascript; charset=UTF-8 70.2964ms
+2025-11-04 15:08:38.245 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/assets/image/login-bg-1.svg - null null
+2025-11-04 15:08:38.249 +05:30 [INF] Sending file. Request path: '/assets/image/login-bg-1.svg'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\assets\image\login-bg-1.svg'
+2025-11-04 15:08:38.249 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/assets/image/login-bg-1.svg - 200 844 image/svg+xml 4.061ms
+2025-11-04 15:08:38.292 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/assets/image/login-bg-3.svg - null null
+2025-11-04 15:08:38.293 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/assets/image/login-bg-2.svg - null null
+2025-11-04 15:08:38.300 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/assets/image/login-bg-4.svg - null null
+2025-11-04 15:08:38.319 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/assets/image/login-bg-4.svg - 404 null null 19.0627ms
+2025-11-04 15:08:38.319 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/assets/image/login-bg-3.svg - 404 null null 26.9032ms
+2025-11-04 15:08:38.320 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/assets/image/login-bg-4.svg, Response status code: 404
+2025-11-04 15:08:38.320 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/assets/image/login-bg-3.svg, Response status code: 404
+2025-11-04 15:08:38.403 +05:30 [INF] Sending file. Request path: '/assets/image/login-bg-2.svg'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\assets\image\login-bg-2.svg'
+2025-11-04 15:08:38.403 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/assets/image/login-bg-2.svg - 200 1119 image/svg+xml 111.0418ms
+2025-11-04 15:08:38.583 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/fontawesome/webfonts/fa-solid-900.html - null null
+2025-11-04 15:08:38.587 +05:30 [INF] Sending file. Request path: '/lib/fontawesome/webfonts/fa-solid-900.html'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\fontawesome\webfonts\fa-solid-900.html'
+2025-11-04 15:08:38.591 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/fontawesome/webfonts/fa-solid-900.html - 200 78196 text/html 8.3879ms
+2025-11-04 15:08:38.651 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/assets/fonts/Kanit/Kanit-Regular.woff - null null
+2025-11-04 15:08:38.657 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/fontawesome/webfonts/fa-regular-400.html - null null
+2025-11-04 15:08:38.657 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/fontawesome/webfonts/fa-brands-400.html - null null
+2025-11-04 15:08:38.657 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/assets/fonts/Kanit/Kanit-SemiBold.woff - null null
+2025-11-04 15:08:38.664 +05:30 [INF] Sending file. Request path: '/lib/fontawesome/webfonts/fa-regular-400.html'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\fontawesome\webfonts\fa-regular-400.html'
+2025-11-04 15:08:38.665 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/fontawesome/webfonts/fa-regular-400.html - 200 13276 text/html 8.0479ms
+2025-11-04 15:08:38.665 +05:30 [INF] Sending file. Request path: '/assets/fonts/Kanit/Kanit-Regular.woff'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\assets\fonts\Kanit\Kanit-Regular.woff'
+2025-11-04 15:08:38.665 +05:30 [INF] Sending file. Request path: '/lib/fontawesome/webfonts/fa-brands-400.html'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\fontawesome\webfonts\fa-brands-400.html'
+2025-11-04 15:08:38.677 +05:30 [INF] Sending file. Request path: '/assets/fonts/Kanit/Kanit-SemiBold.woff'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\assets\fonts\Kanit\Kanit-SemiBold.woff'
+2025-11-04 15:08:38.676 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/assets/fonts/Kanit/Kanit-Regular.woff - 200 169744 application/font-woff 25.6861ms
+2025-11-04 15:08:38.678 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/fontawesome/webfonts/fa-brands-400.html - 200 76764 text/html 21.5609ms
+2025-11-04 15:08:38.679 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/assets/fonts/Kanit/Kanit-SemiBold.woff - 200 171548 application/font-woff 22.582ms
+2025-11-04 15:08:38.775 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/assets/favicon.png - null null
+2025-11-04 15:08:38.779 +05:30 [INF] Sending file. Request path: '/assets/favicon.png'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\assets\favicon.png'
+2025-11-04 15:08:38.779 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/assets/favicon.png - 200 1056 image/png 4.0825ms
+2025-11-04 15:09:09.426 +05:30 [INF] Request starting HTTP/2 POST https://localhost:44312/api/login - application/json 49
+2025-11-04 15:09:09.437 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:09:09.446 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(Ace_Admin.Dto.LoginView) on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:09:10.254 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 15:09:11.099 +05:30 [INF] Executed DbCommand (40ms) [Parameters=[@__model_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Age], [e].[Email], [e].[EmpCode], [e].[EmpName], [e].[FilePath_pic], [e].[JoiningDate], [e].[Location], [e].[Password], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Username]
+FROM [Employee] AS [e]
+WHERE [e].[Username] = @__model_Username_0
+2025-11-04 15:09:11.684 +05:30 [INF] Executing JsonResult, writing value of type 'Ace_Admin.Dto.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-04 15:09:11.691 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 2245.1426ms
+2025-11-04 15:09:11.691 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:09:11.699 +05:30 [INF] Request finished HTTP/2 POST https://localhost:44312/api/login - 200 null application/json; charset=utf-8 2273.2211ms
+2025-11-04 15:09:14.072 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/login - null null
+2025-11-04 15:09:14.079 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:09:14.079 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:09:14.083 +05:30 [INF] Executing ViewResult, running view Login.
+2025-11-04 15:09:14.090 +05:30 [INF] Executed ViewResult - view Login executed in 7.4613ms.
+2025-11-04 15:09:14.091 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 10.9551ms
+2025-11-04 15:09:14.091 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:09:14.092 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/login - 200 null text/html; charset=utf-8 19.759ms
+2025-11-04 15:09:14.104 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-04 15:09:14.104 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_vs/browserLink - null null
+2025-11-04 15:09:14.109 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 4.8802ms
+2025-11-04 15:09:14.158 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_vs/browserLink - 200 null text/javascript; charset=UTF-8 53.2977ms
+2025-11-04 15:09:57.409 +05:30 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-04 15:09:57.614 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/ - null null
+2025-11-04 15:09:57.713 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-04 15:09:57.713 +05:30 [INF] Hosting environment: Development
+2025-11-04 15:09:57.714 +05:30 [INF] Content root path: C:\node_pro\Ace Admin\Ace Admin
+2025-11-04 15:09:57.822 +05:30 [INF] Executing endpoint 'HTTP: GET /'
+2025-11-04 15:09:57.831 +05:30 [INF] Executing RedirectResult, redirecting to /login.
+2025-11-04 15:09:57.832 +05:30 [INF] Executed endpoint 'HTTP: GET /'
+2025-11-04 15:09:57.859 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/ - 302 null null 255.0487ms
+2025-11-04 15:09:57.864 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/login - null null
+2025-11-04 15:09:57.875 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:09:57.898 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:09:58.188 +05:30 [INF] Executing ViewResult, running view Login.
+2025-11-04 15:09:58.661 +05:30 [INF] Executed ViewResult - view Login executed in 487.8551ms.
+2025-11-04 15:09:58.662 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 763.6177ms
+2025-11-04 15:09:58.663 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:09:58.672 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/login - 200 null text/html; charset=utf-8 808.7097ms
+2025-11-04 15:09:58.718 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/fontawesome/css/regular.css - null null
+2025-11-04 15:09:58.718 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/fontawesome/css/brands.css - null null
+2025-11-04 15:09:58.719 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/bootstrap/dist/css/bootstrap.css - null null
+2025-11-04 15:09:58.721 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/fontawesome/css/fontawesome.css - null null
+2025-11-04 15:09:58.741 +05:30 [INF] Sending file. Request path: '/lib/fontawesome/css/brands.css'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\fontawesome\css\brands.css'
+2025-11-04 15:09:58.741 +05:30 [INF] Sending file. Request path: '/lib/fontawesome/css/regular.css'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\fontawesome\css\regular.css'
+2025-11-04 15:09:58.741 +05:30 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.css'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\bootstrap\dist\css\bootstrap.css'
+2025-11-04 15:09:58.741 +05:30 [INF] Sending file. Request path: '/lib/fontawesome/css/fontawesome.css'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\fontawesome\css\fontawesome.css'
+2025-11-04 15:09:58.742 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/fontawesome/css/regular.css - 200 752 text/css 23.8434ms
+2025-11-04 15:09:58.742 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/fontawesome/css/brands.css - 200 750 text/css 23.4023ms
+2025-11-04 15:09:58.749 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/fontawesome/css/fontawesome.css - 200 76575 text/css 26.5822ms
+2025-11-04 15:09:58.749 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/bootstrap/dist/css/bootstrap.css - 200 209709 text/css 30.4868ms
+2025-11-04 15:09:58.816 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/fontawesome/css/solid.css - null null
+2025-11-04 15:09:58.820 +05:30 [INF] Sending file. Request path: '/lib/fontawesome/css/solid.css'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\fontawesome\css\solid.css'
+2025-11-04 15:09:58.822 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/fontawesome/css/solid.css - 200 746 text/css 5.7977ms
+2025-11-04 15:09:58.824 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/css/ace.css - null null
+2025-11-04 15:09:58.824 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/css/ace-font.css - null null
+2025-11-04 15:09:58.830 +05:30 [INF] Sending file. Request path: '/dist/css/ace-font.css'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\dist\css\ace-font.css'
+2025-11-04 15:09:58.831 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/css/ace-font.css - 200 846 text/css 7.4045ms
+2025-11-04 15:09:58.831 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/views/pages/page-login/@page-style.css - null null
+2025-11-04 15:09:58.832 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/jquery/dist/jquery.min.js - null null
+2025-11-04 15:09:58.832 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/bootstrap.js - null null
+2025-11-04 15:09:58.835 +05:30 [INF] Sending file. Request path: '/views/pages/page-login/@page-style.css'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\views\pages\page-login\@page-style.css'
+2025-11-04 15:09:58.835 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/jquery/dist/jquery.js - null null
+2025-11-04 15:09:58.835 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/views/pages/page-login/@page-style.css - 200 671 text/css 4.0116ms
+2025-11-04 15:09:58.835 +05:30 [INF] Sending file. Request path: '/dist/css/ace.css'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\dist\css\ace.css'
+2025-11-04 15:09:58.836 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2025-11-04 15:09:58.838 +05:30 [INF] Sending file. Request path: '/js/bootstrap.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\js\bootstrap.js'
+2025-11-04 15:09:58.841 +05:30 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2025-11-04 15:09:58.842 +05:30 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\jquery\dist\jquery.min.js'
+2025-11-04 15:09:58.842 +05:30 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\jquery\dist\jquery.js'
+2025-11-04 15:09:58.842 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/bootstrap.js - 200 148465 text/javascript 10.9127ms
+2025-11-04 15:09:58.843 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78468 text/javascript 7.9048ms
+2025-11-04 15:09:58.845 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/css/ace.css - 200 535428 text/css 21.3864ms
+2025-11-04 15:09:58.845 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/jquery/dist/jquery.min.js - 200 89501 text/javascript 13.263ms
+2025-11-04 15:09:58.849 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/jquery/dist/jquery.js - 200 288580 text/javascript 13.6236ms
+2025-11-04 15:09:58.862 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/js/ace.js - null null
+2025-11-04 15:09:58.862 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/ace.js - null null
+2025-11-04 15:09:58.862 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/demo.js - null null
+2025-11-04 15:09:58.862 +05:30 [INF] Sending file. Request path: '/js/demo.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\js\demo.js'
+2025-11-04 15:09:58.865 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/demo.js - 200 0 text/javascript 2.9829ms
+2025-11-04 15:09:58.865 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/site.js - null null
+2025-11-04 15:09:58.866 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/popper.js - null null
+2025-11-04 15:09:58.868 +05:30 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\js\site.js'
+2025-11-04 15:09:58.868 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/site.js - 200 231 text/javascript 3.3264ms
+2025-11-04 15:09:58.869 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-04 15:09:58.869 +05:30 [INF] Sending file. Request path: '/js/popper.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\js\popper.js'
+2025-11-04 15:09:58.871 +05:30 [INF] Sending file. Request path: '/dist/js/ace.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\dist\js\ace.js'
+2025-11-04 15:09:58.872 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_vs/browserLink - null null
+2025-11-04 15:09:58.873 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 3.4579ms
+2025-11-04 15:09:58.873 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/views/pages/page-login/@page-script.js - null null
+2025-11-04 15:09:58.876 +05:30 [INF] Sending file. Request path: '/views/pages/page-login/@page-script.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\views\pages\page-login\@page-script.js'
+2025-11-04 15:09:58.876 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/views/pages/page-login/@page-script.js - 200 3421 text/javascript 2.9826ms
+2025-11-04 15:09:58.877 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/popper.js - 200 91360 text/javascript 10.9219ms
+2025-11-04 15:09:58.877 +05:30 [INF] Sending file. Request path: '/js/ace.js'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\js\ace.js'
+2025-11-04 15:09:58.880 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/js/ace.js - 200 213730 text/javascript 18.2885ms
+2025-11-04 15:09:58.884 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/ace.js - 200 213730 text/javascript 22.393ms
+2025-11-04 15:09:58.920 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.0927ms
+2025-11-04 15:09:59.002 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/assets/image/login-bg-1.svg - null null
+2025-11-04 15:09:59.009 +05:30 [INF] Sending file. Request path: '/assets/image/login-bg-1.svg'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\assets\image\login-bg-1.svg'
+2025-11-04 15:09:59.010 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/assets/image/login-bg-1.svg - 200 844 image/svg+xml 8.0003ms
+2025-11-04 15:09:59.016 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/fontawesome/webfonts/fa-solid-900.html - null null
+2025-11-04 15:09:59.020 +05:30 [INF] Sending file. Request path: '/lib/fontawesome/webfonts/fa-solid-900.html'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\fontawesome\webfonts\fa-solid-900.html'
+2025-11-04 15:09:59.021 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/assets/fonts/Kanit/Kanit-Regular.woff - null null
+2025-11-04 15:09:59.023 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/fontawesome/webfonts/fa-brands-400.html - null null
+2025-11-04 15:09:59.023 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/lib/fontawesome/webfonts/fa-regular-400.html - null null
+2025-11-04 15:09:59.024 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/assets/fonts/Kanit/Kanit-SemiBold.woff - null null
+2025-11-04 15:09:59.029 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/fontawesome/webfonts/fa-solid-900.html - 200 78196 text/html 12.623ms
+2025-11-04 15:09:59.029 +05:30 [INF] Sending file. Request path: '/lib/fontawesome/webfonts/fa-regular-400.html'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\fontawesome\webfonts\fa-regular-400.html'
+2025-11-04 15:09:59.030 +05:30 [INF] Sending file. Request path: '/lib/fontawesome/webfonts/fa-brands-400.html'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\lib\fontawesome\webfonts\fa-brands-400.html'
+2025-11-04 15:09:59.030 +05:30 [INF] Sending file. Request path: '/assets/fonts/Kanit/Kanit-SemiBold.woff'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\assets\fonts\Kanit\Kanit-SemiBold.woff'
+2025-11-04 15:09:59.030 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/fontawesome/webfonts/fa-regular-400.html - 200 13276 text/html 6.0744ms
+2025-11-04 15:09:59.031 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/lib/fontawesome/webfonts/fa-brands-400.html - 200 76764 text/html 7.8943ms
+2025-11-04 15:09:59.031 +05:30 [INF] Sending file. Request path: '/assets/fonts/Kanit/Kanit-Regular.woff'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\assets\fonts\Kanit\Kanit-Regular.woff'
+2025-11-04 15:09:59.032 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/assets/fonts/Kanit/Kanit-Regular.woff - 200 169744 application/font-woff 11.4024ms
+2025-11-04 15:09:59.032 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/assets/fonts/Kanit/Kanit-SemiBold.woff - 200 171548 application/font-woff 8.6917ms
+2025-11-04 15:09:59.144 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/assets/favicon.png - null null
+2025-11-04 15:09:59.154 +05:30 [INF] Sending file. Request path: '/assets/favicon.png'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\assets\favicon.png'
+2025-11-04 15:09:59.155 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/assets/favicon.png - 200 1056 image/png 10.4979ms
+2025-11-04 15:10:54.123 +05:30 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-04 15:10:54.399 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/ - null null
+2025-11-04 15:10:54.493 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-04 15:10:54.493 +05:30 [INF] Hosting environment: Development
+2025-11-04 15:10:54.493 +05:30 [INF] Content root path: C:\node_pro\Ace Admin\Ace Admin
+2025-11-04 15:10:54.623 +05:30 [INF] Executing endpoint 'HTTP: GET /'
+2025-11-04 15:10:54.634 +05:30 [INF] Executing RedirectResult, redirecting to /login.
+2025-11-04 15:10:54.635 +05:30 [INF] Executed endpoint 'HTTP: GET /'
+2025-11-04 15:10:54.668 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/login - null null
+2025-11-04 15:10:54.799 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/ - 302 null null 412.373ms
+2025-11-04 15:10:54.802 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:10:54.821 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:10:55.140 +05:30 [INF] Executing ViewResult, running view Login.
+2025-11-04 15:10:55.613 +05:30 [INF] Executed ViewResult - view Login executed in 475.9584ms.
+2025-11-04 15:10:55.614 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 792.7408ms
+2025-11-04 15:10:55.614 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:10:55.649 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-11-04 15:10:55.654 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/login - 200 null text/html; charset=utf-8 986.4383ms
+2025-11-04 15:10:55.655 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/assets/image/login-bg-2.svg - null null
+2025-11-04 15:10:55.658 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - 404 null null 9.4609ms
+2025-11-04 15:10:55.659 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-11-04 15:10:55.659 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/assets/image/login-bg-3.svg - null null
+2025-11-04 15:10:55.660 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/assets/image/login-bg-3.svg - 404 null null 1.3176ms
+2025-11-04 15:10:55.662 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/assets/image/login-bg-3.svg, Response status code: 404
+2025-11-04 15:10:55.662 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/assets/image/login-bg-4.svg - null null
+2025-11-04 15:10:55.666 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/assets/image/login-bg-4.svg - 404 null null 4.0173ms
+2025-11-04 15:10:55.666 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/assets/image/login-bg-4.svg, Response status code: 404
+2025-11-04 15:10:55.698 +05:30 [INF] Sending file. Request path: '/assets/image/login-bg-2.svg'. Physical path: 'C:\node_pro\Ace Admin\Ace Admin\wwwroot\assets\image\login-bg-2.svg'
+2025-11-04 15:10:55.699 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/assets/image/login-bg-2.svg - 200 1119 image/svg+xml 44.5862ms
+2025-11-04 15:10:55.866 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-04 15:10:55.866 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_vs/browserLink - null null
+2025-11-04 15:10:55.870 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 3.8481ms
+2025-11-04 15:10:55.887 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - null null
+2025-11-04 15:10:55.891 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - 404 null null 3.5827ms
+2025-11-04 15:10:55.891 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/css/ace.css.map, Response status code: 404
+2025-11-04 15:10:55.954 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_vs/browserLink - 200 null text/javascript; charset=UTF-8 87.7107ms
+2025-11-04 15:10:56.191 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - null null
+2025-11-04 15:10:56.201 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - 404 null null 17.2908ms
+2025-11-04 15:10:56.201 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/bootstrap.js.map, Response status code: 404
+2025-11-04 15:10:56.206 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - null null
+2025-11-04 15:10:56.215 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - 404 null null 9.9217ms
+2025-11-04 15:10:56.216 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/js/ace.js.map, Response status code: 404
+2025-11-04 15:10:56.217 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/ace.js.map - null null
+2025-11-04 15:10:56.222 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/popper.js.map - null null
+2025-11-04 15:10:56.226 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/ace.js.map - 404 null null 9.4532ms
+2025-11-04 15:10:56.227 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/ace.js.map, Response status code: 404
+2025-11-04 15:10:56.298 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/popper.js.map - 404 null null 80.7255ms
+2025-11-04 15:10:56.298 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/popper.js.map, Response status code: 404
+2025-11-04 15:11:18.640 +05:30 [INF] Request starting HTTP/2 POST https://localhost:44312/api/login - application/json 49
+2025-11-04 15:11:18.643 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:11:18.654 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(Ace_Admin.Dto.LoginView) on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:11:25.540 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 15:11:26.416 +05:30 [INF] Executed DbCommand (42ms) [Parameters=[@__model_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Age], [e].[Email], [e].[EmpCode], [e].[EmpName], [e].[FilePath_pic], [e].[JoiningDate], [e].[Location], [e].[Password], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Username]
+FROM [Employee] AS [e]
+WHERE [e].[Username] = @__model_Username_0
+2025-11-04 15:11:44.692 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-04 15:11:44.695 +05:30 [INF] Executing JsonResult, writing value of type 'Ace_Admin.Dto.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-04 15:11:44.705 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 26051.4814ms
+2025-11-04 15:11:44.705 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:11:44.713 +05:30 [INF] Request finished HTTP/2 POST https://localhost:44312/api/login - 200 null application/json; charset=utf-8 26073.2465ms
+2025-11-04 15:11:46.243 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/home - null null
+2025-11-04 15:11:46.261 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Index (Ace Admin)'
+2025-11-04 15:11:46.270 +05:30 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:11:46.286 +05:30 [INF] Executing ViewResult, running view Index.
+2025-11-04 15:11:46.407 +05:30 [INF] Executed ViewResult - view Index executed in 124.0317ms.
+2025-11-04 15:11:46.408 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Index (Ace Admin) in 136.9941ms
+2025-11-04 15:11:46.408 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Index (Ace Admin)'
+2025-11-04 15:11:46.410 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/home - 200 null text/html; charset=utf-8 167.1723ms
+2025-11-04 15:11:46.455 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/css/chatbot.css - null null
+2025-11-04 15:11:46.457 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/content= - null null
+2025-11-04 15:11:46.458 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/content= - 404 null null 1.1916ms
+2025-11-04 15:11:46.460 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/content=, Response status code: 404
+2025-11-04 15:11:46.461 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-11-04 15:11:46.465 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - 404 null null 6.4102ms
+2025-11-04 15:11:46.465 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-11-04 15:11:46.472 +05:30 [INF] The file /css/chatbot.css was not modified
+2025-11-04 15:11:46.472 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/css/chatbot.css - 304 null text/css 17.1335ms
+2025-11-04 15:11:46.488 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-04 15:11:46.489 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 1.0194ms
+2025-11-04 15:11:46.585 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - null null
+2025-11-04 15:11:46.602 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - 404 null null 17.4043ms
+2025-11-04 15:11:46.602 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/css/ace.css.map, Response status code: 404
+2025-11-04 15:11:46.602 +05:30 [INF] Request starting HTTP/2 POST https://localhost:44312/chathub/negotiate?negotiateVersion=1 - null 0
+2025-11-04 15:11:46.603 +05:30 [INF] Executing endpoint '/chathub/negotiate'
+2025-11-04 15:11:46.698 +05:30 [INF] Executed endpoint '/chathub/negotiate'
+2025-11-04 15:11:46.698 +05:30 [INF] Request finished HTTP/2 POST https://localhost:44312/chathub/negotiate?negotiateVersion=1 - 200 316 application/json 95.8732ms
+2025-11-04 15:11:46.698 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_vs/browserLink - null null
+2025-11-04 15:11:46.706 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - null null
+2025-11-04 15:11:46.706 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - 404 null null 0.866ms
+2025-11-04 15:11:46.707 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/bootstrap.js.map, Response status code: 404
+2025-11-04 15:11:46.726 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.7507ms
+2025-11-04 15:11:46.728 +05:30 [INF] Request starting HTTP/2 POST https://localhost:44312/token-check - application/json; charset=utf-8 0
+2025-11-04 15:11:46.735 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44312/chathub?id=DZNmYmKQfjhmDvKxTIaFLw - null null
+2025-11-04 15:11:46.737 +05:30 [INF] Executing endpoint '/chathub'
+2025-11-04 15:11:46.963 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.LoginCheck (Ace Admin)'
+2025-11-04 15:11:46.965 +05:30 [INF] Route matched with {action = "LoginCheck", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult LoginCheck() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:11:47.050 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/ace.js.map - null null
+2025-11-04 15:11:47.051 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/ace.js.map - 404 null null 0.9517ms
+2025-11-04 15:11:47.052 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/ace.js.map, Response status code: 404
+2025-11-04 15:11:47.052 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/popper.js.map - null null
+2025-11-04 15:11:47.053 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/popper.js.map - 404 null null 1.1438ms
+2025-11-04 15:11:47.053 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/popper.js.map, Response status code: 404
+2025-11-04 15:11:47.071 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - null null
+2025-11-04 15:11:47.072 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/messages/recent - null null
+2025-11-04 15:11:47.075 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - 404 null null 4.5884ms
+2025-11-04 15:11:47.081 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/js/ace.js.map, Response status code: 404
+2025-11-04 15:11:47.082 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.GetRecentMessages (Ace Admin)'
+2025-11-04 15:11:47.087 +05:30 [INF] Route matched with {action = "GetRecentMessages", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRecentMessages() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:11:47.110 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/api/users - application/json null
+2025-11-04 15:11:47.112 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.GetUsers (Ace Admin)'
+2025-11-04 15:11:47.115 +05:30 [INF] Route matched with {action = "GetUsers", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUsers() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:11:47.240 +05:30 [INF] Executed DbCommand (44ms) [Parameters=[@__empIdClaim_0='?' (Size = 450), @__cutoff_1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[AttachmentUrl], [u].[ChatRoomId], [u].[DeliveredAt], [u].[IsRead], [u].[Message], [u].[MessageType], [u].[ReceiverId], [u].[SentAt], [u].[UserId]
+FROM [UserMessages] AS [u]
+WHERE [u].[ReceiverId] = @__empIdClaim_0 AND [u].[SentAt] >= @__cutoff_1
+ORDER BY [u].[SentAt] DESC
+2025-11-04 15:11:47.240 +05:30 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id] AS [id], [e].[EmpName] AS [name]
+FROM [Employee] AS [e]
+2025-11-04 15:11:47.240 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserId], [u].[ReceiverId], [u].[Message], [u].[SentAt], [u].[MessageType], [u].[AttachmentUrl], [u].[IsRead]
+FROM [UserMessages] AS [u]
+WHERE [u].[UserId] = @__userId_0 AND [u].[ReceiverId] IS NULL
+ORDER BY [u].[SentAt]
+2025-11-04 15:11:47.261 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType4`2[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Ace Admin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-04 15:11:47.267 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.GetUsers (Ace Admin) in 152.1102ms
+2025-11-04 15:11:47.268 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.GetUsers (Ace Admin)'
+2025-11-04 15:11:47.270 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/api/users - 200 null application/json; charset=utf-8 160.1232ms
+2025-11-04 15:11:47.279 +05:30 [INF] Executed DbCommand (16ms) [Parameters=[@__empId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Age], [s].[Email], [s].[EmpCode], [s].[EmpName], [s].[FilePath_pic], [s].[JoiningDate], [s].[Location], [s].[Password], [s].[PhoneNumber], [s].[Position], [s].[Salary], [s].[Username], [s].[Id0], [s].[Balance], [s].[CreatedAt], [s].[UserId], [s0].[EmployeeCourseId], [s0].[CompletionDate], [s0].[CourseId], [s0].[EmployeeId], [s0].[EndDate], [s0].[StartDate], [s0].[Status], [s0].[StudyHours], [s0].[CourseId0], [s0].[CourseDescription], [s0].[CourseName]
+FROM (
+    SELECT TOP(1) [e].[Id], [e].[Age], [e].[Email], [e].[EmpCode], [e].[EmpName], [e].[FilePath_pic], [e].[JoiningDate], [e].[Location], [e].[Password], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Username], [w].[Id] AS [Id0], [w].[Balance], [w].[CreatedAt], [w].[UserId]
+    FROM [Employee] AS [e]
+    LEFT JOIN [Wallets] AS [w] ON [e].[Id] = [w].[UserId]
+    WHERE [e].[Id] = @__empId_0
+) AS [s]
+LEFT JOIN (
+    SELECT [e0].[EmployeeCourseId], [e0].[CompletionDate], [e0].[CourseId], [e0].[EmployeeId], [e0].[EndDate], [e0].[StartDate], [e0].[Status], [e0].[StudyHours], [c].[CourseId] AS [CourseId0], [c].[CourseDescription], [c].[CourseName]
+    FROM [EmployeeCourses] AS [e0]
+    INNER JOIN [Courses] AS [c] ON [e0].[CourseId] = [c].[CourseId]
+) AS [s0] ON [s].[Id] = [s0].[EmployeeId]
+ORDER BY [s].[Id], [s].[Id0], [s0].[EmployeeCourseId]
+2025-11-04 15:11:47.303 +05:30 [INF] Executing JsonResult, writing value of type 'Ace_Admin.Dto.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-04 15:11:47.318 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__senderIds_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Age], [e].[Email], [e].[EmpCode], [e].[EmpName], [e].[FilePath_pic], [e].[JoiningDate], [e].[Location], [e].[Password], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Username]
+FROM [Employee] AS [e]
+WHERE [e].[Id] IN (
+    SELECT [s].[value]
+    FROM OPENJSON(@__senderIds_0) WITH ([value] int '$') AS [s]
+)
+2025-11-04 15:11:47.320 +05:30 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType12`4[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Ace Admin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-04 15:11:47.324 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.GetRecentMessages (Ace Admin) in 236.7687ms
+2025-11-04 15:11:47.324 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.GetRecentMessages (Ace Admin)'
+2025-11-04 15:11:47.324 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/messages/recent - 200 null application/json; charset=utf-8 252.488ms
+2025-11-04 15:11:47.338 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.LoginCheck (Ace Admin) in 373.2273ms
+2025-11-04 15:11:47.338 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.LoginCheck (Ace Admin)'
+2025-11-04 15:11:47.340 +05:30 [INF] Request finished HTTP/2 POST https://localhost:44312/token-check - 200 null application/json; charset=utf-8 611.7307ms
+2025-11-04 15:13:39.098 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/login - null null
+2025-11-04 15:13:39.111 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:13:39.111 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:13:39.112 +05:30 [INF] Executing ViewResult, running view Login.
+2025-11-04 15:13:39.116 +05:30 [INF] Executed ViewResult - view Login executed in 4.7626ms.
+2025-11-04 15:13:39.116 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 5.2968ms
+2025-11-04 15:13:39.116 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:13:39.118 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/login - 200 null text/html; charset=utf-8 20.6029ms
+2025-11-04 15:13:39.177 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-04 15:13:39.181 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 4.1934ms
+2025-11-04 15:13:39.203 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_vs/browserLink - null null
+2025-11-04 15:13:39.212 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-11-04 15:13:39.269 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - null null
+2025-11-04 15:13:39.271 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - 404 null null 58.6998ms
+2025-11-04 15:13:39.271 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - 404 null null 2.3007ms
+2025-11-04 15:13:39.271 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-11-04 15:13:39.271 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/css/ace.css.map, Response status code: 404
+2025-11-04 15:13:39.276 +05:30 [INF] Executed endpoint '/chathub'
+2025-11-04 15:13:39.277 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:44312/chathub?id=DZNmYmKQfjhmDvKxTIaFLw - 101 null null 112541.8748ms
+2025-11-04 15:13:39.304 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_vs/browserLink - 200 null text/javascript; charset=UTF-8 101.9498ms
+2025-11-04 15:13:39.353 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - null null
+2025-11-04 15:13:39.363 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - 404 null null 9.8274ms
+2025-11-04 15:13:39.363 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/bootstrap.js.map, Response status code: 404
+2025-11-04 15:13:39.365 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - null null
+2025-11-04 15:13:39.366 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - 404 null null 1.8728ms
+2025-11-04 15:13:39.367 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/js/ace.js.map, Response status code: 404
+2025-11-04 15:13:39.367 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/ace.js.map - null null
+2025-11-04 15:13:39.376 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/ace.js.map - 404 null null 9.2426ms
+2025-11-04 15:13:39.376 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/ace.js.map, Response status code: 404
+2025-11-04 15:13:39.379 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/popper.js.map - null null
+2025-11-04 15:13:39.383 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/popper.js.map - 404 null null 6.1881ms
+2025-11-04 15:13:39.385 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/popper.js.map, Response status code: 404
+2025-11-04 15:14:02.392 +05:30 [INF] Request starting HTTP/2 POST https://localhost:44312/api/login - application/json 49
+2025-11-04 15:14:02.393 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:14:02.393 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(Ace_Admin.Dto.LoginView) on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:14:05.154 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__model_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Age], [e].[Email], [e].[EmpCode], [e].[EmpName], [e].[FilePath_pic], [e].[JoiningDate], [e].[Location], [e].[Password], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Username]
+FROM [Employee] AS [e]
+WHERE [e].[Username] = @__model_Username_0
+2025-11-04 15:14:05.479 +05:30 [INF] Executing JsonResult, writing value of type 'Ace_Admin.Dto.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-04 15:14:05.484 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 3091.0991ms
+2025-11-04 15:14:05.484 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:14:05.484 +05:30 [INF] Request finished HTTP/2 POST https://localhost:44312/api/login - 200 null application/json; charset=utf-8 3092.3574ms
+2025-11-04 15:14:18.017 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/login - null null
+2025-11-04 15:14:18.021 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:14:18.024 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:14:18.029 +05:30 [INF] Executing ViewResult, running view Login.
+2025-11-04 15:14:18.032 +05:30 [INF] Executed ViewResult - view Login executed in 2.3074ms.
+2025-11-04 15:14:18.032 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 6.7248ms
+2025-11-04 15:14:18.032 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:14:18.033 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/login - 200 null text/html; charset=utf-8 15.8343ms
+2025-11-04 15:14:18.085 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-04 15:14:18.086 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_vs/browserLink - null null
+2025-11-04 15:14:18.086 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 0.9072ms
+2025-11-04 15:14:18.125 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-11-04 15:14:18.126 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - 404 null null 0.9154ms
+2025-11-04 15:14:18.126 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-11-04 15:14:18.150 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_vs/browserLink - 200 null text/javascript; charset=UTF-8 64.3771ms
+2025-11-04 15:14:18.151 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - null null
+2025-11-04 15:14:18.152 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - 404 null null 0.9829ms
+2025-11-04 15:14:18.152 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/css/ace.css.map, Response status code: 404
+2025-11-04 15:14:18.205 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - null null
+2025-11-04 15:14:18.206 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - 404 null null 1.188ms
+2025-11-04 15:14:18.207 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/bootstrap.js.map, Response status code: 404
+2025-11-04 15:14:18.242 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - null null
+2025-11-04 15:14:18.243 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - 404 null null 0.8482ms
+2025-11-04 15:14:18.243 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/js/ace.js.map, Response status code: 404
+2025-11-04 15:14:18.254 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/ace.js.map - null null
+2025-11-04 15:14:18.254 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/ace.js.map - 404 null null 0.8644ms
+2025-11-04 15:14:18.254 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/ace.js.map, Response status code: 404
+2025-11-04 15:14:18.329 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/popper.js.map - null null
+2025-11-04 15:14:18.330 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/popper.js.map - 404 null null 1.2651ms
+2025-11-04 15:14:18.331 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/popper.js.map, Response status code: 404
+2025-11-04 15:14:27.016 +05:30 [INF] Request starting HTTP/2 POST https://localhost:44312/api/login - application/json 49
+2025-11-04 15:14:27.017 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:14:27.017 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(Ace_Admin.Dto.LoginView) on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:14:31.813 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__model_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Age], [e].[Email], [e].[EmpCode], [e].[EmpName], [e].[FilePath_pic], [e].[JoiningDate], [e].[Location], [e].[Password], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Username]
+FROM [Employee] AS [e]
+WHERE [e].[Username] = @__model_Username_0
+2025-11-04 15:14:32.003 +05:30 [INF] Executing JsonResult, writing value of type 'Ace_Admin.Dto.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-04 15:14:32.005 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 4987.7585ms
+2025-11-04 15:14:32.005 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:14:32.005 +05:30 [INF] Request finished HTTP/2 POST https://localhost:44312/api/login - 200 null application/json; charset=utf-8 4989.0333ms
+2025-11-04 15:15:16.103 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/login - null null
+2025-11-04 15:15:16.109 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:15:16.109 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:15:16.110 +05:30 [INF] Executing ViewResult, running view Login.
+2025-11-04 15:15:16.112 +05:30 [INF] Executed ViewResult - view Login executed in 2.3974ms.
+2025-11-04 15:15:16.112 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 3.1854ms
+2025-11-04 15:15:16.113 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:15:16.115 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/login - 200 null text/html; charset=utf-8 11.9442ms
+2025-11-04 15:15:16.154 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-11-04 15:15:16.158 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - 404 null null 4.1688ms
+2025-11-04 15:15:16.159 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-11-04 15:15:16.159 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-04 15:15:16.160 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 1.0839ms
+2025-11-04 15:15:16.160 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_vs/browserLink - null null
+2025-11-04 15:15:16.182 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_vs/browserLink - 200 null text/javascript; charset=UTF-8 21.2894ms
+2025-11-04 15:15:16.229 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - null null
+2025-11-04 15:15:16.230 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - 404 null null 1.0528ms
+2025-11-04 15:15:16.230 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/css/ace.css.map, Response status code: 404
+2025-11-04 15:15:16.304 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - null null
+2025-11-04 15:15:16.306 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - 404 null null 2.033ms
+2025-11-04 15:15:16.307 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/bootstrap.js.map, Response status code: 404
+2025-11-04 15:15:16.315 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - null null
+2025-11-04 15:15:16.316 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - 404 null null 0.8726ms
+2025-11-04 15:15:16.316 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/js/ace.js.map, Response status code: 404
+2025-11-04 15:15:16.332 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/ace.js.map - null null
+2025-11-04 15:15:16.333 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/ace.js.map - 404 null null 1.0509ms
+2025-11-04 15:15:16.333 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/ace.js.map, Response status code: 404
+2025-11-04 15:15:16.350 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/popper.js.map - null null
+2025-11-04 15:15:16.352 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/popper.js.map - 404 null null 1.4813ms
+2025-11-04 15:15:16.352 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/popper.js.map, Response status code: 404
+2025-11-04 15:17:52.311 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/login - null null
+2025-11-04 15:17:52.319 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:17:52.321 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:17:52.322 +05:30 [INF] Executing ViewResult, running view Login.
+2025-11-04 15:17:52.675 +05:30 [INF] Executed ViewResult - view Login executed in 353.3698ms.
+2025-11-04 15:17:52.675 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 353.8349ms
+2025-11-04 15:17:52.675 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:17:52.676 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/login - 200 null text/html; charset=utf-8 365.3935ms
+2025-11-04 15:17:52.738 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-04 15:17:52.741 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_vs/browserLink - null null
+2025-11-04 15:17:52.741 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 3.3802ms
+2025-11-04 15:17:52.741 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-11-04 15:17:52.766 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json - 404 null null 24.3ms
+2025-11-04 15:17:52.766 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-11-04 15:17:52.771 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_vs/browserLink - 200 null text/javascript; charset=UTF-8 29.8427ms
+2025-11-04 15:17:52.794 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - null null
+2025-11-04 15:17:52.798 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/css/ace.css.map - 404 null null 4.302ms
+2025-11-04 15:17:52.799 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/css/ace.css.map, Response status code: 404
+2025-11-04 15:17:52.942 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - null null
+2025-11-04 15:17:52.946 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/dist/js/ace.js.map - 404 null null 3.1714ms
+2025-11-04 15:17:52.946 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/dist/js/ace.js.map, Response status code: 404
+2025-11-04 15:17:52.946 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/ace.js.map - null null
+2025-11-04 15:17:52.951 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/ace.js.map - 404 null null 4.6436ms
+2025-11-04 15:17:52.951 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/ace.js.map, Response status code: 404
+2025-11-04 15:17:52.951 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/popper.js.map - null null
+2025-11-04 15:17:52.963 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/popper.js.map - 404 null null 11.6873ms
+2025-11-04 15:17:52.966 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/popper.js.map, Response status code: 404
+2025-11-04 15:17:52.968 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - null null
+2025-11-04 15:17:52.975 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/js/bootstrap.js.map - 404 null null 6.1446ms
+2025-11-04 15:17:52.975 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/js/bootstrap.js.map, Response status code: 404
+2025-11-04 15:18:08.006 +05:30 [INF] Request starting HTTP/2 POST https://localhost:44312/api/login - application/json 49
+2025-11-04 15:18:08.007 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:18:08.009 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(Ace_Admin.Dto.LoginView) on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:18:11.174 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__model_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Age], [e].[Email], [e].[EmpCode], [e].[EmpName], [e].[FilePath_pic], [e].[JoiningDate], [e].[Location], [e].[Password], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Username]
+FROM [Employee] AS [e]
+WHERE [e].[Username] = @__model_Username_0
+2025-11-04 15:18:11.366 +05:30 [INF] Executing JsonResult, writing value of type 'Ace_Admin.Dto.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-04 15:18:11.368 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 3359.2026ms
+2025-11-04 15:18:11.368 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:18:11.369 +05:30 [INF] Request finished HTTP/2 POST https://localhost:44312/api/login - 200 null application/json; charset=utf-8 3362.8061ms
+2025-11-04 15:20:08.290 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 15:22:26.331 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Security.Cryptography.RSABCrypt'.
+   at System.Security.Cryptography.RSABCrypt.GetKey()
+   at System.Security.Cryptography.RSABCrypt.TrySignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding, Int32& bytesWritten)
+   at System.Security.Cryptography.RSA.SignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at System.Security.Cryptography.RSABCrypt.SignHash(Byte[] hash, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.SignRsa(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.Sign(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at Ace_Admin.Models.assymmetricTokenGenerate.GenerateJwtToken(String username, Int32 empId) in C:\node_pro\Ace Admin\Ace Admin\Models\assymmetricTokenGenerate.cs:line 49
+   at Ace_Admin.Controllers.HomeController.Login(LoginView model) in C:\node_pro\Ace Admin\Ace Admin\Controllers\HomeController.cs:line 208
+   at lambda_method68(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)

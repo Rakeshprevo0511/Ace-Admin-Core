@@ -5,13 +5,29 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Ace_Admin</RootNamespace>
+    <UserSecretsId>5398cbc3-e3ac-417e-907c-1c72c185b484</UserSecretsId>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Program.cs~RF564e160f.TMP" />
+  </ItemGroup>
+
 	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="12.0.1" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+		<PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+		<PackageReference Include="CsvHelper" Version="33.1.0" />
 		<PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.3.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.2.0" />
 		<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.14.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1" />
+		<PackageReference Include="Quartz" Version="3.15.1" />
+		<PackageReference Include="Quartz.Extensions.Hosting" Version="3.15.1" />
+		<PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+		<PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+		<PackageReference Include="StackExchange.Redis" Version="2.10.1" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
 		<PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="8.14.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8">
@@ -23,6 +39,17 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
+		<PackageReference Include="System.Management" Version="10.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Keys\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Program.cs">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Compile>
 	</ItemGroup>
 
 

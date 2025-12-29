@@ -15,5 +15,9 @@ public partial class OtpRecord
 
     public DateTime ExpiryTime { get; set; }
 
+    public int IsFrom { get; set; }
+
     public bool IsUsed { get; set; }
+
+    public int IsExpired { get; set; }
 }

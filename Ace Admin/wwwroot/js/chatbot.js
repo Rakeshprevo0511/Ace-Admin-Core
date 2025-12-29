@@ -181,8 +181,6 @@
         if (typingIndicator) typingIndicator.remove();
     }
 }
-
-// Initialize chatbot when DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
     window.aiChatbot = new AIChatbot();
 });

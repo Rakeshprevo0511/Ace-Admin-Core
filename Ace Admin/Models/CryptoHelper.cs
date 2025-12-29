@@ -5,8 +5,8 @@ namespace Ace_Admin.Models
 {
     public class CryptoHelper
     {
-        private static readonly string Key = "your-32-char-secret-key-here"; // Must be 32 chars for AES-256
-        private static readonly string IV = "your-16-char-iv"; // Must be 16 chars
+        private static readonly string Key = "12345678901234567890123456789012"; // 32 chars
+        private static readonly string IV = "1234567890123456";
 
         public static string EncryptString(string plainText)
         {

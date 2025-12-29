@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\node_pro\\github project\\Ace Admin\\Ace-Admin-Core\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2CDA5C2B-0B82-4CD7-8229-DD2A06C8EF01}|Ace Admin\\Ace Admin.csproj|c:\\node_pro\\github project\\ace admin\\ace-admin-core\\ace admin\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2CDA5C2B-0B82-4CD7-8229-DD2A06C8EF01}|Ace Admin\\Ace Admin.csproj|solutionrelative:ace admin\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{2CDA5C2B-0B82-4CD7-8229-DD2A06C8EF01}|Ace Admin\\Ace Admin.csproj|c:\\node_pro\\github project\\ace admin\\ace-admin-core\\ace admin\\controllers\\chatbotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CDA5C2B-0B82-4CD7-8229-DD2A06C8EF01}|Ace Admin\\Ace Admin.csproj|solutionrelative:ace admin\\controllers\\chatbotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2CDA5C2B-0B82-4CD7-8229-DD2A06C8EF01}|Ace Admin\\Ace Admin.csproj|c:\\node_pro\\github project\\ace admin\\ace-admin-core\\ace admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2CDA5C2B-0B82-4CD7-8229-DD2A06C8EF01}|Ace Admin\\Ace Admin.csproj|solutionrelative:ace admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2CDA5C2B-0B82-4CD7-8229-DD2A06C8EF01}|Ace Admin\\Ace Admin.csproj|c:\\node_pro\\github project\\ace admin\\ace-admin-core\\ace admin\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CDA5C2B-0B82-4CD7-8229-DD2A06C8EF01}|Ace Admin\\Ace Admin.csproj|solutionrelative:ace admin\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2CDA5C2B-0B82-4CD7-8229-DD2A06C8EF01}|Ace Admin\\Ace Admin.csproj|c:\\node_pro\\github project\\ace admin\\ace-admin-core\\ace admin\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2CDA5C2B-0B82-4CD7-8229-DD2A06C8EF01}|Ace Admin\\Ace Admin.csproj|solutionrelative:ace admin\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2CDA5C2B-0B82-4CD7-8229-DD2A06C8EF01}|Ace Admin\\Ace Admin.csproj|c:\\node_pro\\github project\\ace admin\\ace-admin-core\\ace admin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,15 +42,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ChatBotController.cs",
+              "DocumentMoniker": "C:\\node_pro\\github project\\Ace Admin\\Ace-Admin-Core\\Ace Admin\\Controllers\\ChatBotController.cs",
+              "RelativeDocumentMoniker": "Ace Admin\\Controllers\\ChatBotController.cs",
+              "ToolTip": "C:\\node_pro\\github project\\Ace Admin\\Ace-Admin-Core\\Ace Admin\\Controllers\\ChatBotController.cs",
+              "RelativeToolTip": "Ace Admin\\Controllers\\ChatBotController.cs",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAIwJMAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T13:31:18.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "C:\\node_pro\\github project\\Ace Admin\\Ace-Admin-Core\\Ace Admin\\Models\\Employee.cs",
+              "RelativeDocumentMoniker": "Ace Admin\\Models\\Employee.cs",
+              "ToolTip": "C:\\node_pro\\github project\\Ace Admin\\Ace-Admin-Core\\Ace Admin\\Models\\Employee.cs",
+              "RelativeToolTip": "Ace Admin\\Models\\Employee.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA7wBkAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T13:01:34.669Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\node_pro\\github project\\Ace Admin\\Ace-Admin-Core\\Ace Admin\\Program.cs",
               "RelativeDocumentMoniker": "Ace Admin\\Program.cs",
@@ -50,12 +84,11 @@
               "RelativeToolTip": "Ace Admin\\Program.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAgwC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T06:39:15.42Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-29T06:39:15.42Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "ace.js",
               "DocumentMoniker": "C:\\node_pro\\github project\\Ace Admin\\Ace-Admin-Core\\Ace Admin\\wwwroot\\js\\ace.js",
               "RelativeDocumentMoniker": "Ace Admin\\wwwroot\\js\\ace.js",
@@ -63,12 +96,11 @@
               "RelativeToolTip": "Ace Admin\\wwwroot\\js\\ace.js",
               "ViewState": "AgIAAHYXAAAAAAAAAAAIwNAXAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-08-29T06:15:39.637Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-29T06:15:39.637Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\node_pro\\github project\\Ace Admin\\Ace-Admin-Core\\Ace Admin\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Ace Admin\\Views\\Shared\\_Layout.cshtml",
@@ -76,12 +108,11 @@
               "RelativeToolTip": "Ace Admin\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAABsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-29T06:14:52.561Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-29T06:14:52.561Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "LoginView.cs",
               "DocumentMoniker": "C:\\node_pro\\github project\\Ace Admin\\Ace-Admin-Core\\Ace Admin\\Dto\\LoginView.cs",
               "RelativeDocumentMoniker": "Ace Admin\\Dto\\LoginView.cs",
@@ -89,8 +120,7 @@
               "RelativeToolTip": "Ace Admin\\Dto\\LoginView.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T06:08:56.039Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-29T06:08:56.039Z"
             },
             {
               "$type": "Document",
@@ -100,20 +130,20 @@
               "RelativeDocumentMoniker": "Ace Admin\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\node_pro\\github project\\Ace Admin\\Ace-Admin-Core\\Ace Admin\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Ace Admin\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAowG4AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAEBAAAAAAAAAAAqwDoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-29T06:04:11.591Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\node_pro\\github project\\Ace Admin\\Ace-Admin-Core\\Ace Admin\\Views\\Home\\Login.cshtml",
               "RelativeDocumentMoniker": "Ace Admin\\Views\\Home\\Login.cshtml",
               "ToolTip": "C:\\node_pro\\github project\\Ace Admin\\Ace-Admin-Core\\Ace Admin\\Views\\Home\\Login.cshtml",
               "RelativeToolTip": "Ace Admin\\Views\\Home\\Login.cshtml",
-              "ViewState": "AgIAALMAAAAAAAAAAAAuwMAAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAPIBAAAAAAAAAAAAAB8CAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-08-29T05:57:17.451Z",
               "EditorCaption": ""

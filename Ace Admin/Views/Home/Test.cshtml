@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<label>usnme</label>
+<input type="text" id="txtuname" placeholder="pal"/>
+<input type="password" id="txtpass" placeholder="pal"/>
+<button onclick="btn_submit"> </button>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+ $(document).ready(function(){
+
+ });
+   function btn_submit (){
+       var uname = $("#txtuname").val();
+       var pass = $("#txtpass").val();
+
+       $.ajax({
+           url:'Home/Api',
+           type:'POST',
+           data:{
+               username:uname,
+               password:pass
+           },
+           success:function(res){
+
+           },
+           error:function(xhr){
+
+           }
+       })
+
+   }
+
+</script>

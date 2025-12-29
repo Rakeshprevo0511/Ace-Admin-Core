@@ -32,4 +32,6 @@ public partial class Employee
     public string? EmpCode { get; set; }
 
     public virtual ICollection<EmployeeCourse> EmployeeCourses { get; set; } = new List<EmployeeCourse>();
+
+    public virtual Wallet? Wallet { get; set; }
 }

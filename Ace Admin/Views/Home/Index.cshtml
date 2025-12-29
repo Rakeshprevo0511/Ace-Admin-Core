@@ -236,10 +236,10 @@
 
                     <div class="card-toolbar no-border align-self-start mt-15 mr-1">
                         <div class="dropdown dd-backdrop dd-backdrop-none-md">
-                            <a class="btn btn-light-secondary border-0 btn-bold btn-xs dropdown-toggle" href="#" role="button" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn btn-light-secondary border-0 btn-bold btn-xs dropdown-toggle" href="#" role="button" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
                                 This Week
                                 <i class="fa fa-caret-down ml-2"></i>
-                            </a>
+                            </button>
 
                             <div class="dropdown-menu dropdown-menu-right dropdown-caret dropdown-animated dd-slide-up dd-slide-none-md">
                                 <div class="dropdown-inner">
@@ -271,7 +271,7 @@
                         </div><div id="traffic-source-legends" class="piechart-legends text-95 text-secondary-d3"><ul class="0-legend"><li><span style="background-color: rgb(76, 165, 174);"></span>Social Networks</li><li><span style="background-color: rgb(241, 142, 93);"></span>Search Engines</li><li><span style="background-color: rgb(234, 120, 157);"></span>Ad Campaings</li><li><span style="background-color: rgb(34, 193, 228);"></span>Direct Traffic</li><li><span style="background-color: rgb(226, 227, 228);"></span>Other</li></ul></div>
                     </div>
                 </div>
-            </div><!-- /.card -->
+            </div>
         </div>
     </div>
 
@@ -441,7 +441,7 @@
 
         <div class="col-12 col-lg-4 mt-4 mt-lg-0">
             <div class="card ccard radius-t-0 h-100">
-                <div class="position-tl w-102 border-t-3 brc-primary-tp3 ml-n1px mt-n1px"></div><!-- the blue line on top -->
+                <div class="position-tl w-102 border-t-3 brc-primary-tp3 ml-n1px mt-n1px"></div>
 
                 <div class="card-header brc-secondary-l3 pb-3">
                     <h5 class="card-title mb-2 mb-md-0 text-dark-m3">
@@ -577,7 +577,7 @@
 
                         </div>
                     </form>
-                </div><!-- /.card-body -->
+                </div>
             </div>
         </div>
 
@@ -707,7 +707,7 @@
                     "text",  // messageType
                     null     // attachmentUrl
                 ).catch(err => console.error(err.toString()));
-
+            
                 msgInput.value = "";
             });
         })
@@ -802,16 +802,16 @@
         }
     }
         function loadUserList() {
-        const token = localStorage.getItem("employeeToken");
+        //const token = localStorage.getItem("employeeToken");
         const userDropdown = document.getElementById("userListDropdown");
 
-        fetch("/api/users", {
-            method: "GET",
-            headers: {
-                "Authorization": "Bearer " + token,
-                "Content-Type": "application/json"
-            }
-        })
+           fetch("/api/users", {
+        method: "GET",
+        credentials: "include",  // IMPORTANT
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
         .then(res => {
             if (!res.ok) throw new Error("Failed to fetch users: " + res.status);
             return res.json();
@@ -843,8 +843,35 @@
         }
     });
 </script>
-
-
+<script>
+    (function() {
+        // Traffic Source Pie Chart
+        var ctx = document.getElementById('traffic-source-chart').getContext('2d');
+        var trafficSourceChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Social Networks', 'Search Engines', 'Ad Campaigns', 'Direct Traffic', 'test'],
+                datasets: [{
+                    data: [350, 250, 150, 100, 80],
+                    backgroundColor: ['#4ca5ae', '#f18e5d', '#ea78a5', '#22c1e4', '#e2e3e4'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                cutout: '70%',
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: true
+                    }
+                }
+            }
+        });
+    });
+</script>
 
 
 

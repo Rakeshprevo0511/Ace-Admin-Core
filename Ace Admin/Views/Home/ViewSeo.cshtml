@@ -1,0 +1,119 @@
+@{
+    ViewData["Title"] = "SEO Settings List";
+}
+
+<div class="main-container bgc-white">
+    <main class="main-content">
+
+
+        <div class="row mt-2 mt-md-4">
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0"><i class="fas fa-list"></i> SEO Settings List</h4>
+                        <a href="/set-seo" class="btn btn-light btn-sm">
+                            <i class="fas fa-plus"></i> Add New
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered" id="seoTable">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>SR.N</th>
+                                        <th>Page Title</th>
+                                        <th>Page URL</th>
+                                        <th>Meta Description</th>
+                                        <th>Robots</th>
+                                        <th>Created Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<script>
+    $(document).ready(function() {
+        loadSeoList();
+    });
+
+    function loadSeoList() {
+        $.ajax({
+            url: '/api/seo/list',
+            type: 'GET',
+            success: function(response) {
+                if (response.success) {
+                    renderSeoTable(response.data);
+                }
+            },
+            error: function() {
+                $('#seoTable tbody').html('<tr><td colspan="7" class="text-center text-danger">Error loading data</td></tr>');
+            }
+        });
+    }
+
+    function renderSeoTable(data) {
+        let rows = '';
+
+        if (data.length === 0) {
+            rows = '<tr><td colspan="7" class="text-center">No records found</td></tr>';
+        } else {
+            data.forEach((item,index) => {
+                const createdDate = new Date(item.createdDate).toLocaleDateString('en-IN');
+                rows += `
+                    <tr>
+                        <td>${index+1}</td>
+                        <td>${item.pageTitle}</td>
+                        <td>${item.pageUrl || 'N/A'}</td>
+                        <td>${item.metaDescription.substring(0, 50)}...</td>
+                        <td><span class="badge bg-info">${item.robots}</span></td>
+                        <td>${createdDate}</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary" onclick="editSeo(${item.id})">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="btn btn-sm btn-danger" onclick="deleteSeo(${item.id})">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        $('#seoTable tbody').html(rows);
+    }
+
+    function editSeo(id) {
+        window.location.href = '/set-seo?id=' + id;
+    }
+
+    function deleteSeo(id) {
+        if (confirm('Are you sure you want to delete this SEO setting?')) {
+            $.ajax({
+                url: '/api/seo/delete/' + id,
+                type: 'DELETE',
+                success: function(response) {
+                    if (response.success) {
+                        alert(response.message);
+                        loadSeoList();
+                    }
+                },
+                error: function() {
+                    alert('Error deleting SEO settings');
+                }
+            });
+        }
+    }
+</script>
+

@@ -194,6 +194,46 @@ namespace Ace_Admin.Migrations
                     b.ToTable("EmployeeCourses");
                 });
 
+            modelBuilder.Entity("Ace_Admin.Models.Instrument", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Exchange")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ISIN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("InstrumentType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Symbol")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("TickSize")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Instrument");
+                });
+
             modelBuilder.Entity("Ace_Admin.Models.OtpRecord", b =>
                 {
                     b.Property<int>("Id")
@@ -613,10 +653,13 @@ namespace Ace_Admin.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("UserId")
-                        .HasColumnType("bigint");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("Wallets");
                 });
@@ -651,6 +694,17 @@ namespace Ace_Admin.Migrations
                     b.Navigation("Role");
                 });
 
+            modelBuilder.Entity("Ace_Admin.Models.Wallet", b =>
+                {
+                    b.HasOne("Ace_Admin.Models.Employee", "Employee")
+                        .WithOne("Wallet")
+                        .HasForeignKey("Ace_Admin.Models.Wallet", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+                });
+
             modelBuilder.Entity("Ace_Admin.Models.Course", b =>
                 {
                     b.Navigation("EmployeeCourses");
@@ -659,6 +713,8 @@ namespace Ace_Admin.Migrations
             modelBuilder.Entity("Ace_Admin.Models.Employee", b =>
                 {
                     b.Navigation("EmployeeCourses");
+
+                    b.Navigation("Wallet");
                 });
 
             modelBuilder.Entity("Ace_Admin.Models.Role", b =>

@@ -23,13 +23,21 @@ public partial class PracticeDbContext : DbContext
 
     public virtual DbSet<EmployeeCourse> EmployeeCourses { get; set; }
 
+    public virtual DbSet<Instrument> Instruments { get; set; }
+
     public virtual DbSet<OtpRecord> OtpRecords { get; set; }
 
     public virtual DbSet<PaymentTransaction> PaymentTransactions { get; set; }
 
+    public virtual DbSet<PayoutMethod> PayoutMethods { get; set; }
+
     public virtual DbSet<ProductMaster> ProductMasters { get; set; }
 
     public virtual DbSet<Role> Roles { get; set; }
+
+    public virtual DbSet<SeoSetting> SeoSettings { get; set; }
+
+    public virtual DbSet<Transaction> Transactions { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
 
@@ -39,9 +47,8 @@ public partial class PracticeDbContext : DbContext
 
     public virtual DbSet<UserToken> UserTokens { get; set; }
 
-    public virtual DbSet<PayoutMethod> PayoutMethods { get; set; }
     public virtual DbSet<Wallet> Wallets { get; set; }
-    public virtual DbSet<Transaction> Transactions { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Name=DefaultConnection");
 
@@ -99,8 +106,17 @@ public partial class PracticeDbContext : DbContext
             entity.HasOne(d => d.Employee).WithMany(p => p.EmployeeCourses).HasForeignKey(d => d.EmployeeId);
         });
 
+        modelBuilder.Entity<Instrument>(entity =>
+        {
+            entity.ToTable("Instrument");
+
+            entity.Property(e => e.Isin).HasColumnName("ISIN");
+            entity.Property(e => e.TickSize).HasColumnType("decimal(18, 2)");
+        });
+
         modelBuilder.Entity<OtpRecord>(entity =>
         {
+            entity.Property(e => e.IsExpired).HasComputedColumnSql("(case when getdate()>[ExpiryTime] then (1) else (0) end)", false);
             entity.Property(e => e.Otp).HasColumnName("OTP");
         });
 
@@ -149,6 +165,26 @@ public partial class PracticeDbContext : DbContext
             entity.Property(e => e.RoleName).HasMaxLength(50);
         });
 
+        modelBuilder.Entity<SeoSetting>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__SeoSetti__3214EC07C233283F");
+
+            entity.Property(e => e.CanonicalUrl).HasMaxLength(500);
+            entity.Property(e => e.CreatedDate).HasDefaultValueSql("(getdate())");
+            entity.Property(e => e.MetaAuthor).HasMaxLength(100);
+            entity.Property(e => e.MetaDescription).HasMaxLength(160);
+            entity.Property(e => e.MetaKeywords).HasMaxLength(500);
+            entity.Property(e => e.OgDescription).HasMaxLength(200);
+            entity.Property(e => e.OgImage).HasMaxLength(500);
+            entity.Property(e => e.OgTitle).HasMaxLength(100);
+            entity.Property(e => e.PageTitle).HasMaxLength(60);
+            entity.Property(e => e.PageUrl).HasMaxLength(500);
+            entity.Property(e => e.Robots).HasMaxLength(50);
+            entity.Property(e => e.TwitterCard).HasMaxLength(50);
+            entity.Property(e => e.TwitterSite).HasMaxLength(50);
+            entity.Property(e => e.UpdatedDate).HasDefaultValueSql("(getdate())");
+        });
+
         modelBuilder.Entity<User>(entity =>
         {
             entity.Property(e => e.Age).HasColumnName("age");
@@ -163,6 +199,8 @@ public partial class PracticeDbContext : DbContext
             entity.HasKey(e => e.Accid).HasName("PK__UserAcco__DF8AE1AC0DEB995F");
 
             entity.ToTable("UserAccount");
+
+            entity.HasIndex(e => e.RoleId, "IX_UserAccount_RoleID");
 
             entity.HasIndex(e => e.Username, "UQ__UserAcco__536C85E4D72AE6A2").IsUnique();
 
@@ -207,6 +245,13 @@ public partial class PracticeDbContext : DbContext
                 .HasColumnName("expires_at");
             entity.Property(e => e.Token).HasColumnName("token");
             entity.Property(e => e.UserId).HasColumnName("user_id");
+        });
+
+        modelBuilder.Entity<Wallet>(entity =>
+        {
+            entity.HasIndex(e => e.UserId, "IX_Wallets_UserId").IsUnique();
+
+            entity.HasOne(d => d.User).WithOne(p => p.Wallet).HasForeignKey<Wallet>(d => d.UserId);
         });
 
         OnModelCreatingPartial(modelBuilder);

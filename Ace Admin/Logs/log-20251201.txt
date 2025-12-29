@@ -1,0 +1,8 @@
+2025-12-01 11:32:27.606 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-01 11:32:31.520 +05:30 [INF] User rakesh.n logged in successfully.
+2025-12-01 11:41:29.713 +05:30 [WRN] Unauthorized login attempt (invalid frontend secret).
+2025-12-01 11:45:02.493 +05:30 [INF] User rakesh.n logged in successfully.
+2025-12-01 13:18:33.618 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-12-01 13:18:37.514 +05:30 [INF] User rakesh.n logged in successfully.
+2025-12-01 13:41:00.649 +05:30 [INF] User rakesh.n logged in successfully.
+2025-12-01 15:04:03.340 +05:30 [INF] User rakesh.n logged in successfully.

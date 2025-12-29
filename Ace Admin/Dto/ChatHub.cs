@@ -49,7 +49,7 @@ namespace Ace_Admin.Dto
                 UserId = senderId,
                 ReceiverId = receiverId,
                 Message = message,
-                SentAt = DateTime.Now,
+                SentAt = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("India Standard Time")),
                 IsRead = false,
                 MessageType = messageType,
                 AttachmentUrl = attachmentUrl

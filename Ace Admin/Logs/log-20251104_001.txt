@@ -1,0 +1,437 @@
+2025-11-04 15:20:08.290 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 15:22:26.331 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Security.Cryptography.RSABCrypt'.
+   at System.Security.Cryptography.RSABCrypt.GetKey()
+   at System.Security.Cryptography.RSABCrypt.TrySignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding, Int32& bytesWritten)
+   at System.Security.Cryptography.RSA.SignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at System.Security.Cryptography.RSABCrypt.SignHash(Byte[] hash, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.SignRsa(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.Sign(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at Ace_Admin.Models.assymmetricTokenGenerate.GenerateJwtToken(String username, Int32 empId) in C:\node_pro\Ace Admin\Ace Admin\Models\assymmetricTokenGenerate.cs:line 49
+   at Ace_Admin.Controllers.HomeController.Login(LoginView model) in C:\node_pro\Ace Admin\Ace Admin\Controllers\HomeController.cs:line 208
+   at lambda_method68(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-11-04 15:23:56.854 +05:30 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-04 15:23:57.060 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/ - null null
+2025-11-04 15:23:57.154 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-04 15:23:57.155 +05:30 [INF] Hosting environment: Development
+2025-11-04 15:23:57.155 +05:30 [INF] Content root path: C:\node_pro\Ace Admin\Ace Admin
+2025-11-04 15:23:57.271 +05:30 [INF] Executing endpoint 'HTTP: GET /'
+2025-11-04 15:23:57.280 +05:30 [INF] Executing RedirectResult, redirecting to /login.
+2025-11-04 15:23:57.281 +05:30 [INF] Executed endpoint 'HTTP: GET /'
+2025-11-04 15:23:57.300 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/login - null null
+2025-11-04 15:23:57.396 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:23:57.395 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/ - 302 null null 343.9406ms
+2025-11-04 15:23:57.417 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:23:57.737 +05:30 [INF] Executing ViewResult, running view Login.
+2025-11-04 15:23:58.240 +05:30 [INF] Executed ViewResult - view Login executed in 507.3565ms.
+2025-11-04 15:23:58.241 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 823.5927ms
+2025-11-04 15:23:58.248 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:23:58.266 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-04 15:23:58.267 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/login - 200 null text/html; charset=utf-8 967.4413ms
+2025-11-04 15:23:58.269 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 3.1217ms
+2025-11-04 15:23:58.270 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_vs/browserLink - null null
+2025-11-04 15:23:58.336 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_vs/browserLink - 200 null text/javascript; charset=UTF-8 66.1607ms
+2025-11-04 15:24:27.202 +05:30 [INF] Request starting HTTP/2 POST https://localhost:44312/api/login - application/json 49
+2025-11-04 15:24:27.221 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:24:27.229 +05:30 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(Ace_Admin.Dto.LoginView) on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:24:30.158 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 15:24:31.080 +05:30 [INF] Executed DbCommand (36ms) [Parameters=[@__model_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Age], [e].[Email], [e].[EmpCode], [e].[EmpName], [e].[FilePath_pic], [e].[JoiningDate], [e].[Location], [e].[Password], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Username]
+FROM [Employee] AS [e]
+WHERE [e].[Username] = @__model_Username_0
+2025-11-04 15:24:31.810 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-04 15:24:31.814 +05:30 [INF] Executing JsonResult, writing value of type 'Ace_Admin.Dto.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-04 15:24:31.826 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Login (Ace Admin) in 4596.4106ms
+2025-11-04 15:24:31.826 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Login (Ace Admin)'
+2025-11-04 15:24:31.841 +05:30 [INF] Request finished HTTP/2 POST https://localhost:44312/api/login - 200 null application/json; charset=utf-8 4639.8711ms
+2025-11-04 15:24:33.841 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/home - null null
+2025-11-04 15:24:33.847 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Index (Ace Admin)'
+2025-11-04 15:24:33.850 +05:30 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:24:33.854 +05:30 [INF] Executing ViewResult, running view Index.
+2025-11-04 15:24:33.926 +05:30 [INF] Executed ViewResult - view Index executed in 72.3123ms.
+2025-11-04 15:24:33.926 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Index (Ace Admin) in 75.9436ms
+2025-11-04 15:24:33.926 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Index (Ace Admin)'
+2025-11-04 15:24:33.928 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/home - 200 null text/html; charset=utf-8 87.5314ms
+2025-11-04 15:24:33.953 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/content= - null null
+2025-11-04 15:24:33.957 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/content= - 404 null null 3.8196ms
+2025-11-04 15:24:33.960 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/content=, Response status code: 404
+2025-11-04 15:24:33.960 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-04 15:24:33.966 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 2.1169ms
+2025-11-04 15:24:33.968 +05:30 [INF] Request starting HTTP/2 POST https://localhost:44312/chathub/negotiate?negotiateVersion=1 - null 0
+2025-11-04 15:24:33.969 +05:30 [INF] Executing endpoint '/chathub/negotiate'
+2025-11-04 15:24:33.986 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_vs/browserLink - null null
+2025-11-04 15:24:33.992 +05:30 [INF] Executed endpoint '/chathub/negotiate'
+2025-11-04 15:24:33.993 +05:30 [INF] Request finished HTTP/2 POST https://localhost:44312/chathub/negotiate?negotiateVersion=1 - 200 316 application/json 24.9674ms
+2025-11-04 15:24:34.008 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_vs/browserLink - 200 null text/javascript; charset=UTF-8 22.284ms
+2025-11-04 15:24:34.015 +05:30 [INF] Request starting HTTP/2 POST https://localhost:44312/token-check - application/json; charset=utf-8 0
+2025-11-04 15:24:34.017 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/messages/recent - null null
+2025-11-04 15:24:34.025 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44312/chathub?id=aXXXiTlQdaJwxw6ouFqIag - null null
+2025-11-04 15:24:34.026 +05:30 [INF] Executing endpoint '/chathub'
+2025-11-04 15:24:34.102 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.GetRecentMessages (Ace Admin)'
+2025-11-04 15:24:34.102 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.LoginCheck (Ace Admin)'
+2025-11-04 15:24:34.102 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/api/users - application/json null
+2025-11-04 15:24:34.103 +05:30 [INF] Route matched with {action = "LoginCheck", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult LoginCheck() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:24:34.105 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.GetUsers (Ace Admin)'
+2025-11-04 15:24:34.107 +05:30 [INF] Route matched with {action = "GetRecentMessages", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRecentMessages() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:24:34.108 +05:30 [INF] Route matched with {action = "GetUsers", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUsers() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:24:34.216 +05:30 [INF] Executed DbCommand (59ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id] AS [id], [e].[EmpName] AS [name]
+FROM [Employee] AS [e]
+2025-11-04 15:24:34.216 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[@__empIdClaim_0='?' (Size = 450), @__cutoff_1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[AttachmentUrl], [u].[ChatRoomId], [u].[DeliveredAt], [u].[IsRead], [u].[Message], [u].[MessageType], [u].[ReceiverId], [u].[SentAt], [u].[UserId]
+FROM [UserMessages] AS [u]
+WHERE [u].[ReceiverId] = @__empIdClaim_0 AND [u].[SentAt] >= @__cutoff_1
+ORDER BY [u].[SentAt] DESC
+2025-11-04 15:24:34.226 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserId], [u].[ReceiverId], [u].[Message], [u].[SentAt], [u].[MessageType], [u].[AttachmentUrl], [u].[IsRead]
+FROM [UserMessages] AS [u]
+WHERE [u].[UserId] = @__userId_0 AND [u].[ReceiverId] IS NULL
+ORDER BY [u].[SentAt]
+2025-11-04 15:24:34.241 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType4`2[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Ace Admin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-04 15:24:34.247 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.GetUsers (Ace Admin) in 138.7237ms
+2025-11-04 15:24:34.247 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.GetUsers (Ace Admin)'
+2025-11-04 15:24:34.249 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/api/users - 200 null application/json; charset=utf-8 146.5497ms
+2025-11-04 15:24:34.288 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__empId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Age], [s].[Email], [s].[EmpCode], [s].[EmpName], [s].[FilePath_pic], [s].[JoiningDate], [s].[Location], [s].[Password], [s].[PhoneNumber], [s].[Position], [s].[Salary], [s].[Username], [s].[Id0], [s].[Balance], [s].[CreatedAt], [s].[UserId], [s0].[EmployeeCourseId], [s0].[CompletionDate], [s0].[CourseId], [s0].[EmployeeId], [s0].[EndDate], [s0].[StartDate], [s0].[Status], [s0].[StudyHours], [s0].[CourseId0], [s0].[CourseDescription], [s0].[CourseName]
+FROM (
+    SELECT TOP(1) [e].[Id], [e].[Age], [e].[Email], [e].[EmpCode], [e].[EmpName], [e].[FilePath_pic], [e].[JoiningDate], [e].[Location], [e].[Password], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Username], [w].[Id] AS [Id0], [w].[Balance], [w].[CreatedAt], [w].[UserId]
+    FROM [Employee] AS [e]
+    LEFT JOIN [Wallets] AS [w] ON [e].[Id] = [w].[UserId]
+    WHERE [e].[Id] = @__empId_0
+) AS [s]
+LEFT JOIN (
+    SELECT [e0].[EmployeeCourseId], [e0].[CompletionDate], [e0].[CourseId], [e0].[EmployeeId], [e0].[EndDate], [e0].[StartDate], [e0].[Status], [e0].[StudyHours], [c].[CourseId] AS [CourseId0], [c].[CourseDescription], [c].[CourseName]
+    FROM [EmployeeCourses] AS [e0]
+    INNER JOIN [Courses] AS [c] ON [e0].[CourseId] = [c].[CourseId]
+) AS [s0] ON [s].[Id] = [s0].[EmployeeId]
+ORDER BY [s].[Id], [s].[Id0], [s0].[EmployeeCourseId]
+2025-11-04 15:24:34.303 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__senderIds_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Age], [e].[Email], [e].[EmpCode], [e].[EmpName], [e].[FilePath_pic], [e].[JoiningDate], [e].[Location], [e].[Password], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Username]
+FROM [Employee] AS [e]
+WHERE [e].[Id] IN (
+    SELECT [s].[value]
+    FROM OPENJSON(@__senderIds_0) WITH ([value] int '$') AS [s]
+)
+2025-11-04 15:24:34.305 +05:30 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType12`4[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Ace Admin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-04 15:24:34.307 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.GetRecentMessages (Ace Admin) in 199.1377ms
+2025-11-04 15:24:34.307 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.GetRecentMessages (Ace Admin)'
+2025-11-04 15:24:34.307 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/messages/recent - 200 null application/json; charset=utf-8 290.346ms
+2025-11-04 15:24:34.316 +05:30 [INF] Executing JsonResult, writing value of type 'Ace_Admin.Dto.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-04 15:24:34.345 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.LoginCheck (Ace Admin) in 241.8482ms
+2025-11-04 15:24:34.346 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.LoginCheck (Ace Admin)'
+2025-11-04 15:24:34.346 +05:30 [INF] Request finished HTTP/2 POST https://localhost:44312/token-check - 200 null application/json; charset=utf-8 331.3518ms
+2025-11-04 15:31:07.865 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/home - null null
+2025-11-04 15:31:07.872 +05:30 [INF] Executing endpoint 'Ace_Admin.Controllers.HomeController.Index (Ace Admin)'
+2025-11-04 15:31:07.874 +05:30 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Ace_Admin.Controllers.HomeController (Ace Admin).
+2025-11-04 15:31:07.876 +05:30 [INF] Executing ViewResult, running view Index.
+2025-11-04 15:31:07.883 +05:30 [INF] Executed ViewResult - view Index executed in 7.8576ms.
+2025-11-04 15:31:07.883 +05:30 [INF] Executed action Ace_Admin.Controllers.HomeController.Index (Ace Admin) in 8.9881ms
+2025-11-04 15:31:07.883 +05:30 [INF] Executed endpoint 'Ace_Admin.Controllers.HomeController.Index (Ace Admin)'
+2025-11-04 15:31:07.885 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/home - 200 null text/html; charset=utf-8 20.4825ms
+2025-11-04 15:31:07.969 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-04 15:31:07.970 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_framework/aspnetcore-browser-refresh.js - 200 16503 application/javascript; charset=utf-8 1.0763ms
+2025-11-04 15:31:07.970 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/css/chatbot.css - null null
+2025-11-04 15:31:07.975 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/content= - null null
+2025-11-04 15:31:07.977 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/content= - 404 null null 2.2092ms
+2025-11-04 15:31:07.977 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44312/content=, Response status code: 404
+2025-11-04 15:31:07.979 +05:30 [INF] The file /css/chatbot.css was not modified
+2025-11-04 15:31:07.980 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/css/chatbot.css - 304 null text/css 9.8277ms
+2025-11-04 15:31:07.985 +05:30 [INF] Executed endpoint '/chathub'
+2025-11-04 15:31:07.986 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:44312/chathub?id=aXXXiTlQdaJwxw6ouFqIag - 101 null null 393960.4838ms
+2025-11-04 15:31:07.989 +05:30 [INF] Request starting HTTP/2 GET https://localhost:44312/_vs/browserLink - null null
+2025-11-04 15:31:08.000 +05:30 [INF] Request finished HTTP/2 GET https://localhost:44312/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.6588ms
+2025-11-04 15:31:08.028 +05:30 [INF] Request starting HTTP/2 POST https://localhost:44312/chathub/negotiate?negotiateVersion=1 - null 0
+2025-11-04 15:31:08.028 +05:30 [INF] Executing endpoint '/chathub/negotiate'
+2025-11-04 15:31:08.044 +05:30 [INF] Executed endpoint '/chathub/negotiate'
+2025-11-04 15:31:08.047 +05:30 [INF] Request finished HTTP/2 POST https://localhost:44312/chathub/negotiate?negotiateVersion=1 - 200 316 application/json 17.5031ms
+2025-11-04 15:31:26.395 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 15:31:28.009 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-04 15:38:50.725 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 15:38:55.332 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 15:39:08.993 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 15:39:50.008 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 15:39:53.524 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 15:51:16.743 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 15:57:15.274 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 15:57:17.050 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-04 15:57:20.075 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 16:04:38.893 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 16:04:40.440 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-04 16:04:43.235 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 16:05:05.735 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'System.Net.Http.IHttpClientFactory' while attempting to activate 'Ace_Admin.Controllers.Api.ChatBotController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method220(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-11-04 16:05:15.670 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'System.Net.Http.IHttpClientFactory' while attempting to activate 'Ace_Admin.Controllers.Api.ChatBotController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method220(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-11-04 16:06:21.994 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 16:06:23.706 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-04 16:06:26.663 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 16:09:40.504 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 16:09:42.292 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-04 16:09:45.073 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 16:16:56.615 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 16:16:58.586 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-04 16:17:01.828 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 16:17:13.976 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 16:46:49.294 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 16:46:51.388 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-04 16:46:53.951 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 16:49:18.594 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 17:02:51.561 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Security.Cryptography.RSABCrypt'.
+   at System.Security.Cryptography.RSABCrypt.GetKey()
+   at System.Security.Cryptography.RSABCrypt.TrySignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding, Int32& bytesWritten)
+   at System.Security.Cryptography.RSA.SignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at System.Security.Cryptography.RSABCrypt.SignHash(Byte[] hash, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.SignRsa(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.Sign(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at Ace_Admin.Models.assymmetricTokenGenerate.GenerateJwtToken(String username, Int32 empId)
+   at Ace_Admin.Controllers.HomeController.Login(LoginView model)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-11-04 17:03:44.020 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 17:03:45.699 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-04 17:04:00.868 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Security.Cryptography.RSABCrypt'.
+   at System.Security.Cryptography.RSABCrypt.GetKey()
+   at System.Security.Cryptography.RSABCrypt.TrySignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding, Int32& bytesWritten)
+   at System.Security.Cryptography.RSA.SignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at System.Security.Cryptography.RSABCrypt.SignHash(Byte[] hash, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.SignRsa(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.Sign(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at Ace_Admin.Models.assymmetricTokenGenerate.GenerateJwtToken(String username, Int32 empId) in C:\node_pro\Ace Admin\Ace Admin\Models\assymmetricTokenGenerate.cs:line 49
+   at Ace_Admin.Controllers.HomeController.Login(LoginView model) in C:\node_pro\Ace Admin\Ace Admin\Controllers\HomeController.cs:line 239
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-11-04 17:04:22.434 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-04 17:04:24.618 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 17:09:29.910 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 17:09:31.214 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 17:12:04.629 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 17:12:06.503 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-04 17:12:51.859 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 17:12:52.969 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 17:16:04.117 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 17:16:05.815 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-04 17:16:37.343 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 17:49:10.436 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 17:49:11.940 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-04 18:07:17.992 +05:30 [WRN] Unauthorized login attempt (invalid frontend secret).
+2025-11-04 18:09:33.221 +05:30 [WRN] Unauthorized origin: https://localhost:44312
+2025-11-04 18:09:56.950 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Security.Cryptography.RSABCrypt'.
+   at System.Security.Cryptography.RSABCrypt.GetKey()
+   at System.Security.Cryptography.RSABCrypt.TrySignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding, Int32& bytesWritten)
+   at System.Security.Cryptography.RSA.SignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at System.Security.Cryptography.RSABCrypt.SignHash(Byte[] hash, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.SignRsa(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.Sign(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at Ace_Admin.Models.assymmetricTokenGenerate.GenerateJwtToken(String username, Int32 empId)
+   at Ace_Admin.Controllers.HomeController.Login(LoginView model)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-11-04 18:15:05.868 +05:30 [WRN] Unauthorized login attempt (invalid frontend secret).
+2025-11-04 18:17:34.431 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 18:17:43.086 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-04 18:18:46.962 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Security.Cryptography.RSABCrypt'.
+   at System.Security.Cryptography.RSABCrypt.GetKey()
+   at System.Security.Cryptography.RSABCrypt.TrySignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding, Int32& bytesWritten)
+   at System.Security.Cryptography.RSA.SignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at System.Security.Cryptography.RSABCrypt.SignHash(Byte[] hash, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.SignRsa(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.Sign(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at Ace_Admin.Models.assymmetricTokenGenerate.GenerateJwtToken(String username, Int32 empId)
+   at Ace_Admin.Controllers.HomeController.Login(LoginView model)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-11-04 18:19:12.375 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 18:19:13.953 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-04 18:19:16.380 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 18:30:06.589 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 18:30:31.081 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Security.Cryptography.RSABCrypt'.
+   at System.Security.Cryptography.RSABCrypt.GetKey()
+   at System.Security.Cryptography.RSABCrypt.TrySignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding, Int32& bytesWritten)
+   at System.Security.Cryptography.RSA.SignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at System.Security.Cryptography.RSABCrypt.SignHash(Byte[] hash, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.SignRsa(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.Sign(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at Ace_Admin.Models.assymmetricTokenGenerate.GenerateJwtToken(String username, Int32 empId)
+   at Ace_Admin.Controllers.HomeController.Login(LoginView model)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-11-04 18:30:56.739 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 18:30:58.386 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-04 18:31:00.909 +05:30 [INF] Token verified successfully for employee: 1
+2025-11-04 18:39:13.770 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Security.Cryptography.RSABCrypt'.
+   at System.Security.Cryptography.RSABCrypt.GetKey()
+   at System.Security.Cryptography.RSABCrypt.TrySignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding, Int32& bytesWritten)
+   at System.Security.Cryptography.RSA.SignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at System.Security.Cryptography.RSABCrypt.SignHash(Byte[] hash, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.SignRsa(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.Sign(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at Ace_Admin.Models.assymmetricTokenGenerate.GenerateJwtToken(String username, Int32 empId) in C:\node_pro\Ace Admin\Ace Admin\Models\assymmetricTokenGenerate.cs:line 52
+   at Ace_Admin.Controllers.HomeController.Login(LoginView model) in C:\node_pro\Ace Admin\Ace Admin\Controllers\HomeController.cs:line 254
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-11-04 18:40:12.442 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-04 18:40:13.937 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-04 18:40:16.497 +05:30 [INF] Token verified successfully for employee: 1

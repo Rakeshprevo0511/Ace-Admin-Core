@@ -1,0 +1,2 @@
+2025-11-19 11:43:05.654 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-19 11:43:09.432 +05:30 [INF] User rakesh.n logged in successfully.

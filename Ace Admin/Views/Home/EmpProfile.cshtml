@@ -2,12 +2,12 @@
     @model YourNamespace.EmpProfileDto
 *@
 @{
-  //  @model Ace_Admin.Dto.EmpProfileDto
+    ViewData["Title"] = "Employee Profile ";
 }
 
 <div class="main-container bgc-white">
 
-    <div role="main" class="main-content">
+    <main class="main-content">
 
         <div class="page-content container container-plus">
             <div class="row mt-2 mt-md-4">
@@ -26,13 +26,13 @@
                             <div class="d-flex flex-column py-3 px-lg-3 justify-content-center align-items-center">
 
                                 <div class="pos-rel">
-                                    <img alt="Profile image" src="assets/image/avatar/avatar5.jpg" class="radius-round bord1er-2 brc-warning-m1" />
+                                    <img alt="Profile image" id="txtprofileimage" src="" class="radius-round bord1er-2 brc-warning-m1" />
                                     <span class=" position-tr bgc-success p-1 radius-round border-2 brc-white mt-2px mr-2px"></span>
                                 </div>
 
                                 <div class="text-center mt-2">
                                     <h5 id="txtfullname" class="text-130 text-dark-m3">
-                                      Ace
+                                        Ace
                                     </h5>
 
                                     <span id="txtdesignation" class="text-80 text-primary text-600">
@@ -398,7 +398,7 @@
                                                             <i class="far fa-envelope text-blue"></i>
                                                         </td>
 
-                                                        <td  class="text-95 text-600 text-secondary-d2">
+                                                        <td class="text-95 text-600 text-secondary-d2">
                                                             Email
                                                         </td>
 
@@ -426,7 +426,7 @@
                                                             <i class="fa fa-map-marker text-orange-d1"></i>
                                                         </td>
 
-                                                        <td  class="text-95 text-600 text-secondary-d2">
+                                                        <td class="text-95 text-600 text-secondary-d2">
                                                             Location
                                                         </td>
 
@@ -806,8 +806,6 @@
 
                                         </div>
 
-
-
                                         <div class="col-12">
                                             <hr class="border-double brc-dark-l3" />
 
@@ -834,172 +832,252 @@
             </div>
         </div>
 
-    </div>
+    </main>
 
 </div>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
-            function capitalizeWords(str) {
-        if (!str) return '';
-        return str
-            .split(' ')
-            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-            .join(' ');
-    }
-    $(document).ready(function () {
-        const token = localStorage.getItem('employeeToken');
+    (function($) {
+        'use strict';
 
-        if (!token) {
-            showAlert({ type: 'error', message: 'You are not logged in. Redirecting...' });
-            setTimeout(() => window.location.href = '/Home/Login', 1200);
-            return;
+        // Utility function to capitalize words
+        function capitalizeWords(str) {
+            if (!str || typeof str !== 'string') return '';
+            return str
+                .toLowerCase()
+                .split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .filter(word => word.length > 0)
+                .join(' ');
         }
 
-        let originalValues = {}; // store initial values for comparison
+        // Utility function for showing alerts
+        function showAlert(options) {
+            // Implementation depends on your alert system
+            console.log(`Alert [${options.type}]: ${options.message}`);
+            // Add your toast/notification implementation here
+        }
 
-        // ✅ Load profile
-        $.ajax({
-            url: '/profile',
-            type: 'GET',
-            headers: { 'Authorization': 'Bearer ' + token },
-                success: function (res) {
-        if (res.success) {
-            const user = res.data.user;
-            const courses = res.data.courses;
+        $(document).ready(function() {
+            
 
-            // 🧑‍💼 Populate profile data
-            $('#txtfullname').text(user.fullName);
-            $('#txtEmail').text(user.email);
-            $('#txtPhone').text(user.phone);
-            $('#txtlocation').text(user.location);
-            $('#txtusername').text(user.username);
-            $('#txtdesignation').text(user.designation);
-            $('#imgAvatar').attr('src', user.avatarUrl);
+            let originalValues = {};
 
-            $('#id-field1').val(user.fullName);
-            $('#id-field2').val(user.email);
-            $('#id-field3').val(user.phone);
-            $('#id-field4').val(user.location);
-
-            // 🎓 Populate Completed Courses dynamically
-            const $skillContainer = $('#skill-chart').next('.mt-2.text-center');
-            $skillContainer.empty(); // clear old data
-
-            if (courses && courses.length > 0) {
-                courses.forEach((course, index) => {
-                    // assign alternating color classes
-                    const colorClasses = [
-                        "bgc-blue-l2",
-                        "bgc-purple-l2",
-                        "bgc-success-l2",
-                        "bgc-warning-l2",
-                        "bgc-default-l2"
-                    ];
-                    const color = colorClasses[index % colorClasses.length];
-
-                    const courseTag = `
-                        <span class="d-inline-block radius-round ${color} text-dark-tp3 text-90 px-25 py-3px mx-2px my-2px">
-                            ${course.courseName}
-                        </span>`;
-                    $skillContainer.append(courseTag);
+            // ========================================
+            // 1. LOAD PROFILE DATA
+            // ========================================
+            function loadProfile() {
+                $.ajax({
+                    url: '/profile',
+                    type: 'GET',
+                    xhrFields: { withCredentials: true },
+                    success: function(response) {
+                        if (response.success) {
+                            populateProfile(response.data.user, response.data.courses);
+                        } else {
+                            showAlert({
+                                type: 'error',
+                                message: response.message || 'Failed to load profile.'
+                            });
+                        }
+                    },
+                    error: function(xhr) {
+                        handleAjaxError(xhr);
+                    }
                 });
-            } else {
-                $skillContainer.append(`
-                    <span class="text-muted text-90">No completed courses yet.</span>
-                `);
             }
-        } else {
-            showAlert({ type: 'error', message: res.message || 'Failed to load profile.' });
-        }
-    },
-            error: function (xhr) {
-                if (xhr.status === 401) {
-                    showAlert({ type: 'error', message: 'Unauthorized. Please login again.' });
-                    setTimeout(() => window.location.href = '/Home/Login', 1200);
+
+            // Populate profile fields
+            function populateProfile(user, courses) {
+                // Display fields (read-only)
+                $('#txtfullname').text(capitalizeWords(user.fullName));
+                $('#txtEmail').text(user.email);
+                $('#txtPhone').text(user.phone);
+                $('#txtlocation').text(capitalizeWords(user.location));
+                $('#txtusername').text(user.username);
+                $('#txtdesignation').text(capitalizeWords(user.designation));
+
+                // Profile image
+                $('#txtprofileimage').attr('src', user.avatarUrl || '/assets/image/avatar/avatar2.png');
+
+                // Editable input fields
+                $('#id-field1').val(user.fullName);
+                $('#id-field2').val(user.email);
+                $('#id-field3').val(user.phone);
+                $('#id-field4').val(capitalizeWords(user.location));
+
+                // Store original values for change detection
+                originalValues = {
+                    fullName: user.fullName,
+                    email: user.email,
+                    phone: user.phone,
+                    location: user.location
+                };
+
+                // Populate completed courses
+                populateCourses(courses);
+            }
+
+            // Populate courses with alternating colors
+            function populateCourses(courses) {
+                const $skillContainer = $('#skill-chart').next('.mt-2.text-center');
+                $skillContainer.empty();
+
+                if (courses && courses.length > 0) {
+                    const colorClasses = [
+                        'bgc-blue-l2',
+                        'bgc-purple-l2',
+                        'bgc-success-l2',
+                        'bgc-warning-l2',
+                        'bgc-default-l2'
+                    ];
+
+                    courses.forEach((course, index) => {
+                        const colorClass = colorClasses[index % colorClasses.length];
+                        const courseTag = `
+                            <span class="d-inline-block radius-round ${colorClass} text-dark-tp3 text-90 px-25 py-3px mx-2px my-2px">
+                                ${capitalizeWords(course.courseName)}
+                            </span>
+                        `;
+                        $skillContainer.append(courseTag);
+                    });
                 } else {
-                    showAlert({ type: 'error', message: 'Error loading profile.' });
+                    $skillContainer.html('<span class="text-muted text-90">No completed courses yet.</span>');
                 }
             }
-        });
 
-        // ✅ Detect changes in any field
-        $('input').on('input change', function () {
-            const currentValues = {
-                fullName: $('#id-field1').val(),
-                email: $('#id-field2').val(),
-                phone: $('#id-field3').val(),
-                location: $('#id-field4').val()
-            };
-
-            // Compare current and original values
-            const hasChanged = Object.keys(currentValues).some(
-                key => currentValues[key] !== originalValues[key]
-            );
-
-            if (hasChanged) {
-                $('#btnSaveProfile').prop('disabled', false).fadeIn(200);
-                $('#btnCancelProfile').prop('disabled', false).fadeIn(200);
-            } else {
-                $('#btnSaveProfile').prop('disabled', true).fadeOut(200);
-                $('#btnCancelProfile').prop('disabled', true).fadeOut(200);
+            // ========================================
+            // 2. CHANGE DETECTION
+            // ========================================
+            function initChangeDetection() {
+                $('#id-field1, #id-field2, #id-field3, #id-field4').on('input change', detectChanges);
             }
-        });
 
-        // ✅ Save Profile Changes
-        $('#btnSaveProfile').click(function () {
-            const updatedProfile = {
-                fullName: $('#id-field1').val(),
-                email: $('#id-field2').val(),
-                phone: $('#id-field3').val(),
-                location: $('#id-field4').val()
-            };
+            function detectChanges() {
+                const currentValues = getCurrentValues();
+                const hasChanged = Object.keys(currentValues).some(
+                    key => currentValues[key] !== originalValues[key]
+                );
 
-            $('#btnSaveProfile').prop('disabled', true).text('Saving...');
+                toggleButtons(hasChanged);
+            }
 
-            $.ajax({
-                url: '/profile/update',
-                type: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify(updatedProfile),
-                headers: { 'Authorization': 'Bearer ' + token },
-                success: function (response) {
-                    showAlert({
-                        type: response.success ? 'success' : 'error',
-                        message: response.message || (response.success
-                            ? 'Profile updated successfully!'
-                            : 'Failed to update profile.')
-                    });
+            function getCurrentValues() {
+                return {
+                    fullName: $('#id-field1').val().trim(),
+                    email: $('#id-field2').val().trim(),
+                    phone: $('#id-field3').val().trim(),
+                    location: $('#id-field4').val().trim()
+                };
+            }
 
-                    if (response.success) {
-                        // Reset original values to new ones
-                        originalValues = { ...updatedProfile };
-                        $('#btnSaveProfile').fadeOut(300);
+            function toggleButtons(hasChanges) {
+                const $saveBtn = $('#btnSaveProfile');
+                const $cancelBtn = $('#btnCancelProfile');
+
+                if (hasChanges) {
+                    $saveBtn.prop('disabled', false).fadeIn(200).text('Save Changes');
+                    $cancelBtn.prop('disabled', false).fadeIn(200);
+                } else {
+                    $saveBtn.prop('disabled', true).fadeOut(200);
+                    $cancelBtn.prop('disabled', true).fadeOut(200);
+                }
+            }
+
+            // ========================================
+            // 3. SAVE PROFILE
+            // ========================================
+            function initSaveHandler() {
+                $('#btnSaveProfile').click(saveProfile);
+            }
+
+            function saveProfile() {
+                const updatedProfile = getCurrentValues();
+
+                $('#btnSaveProfile').prop('disabled', true).text('Saving...');
+
+                $.ajax({
+                    url: '/profile/update',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(updatedProfile),
+                    xhrFields: { withCredentials: true },
+                    success: function(response) {
+                        handleSaveResponse(response);
+                    },
+                    error: function(xhr) {
+                        handleAjaxError(xhr);
+                    },
+                    complete: function() {
+                        $('#btnSaveProfile').prop('disabled', false).text('Save Changes');
                     }
-                },
-                error: function (xhr) {
+                });
+            }
+
+            function handleSaveResponse(response) {
+                const message = response.message ||
+                    (response.success ? 'Profile updated successfully!' : 'Failed to update profile.');
+
+                showAlert({
+                    type: response.success ? 'success' : 'error',
+                    message: message
+                });
+
+                if (response.success) {
+                    originalValues = { ...getCurrentValues() };
+                    toggleButtons(false);
+                    loadProfile(); // Refresh display fields
+                }
+            }
+
+            // ========================================
+            // 4. CANCEL CHANGES
+            // ========================================
+            function initCancelHandler() {
+                $('#btnCancelProfile').click(cancelChanges);
+            }
+
+            function cancelChanges() {
+                $('#id-field1').val(originalValues.fullName);
+                $('#id-field2').val(originalValues.email);
+                $('#id-field3').val(originalValues.phone);
+                $('#id-field4').val(originalValues.location);
+
+                toggleButtons(false);
+                $('#id-field1, #id-field2, #id-field3, #id-field4').trigger('change');
+            }
+
+            // ========================================
+            // 5. ERROR HANDLING
+            // ========================================
+            function handleAjaxError(xhr) {
+                if (xhr.status === 401) {
                     showAlert({
                         type: 'error',
-                        message: xhr.status === 401
-                            ? 'Session expired. Please login again.'
-                            : 'Error updating profile. Please try again.'
+                        message: 'Session expired. Please login again.'
                     });
-                    if (xhr.status === 401) setTimeout(() => window.location.href = '/Home/Login', 1200);
-                },
-                complete: function () {
-                    $('#btnSaveProfile').prop('disabled', false).text('Save Changes');
+                    setTimeout(() => {
+                        window.location.href = '/login';
+                    }, 1200);
+                } else {
+                    showAlert({
+                        type: 'error',
+                        message: 'Network error. Please try again.'
+                    });
                 }
-            });
+            }
+
+            // ========================================
+            // 6. INITIALIZATION
+            // ========================================
+            loadProfile();
+            initChangeDetection();
+            initSaveHandler();
+            initCancelHandler();
+
         });
 
-        // ✅ Cancel button restores original values
-        $('#btnCancelProfile').click(function () {
-            $('#id-field1').val(originalValues.fullName);
-            $('#id-field2').val(originalValues.email);
-            $('#id-field3').val(originalValues.phone);
-            $('#id-field4').val(originalValues.location);
-            $('#btnSaveProfile').fadeOut(200);
-            $('#btnCancelProfile').fadeOut(200);
-        });
-    });
+    })(jQuery);
 </script>
+

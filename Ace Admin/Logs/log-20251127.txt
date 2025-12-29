@@ -1,0 +1,114 @@
+2025-11-27 12:01:25.345 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-27 12:01:43.065 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-27 12:03:39.670 +05:30 [ERR] Error during login for user rakesh.n
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Security.Cryptography.RSABCrypt'.
+   at System.Security.Cryptography.RSABCrypt.GetKey()
+   at System.Security.Cryptography.RSABCrypt.TrySignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding, Int32& bytesWritten)
+   at System.Security.Cryptography.RSA.SignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at System.Security.Cryptography.RSABCrypt.SignHash(Byte[] hash, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.SignRsa(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.Sign(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at Ace_Admin.Models.assymmetricTokenGenerate.GenerateJwtToken(String username, Int32 empId, String machineid)
+   at Ace_Admin.Controllers.HomeController.Login(LoginView model)
+2025-11-27 12:03:52.942 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-27 12:13:13.837 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-27 12:13:19.363 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-27 12:23:55.158 +05:30 [ERR] Error during login for user rakesh.n
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Security.Cryptography.RSABCrypt'.
+   at System.Security.Cryptography.RSABCrypt.GetKey()
+   at System.Security.Cryptography.RSABCrypt.TrySignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding, Int32& bytesWritten)
+   at System.Security.Cryptography.RSA.SignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at System.Security.Cryptography.RSABCrypt.SignHash(Byte[] hash, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.SignRsa(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.Sign(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at Ace_Admin.Models.assymmetricTokenGenerate.GenerateJwtToken(String username, Int32 empId, String machineid)
+   at Ace_Admin.Controllers.HomeController.Login(LoginView model)
+2025-11-27 12:26:02.503 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-27 12:26:24.607 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-27 12:30:14.979 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-11-27 12:35:47.404 +05:30 [ERR] Error during login for user rakesh.n
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Security.Cryptography.RSABCrypt'.
+   at System.Security.Cryptography.RSABCrypt.GetKey()
+   at System.Security.Cryptography.RSABCrypt.TrySignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding, Int32& bytesWritten)
+   at System.Security.Cryptography.RSA.SignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at System.Security.Cryptography.RSABCrypt.SignHash(Byte[] hash, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.SignRsa(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.Sign(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at Ace_Admin.Models.assymmetricTokenGenerate.GenerateJwtToken(String username, Int32 empId, String machineid)
+   at Ace_Admin.Controllers.HomeController.Login(LoginView model)
+2025-11-27 12:38:22.600 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-27 12:38:31.879 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-27 12:47:42.100 +05:30 [ERR] Failed to invoke hub method 'SendMessage'.
+System.Security.Cryptography.CryptographicException: Specified key is not a valid size for this algorithm.
+   at System.Security.Cryptography.SymmetricAlgorithm.set_Key(Byte[] value)
+   at Ace_Admin.Models.CryptoHelper.EncryptString(String plainText) in C:\node_pro\Ace Admin\Ace Admin\Models\CryptoHelper.cs:line 15
+   at Ace_Admin.Dto.ChatHub.SendMessage(String senderId, String receiverId, String message, String messageType, String attachmentUrl) in C:\node_pro\Ace Admin\Ace Admin\Dto\ChatHub.cs:line 45
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.<Invoke>g__ExecuteInvocation|18_0(DefaultHubDispatcher`1 dispatcher, ObjectMethodExecutor methodExecutor, THub hub, Object[] arguments, AsyncServiceScope scope, IHubActivator`1 hubActivator, HubConnectionContext connection, HubMethodInvocationMessage hubMethodInvocationMessage, Boolean isStreamCall)
+2025-11-27 12:49:31.294 +05:30 [ERR] Failed to invoke hub method 'SendMessage'.
+System.Security.Cryptography.CryptographicException: Specified key is not a valid size for this algorithm.
+   at System.Security.Cryptography.SymmetricAlgorithm.set_Key(Byte[] value)
+   at Ace_Admin.Models.CryptoHelper.EncryptString(String plainText) in C:\node_pro\Ace Admin\Ace Admin\Models\CryptoHelper.cs:line 15
+   at Ace_Admin.Dto.ChatHub.SendMessage(String senderId, String receiverId, String message, String messageType, String attachmentUrl) in C:\node_pro\Ace Admin\Ace Admin\Dto\ChatHub.cs:line 45
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.<Invoke>g__ExecuteInvocation|18_0(DefaultHubDispatcher`1 dispatcher, ObjectMethodExecutor methodExecutor, THub hub, Object[] arguments, AsyncServiceScope scope, IHubActivator`1 hubActivator, HubConnectionContext connection, HubMethodInvocationMessage hubMethodInvocationMessage, Boolean isStreamCall)
+2025-11-27 12:52:53.207 +05:30 [ERR] Failed to invoke hub method 'SendMessage'.
+System.Security.Cryptography.CryptographicException: Specified key is not a valid size for this algorithm.
+   at System.Security.Cryptography.SymmetricAlgorithm.set_Key(Byte[] value)
+   at Ace_Admin.Models.CryptoHelper.EncryptString(String plainText)
+   at Ace_Admin.Dto.ChatHub.SendMessage(String senderId, String receiverId, String message, String messageType, String attachmentUrl)
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.<Invoke>g__ExecuteInvocation|18_0(DefaultHubDispatcher`1 dispatcher, ObjectMethodExecutor methodExecutor, THub hub, Object[] arguments, AsyncServiceScope scope, IHubActivator`1 hubActivator, HubConnectionContext connection, HubMethodInvocationMessage hubMethodInvocationMessage, Boolean isStreamCall)
+2025-11-27 12:53:20.093 +05:30 [ERR] Failed to invoke hub method 'SendMessage'.
+System.Security.Cryptography.CryptographicException: Specified key is not a valid size for this algorithm.
+   at System.Security.Cryptography.SymmetricAlgorithm.set_Key(Byte[] value)
+   at Ace_Admin.Models.CryptoHelper.EncryptString(String plainText)
+   at Ace_Admin.Dto.ChatHub.SendMessage(String senderId, String receiverId, String message, String messageType, String attachmentUrl)
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.<Invoke>g__ExecuteInvocation|18_0(DefaultHubDispatcher`1 dispatcher, ObjectMethodExecutor methodExecutor, THub hub, Object[] arguments, AsyncServiceScope scope, IHubActivator`1 hubActivator, HubConnectionContext connection, HubMethodInvocationMessage hubMethodInvocationMessage, Boolean isStreamCall)
+2025-11-27 12:53:41.381 +05:30 [ERR] Failed to invoke hub method 'SendMessage'.
+System.Security.Cryptography.CryptographicException: Specified key is not a valid size for this algorithm.
+   at System.Security.Cryptography.SymmetricAlgorithm.set_Key(Byte[] value)
+   at Ace_Admin.Models.CryptoHelper.EncryptString(String plainText)
+   at Ace_Admin.Dto.ChatHub.SendMessage(String senderId, String receiverId, String message, String messageType, String attachmentUrl)
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.<Invoke>g__ExecuteInvocation|18_0(DefaultHubDispatcher`1 dispatcher, ObjectMethodExecutor methodExecutor, THub hub, Object[] arguments, AsyncServiceScope scope, IHubActivator`1 hubActivator, HubConnectionContext connection, HubMethodInvocationMessage hubMethodInvocationMessage, Boolean isStreamCall)
+2025-11-27 12:55:32.147 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-27 12:55:34.149 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-27 14:51:22.651 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-27 14:51:26.467 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-27 14:53:39.466 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-27 14:53:41.466 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-27 16:06:27.873 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-27 16:06:29.734 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-27 16:06:43.448 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-11-27 16:18:54.588 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-27 16:18:56.855 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-27 16:19:04.881 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-11-27 16:23:14.762 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-27 16:23:17.021 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-27 16:23:24.743 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-11-27 16:28:00.712 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-27 16:28:02.873 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-27 16:28:07.358 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-11-27 16:40:48.657 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-27 16:40:50.517 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-27 16:40:53.988 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-11-27 16:49:39.739 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-27 16:49:42.086 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-27 16:49:45.995 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-11-27 17:08:40.157 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-27 17:08:42.940 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-27 17:08:47.372 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Ace_Admin.Models;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using System.Net.Http;
 using System.Text;
 
 namespace Ace_Admin.Controllers.Api
@@ -18,56 +14,35 @@ namespace Ace_Admin.Controllers.Api
         private const string OPENAI_API_KEY = "your-api-key-here";
         private const string OPENAI_ENDPOINT = "https://api.openai.com/v1/chat/completions";
 
-        // POST: api/ChatBot/chat
+        #region --- Chat with OpenAI API ---
         [HttpPost("chat")]
         public async Task<IActionResult> Chat([FromBody] ChatRequest request)
         {
             if (request == null || string.IsNullOrEmpty(request.Message))
                 return BadRequest(new { success = false, message = "Message is required" });
 
-            // Build conversation history
             var messages = new List<object>
             {
-                new
-                {
-                    role = "system",
-                    content = "You are a helpful AI assistant for an employee management system. " +
-                              "Answer questions about the system, navigation, and features concisely and professionally."
-                }
+                new { role = "system", content = "You are a helpful AI assistant for an employee management system. Answer questions about the system, navigation, and features concisely and professionally." }
             };
 
-            if (request.History != null && request.History.Any())
-            {
+            if (request.History?.Any() == true)
                 foreach (var msg in request.History.TakeLast(10))
                     messages.Add(new { role = msg.Role, content = msg.Content });
-            }
 
             messages.Add(new { role = "user", content = request.Message });
 
             string responseText = await CallOpenAI(messages);
 
-            return Ok(new
-            {
-                success = true,
-                response = responseText,
-                timestamp = DateTime.UtcNow
-            });
+            return Ok(new { success = true, response = responseText, timestamp = DateTime.UtcNow });
         }
 
         private async Task<string> CallOpenAI(List<object> messages)
         {
             try
             {
-                var requestBody = new
-                {
-                    model = "gpt-3.5-turbo",
-                    messages,
-                    max_tokens = 500,
-                    temperature = 0.7
-                };
-
-                var json = JsonConvert.SerializeObject(requestBody);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var requestBody = new { model = "gpt-3.5-turbo", messages, max_tokens = 500, temperature = 0.7 };
+                var content = new StringContent(JsonConvert.SerializeObject(requestBody), Encoding.UTF8, "application/json");
 
                 httpClient.DefaultRequestHeaders.Clear();
                 httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {OPENAI_API_KEY}");
@@ -81,194 +56,97 @@ namespace Ace_Admin.Controllers.Api
                 var result = JsonConvert.DeserializeObject<OpenAIResponse>(responseString);
                 return result?.Choices?.FirstOrDefault()?.Message?.Content ?? "No response generated";
             }
-            catch
-            {
-                return GetFallbackResponse();
-            }
+            catch { return GetFallbackResponse(); }
         }
-        // POST: api/ChatBot/chat
+        #endregion
+
+        #region --- Local Dummy Chat (Offline Mode) ---
         [HttpPost("ChatFree")]
         public IActionResult ChatFree([FromBody] ChatRequest request)
         {
             if (request == null || string.IsNullOrEmpty(request.Message))
                 return BadRequest(new { success = false, message = "Message is required" });
 
-            string responseText = GetDummyResponse(request.Message);
-
-            return Ok(new
-            {
-                success = true,
-                response = responseText,
-                timestamp = DateTime.UtcNow
-            });
+            return Ok(new { success = true, response = GetDummyResponse(request.Message), timestamp = DateTime.UtcNow });
         }
+        #endregion
 
+        #region --- Dummy AI Logic ---
         private string GetDummyResponse(string message)
         {
             var lower = message.ToLower().Trim();
 
-            // HELP / CAPABILITIES
-            if (lower.Contains("help") || lower.Contains("what can you") || lower.Contains("capabilities") ||
-                IsWordMatch(lower, "help") || IsWordMatch(lower, "capabilities"))
-            {
-                return "I can help you with:\n\n" +
-                       "📊 **Dashboard & Navigation**\n" +
-                       "• Understanding your dashboard metrics\n" +
-                       "• Navigating different sections\n" +
-                       "• Finding specific features\n\n" +
-                       "👤 **Profile & Account**\n" +
-                       "• Viewing and editing your profile\n" +
-                       "• Changing account settings\n" +
-                       "• Managing your preferences\n\n" +
-                       "🔐 **Security**\n" +
-                       "• Login and logout procedures\n" +
-                       "• Password management\n" +
-                       "• Session handling\n\n" +
-                       "What would you like to know more about?";
-            }
-            // DASHBOARD
-            else if (lower.Contains("dashboard") || lower.Contains("main page") || lower.Contains("home") ||
-                     IsWordMatch(lower, "dashboard") || IsWordMatch(lower, "home"))
-            {
-                return "**Dashboard Overview** 📊\n\n" +
-                       "Your dashboard displays:\n" +
-                       "• Key performance metrics and statistics\n" +
-                       "• Recent activity and notifications\n" +
-                       "• Quick access to important features\n\n" +
-                       "💡 **Tip:** Use the sidebar menu on the left to navigate to different sections of the application.";
-            }
-            // PROFILE / ACCOUNT
-            else if (lower.Contains("profile") || lower.Contains("account") || lower.Contains("personal info") ||
-                     lower.Contains("edit my profile") || lower.Contains("update profile") || lower.Contains("change profile") ||
-                     IsWordMatch(lower, "profile") || IsWordMatch(lower, "account"))
-            {
-                return "**Managing Your Profile** 👤\n\n" +
-                       "To view or edit your profile:\n" +
-                       "1. Click on your avatar in the top-right corner\n" +
-                       "2. Select **'Profile'** from the dropdown menu\n" +
-                       "3. Update your information and save changes\n\n" +
-                       "You can update your name, email, photo, and other personal details.";
-            }
-            // LOGOUT
-            else if (lower.Contains("logout") || lower.Contains("sign out") || lower.Contains("log out") ||
-                     IsWordMatch(lower, "logout") || IsWordMatch(lower, "sign out"))
-            {
-                return "**Logging Out** 🚪\n\n" +
-                       "To logout securely:\n" +
-                       "1. Click on your avatar in the top-right corner\n" +
-                       "2. Select **'Logout'** from the dropdown menu\n\n" +
-                       "This will end your session and you'll need to login again to access the system.";
-            }
-            // SETTINGS
-            else if (lower.Contains("settings") || lower.Contains("preferences") || lower.Contains("configure") ||
-                     IsWordMatch(lower, "settings") || IsWordMatch(lower, "preferences"))
-            {
-                return "**Settings & Preferences** ⚙️\n\n" +
-                       "You can access settings by:\n" +
-                       "• Clicking the gear icon ⚙️ in the navigation bar\n" +
-                       "• Or through your profile menu in the top-right\n\n" +
-                       "Here you can customize your experience and manage application settings.";
-            }
-            // GREETINGS
-            else if (lower.Contains("hello") || lower.Contains("hi") || lower.Contains("hey") ||
-                     IsWordMatch(lower, "hello") || IsWordMatch(lower, "hi"))
-            {
-                return "Hello! 👋 Welcome to Ace Admin!\n\n" +
-                       "I'm your AI assistant, here to help you navigate and use the system effectively.\n\n" +
-                       "Feel free to ask me about:\n" +
-                       "• Features and functionality\n" +
-                       "• Navigation and menu items\n" +
-                       "• Account management\n" +
-                       "• Or anything else you'd like to know!";
-            }
-            // THANKS
-            else if (lower.Contains("thank") || lower.Contains("thanks") || IsWordMatch(lower, "thank") || IsWordMatch(lower, "thanks"))
-            {
-                return "You're very welcome! 😊\n\n" +
-                       "I'm always here to help. If you have any more questions, don't hesitate to ask!";
-            }
-            // DEFAULT / FALLBACK
-            else
-            {
-                return "I'm here to help! 🤖\n\n" +
-                       "I can assist you with information about:\n\n" +
-                       "📊 **Dashboard** - Overview and metrics\n" +
-                       "👤 **Profile** - Account management\n" +
-                       "🧭 **Navigation** - Finding features\n" +
-                       "⚙️ **Settings** - Preferences and configuration\n" +
-                       "🔔 **Notifications** - Alerts and messages\n" +
-                       "✅ **Tasks** - Project management\n\n" +
-                       "What specific feature would you like to know about?";
-            }
+            if (ContainsAny(lower, "hello", "hi", "hey", "greetings", "good morning", "good afternoon", "good evening"))
+                return "Hello! 👋 Welcome to **Ace Admin**!\n\nI'm your AI assistant. Type **'help'** to see what I can do.";
+
+            if (ContainsAny(lower, "help", "capabilities", "assist me"))
+                return "**I can help you with:** Dashboard, Profile, Security, Tasks, Reports, and Settings. Try asking: *'How do I change my password?*";
+
+            if (ContainsAny(lower, "dashboard", "home", "overview"))
+                return "**Dashboard Overview:** Shows KPIs, activities, and quick actions. Use the sidebar to navigate.";
+
+            if (ContainsAny(lower, "profile", "account"))
+                return "**Profile Management:** Go to Profile → Edit → Update info and save.";
+
+            if (ContainsAny(lower, "password", "security"))
+                return "**Password & Security:** Profile → Security → Change password. Must be 8+ chars with symbols.";
+
+            if (ContainsAny(lower, "logout", "sign out"))
+                return "**Logout:** Click avatar → Logout. Ends session and clears temp data.";
+
+            if (ContainsAny(lower, "settings", "preferences"))
+                return "**Settings:** Gear icon → Change theme, language, notifications, and privacy.";
+
+            if (ContainsAny(lower, "task", "project"))
+                return "**Tasks:** Tasks → +New → Fill details → Create. Track progress in Projects tab.";
+
+            if (ContainsAny(lower, "report", "analytics"))
+                return "**Reports:** Reports → Choose type → Filter by date → Export to PDF/Excel.";
+
+            if (ContainsAny(lower, "support", "contact"))
+                return "**Support:** Email support@aceadmin.com or use Help → Report Issue.";
+
+            if (ContainsAny(lower, "thank", "thanks"))
+                return "You're welcome! 😊 Always here to help.";
+
+            if (ContainsAny(lower, "bye", "goodbye"))
+                return "Goodbye! 👋 Come back anytime.";
+
+            return "I'm here to help! 🤖 Try asking: *'How do I create a task?'* or *'Show me the dashboard features.'*";
         }
-        private string GetFallbackResponse()
-        {
-            var fallbackResponses = new[]
-            {
-                "I'm here to help! Could you please rephrase your question?",
-                "I'm currently experiencing some issues. Please try again shortly.",
-                "I'd love to help! Can you provide more details?"
-            };
-            return fallbackResponses[new Random().Next(fallbackResponses.Length)];
-        }
-        private bool IsWordMatch(string input, string target, int maxDistance = 2)
-        {
-            return LevenshteinDistance(input, target) <= maxDistance;
-        }
+        #endregion
+
+        #region --- Utility Methods ---
+        private bool ContainsAny(string input, params string[] keywords) => keywords.Any(k => input.Contains(k));
+        private string GetFallbackResponse() => new[] { "I'm here to help!", "Please try again later.", "Can you rephrase that?" }[new Random().Next(3)];
+        private bool IsWordMatch(string input, string target, int maxDistance = 2) => LevenshteinDistance(input, target) <= maxDistance;
+
         public static int LevenshteinDistance(string s, string t)
         {
-            if (string.IsNullOrEmpty(s))
-                return t?.Length ?? 0;
-            if (string.IsNullOrEmpty(t))
-                return s.Length;
+            if (string.IsNullOrEmpty(s)) return t?.Length ?? 0;
+            if (string.IsNullOrEmpty(t)) return s.Length;
 
             int[,] d = new int[s.Length + 1, t.Length + 1];
-
             for (int i = 0; i <= s.Length; i++) d[i, 0] = i;
             for (int j = 0; j <= t.Length; j++) d[0, j] = j;
 
             for (int i = 1; i <= s.Length; i++)
-            {
                 for (int j = 1; j <= t.Length; j++)
                 {
                     int cost = (t[j - 1] == s[i - 1]) ? 0 : 1;
-                    d[i, j] = Math.Min(
-                        Math.Min(d[i - 1, j] + 1, d[i, j - 1] + 1),
-                        d[i - 1, j - 1] + cost
-                    );
+                    d[i, j] = Math.Min(Math.Min(d[i - 1, j] + 1, d[i, j - 1] + 1), d[i - 1, j - 1] + cost);
                 }
-            }
 
             return d[s.Length, t.Length];
         }
+        #endregion
     }
 
-    // Models
-    public class ChatRequest
-    {
-        public string Message { get; set; }
-        public List<ChatMessage> History { get; set; }
-    }
-
-    public class ChatMessage
-    {
-        public string Role { get; set; }
-        public string Content { get; set; }
-    }
-
-    public class OpenAIResponse
-    {
-        public List<Choice> Choices { get; set; }
-    }
-
-    public class Choice
-    {
-        public Message Message { get; set; }
-    }
-
-    public class Message
-    {
-        public string Role { get; set; }
-        public string Content { get; set; }
-    }
+    #region --- Models ---
+    public class ChatRequest { public string Message { get; set; } public List<ChatMessage> History { get; set; } }
+    public class ChatMessage { public string Role { get; set; } public string Content { get; set; } }
+    public class OpenAIResponse { public List<Choice> Choices { get; set; } }
+    public class Choice { public Message Message { get; set; } }
+    public class Message { public string Role { get; set; } public string Content { get; set; } }
+    #endregion
 }

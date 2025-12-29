@@ -1,0 +1,270 @@
+﻿@{
+    ViewData["Title"] = "Manage SEO Settings";
+}
+
+<div class="main-container bgc-white">
+    <main class="main-content">
+
+        <div class="row mt-2 mt-md-4">
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0"><i class="fas fa-search"></i> <span id="formTitle">Add</span> SEO Settings</h4>
+                        <a href="/view-seo" class="btn btn-light btn-sm">
+                            <i class="fas fa-list"></i> View List
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <!-- #region FORM  -->
+                       
+                        <form id="seoForm" novalidate>
+                            <input type="hidden" id="seoId" value="0">
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Page Title *</label>
+                                    <input type="text" class="form-control" id="pageTitle">
+                                    <span class="text-danger error-message" data-for="pageTitle"></span>
+                                    <small class="text-muted">(Max 60 characters)</small>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Page URL *</label>
+                                    <input type="text" class="form-control" id="pageUrl">
+                                    <span class="text-danger error-message" data-for="pageUrl"></span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Meta Description *</label>
+                                <textarea class="form-control" id="metaDescription" rows="3" maxlength="160"></textarea>
+                                <span class="text-danger error-message" data-for="metaDescription"></span>
+                                <small class="text-muted">Max 160 characters</small>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Meta Keywords *</label>
+                                    <input type="text" class="form-control" id="metaKeywords">
+                                    <span class="text-danger error-message" data-for="metaKeywords"></span>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Meta Author *</label>
+                                    <input type="text" class="form-control" id="metaAuthor">
+                                    <span class="text-danger error-message" data-for="metaAuthor"></span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">OG Title *</label>
+                                    <input type="text" class="form-control" id="ogTitle">
+                                    <span class="text-danger error-message" data-for="ogTitle"></span>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">OG Image URL *</label>
+                                    <input type="text" class="form-control" id="ogImage">
+                                    <span class="text-danger error-message" data-for="ogImage"></span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">OG Description *</label>
+                                <textarea class="form-control" id="ogDescription" rows="2"></textarea>
+                                <span class="text-danger error-message" data-for="ogDescription"></span>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Twitter Card Type *</label>
+                                    <select class="form-select" id="twitterCard">
+                                        <option value="">-- Select --</option>
+                                        <option value="summary">Summary</option>
+                                        <option value="summary_large_image">Summary Large Image</option>
+                                    </select>
+                                    <span class="text-danger error-message" data-for="twitterCard"></span>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Twitter Site *</label>
+                                    <input type="text" class="form-control" id="twitterSite" placeholder="@@username">
+                                    <span class="text-danger error-message" data-for="twitterSite"></span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Canonical URL *</label>
+                                    <input type="text" class="form-control" id="canonicalUrl">
+                                    <span class="text-danger error-message" data-for="canonicalUrl"></span>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Robots *</label>
+                                    <select class="form-select" id="robots">
+                                        <option value="">-- Select --</option>
+                                        <option value="index, follow">Index, Follow</option>
+                                        <option value="noindex, follow">NoIndex, Follow</option>
+                                        <option value="index, nofollow">Index, NoFollow</option>
+                                        <option value="noindex, nofollow">NoIndex, NoFollow</option>
+                                    </select>
+                                    <span class="text-danger error-message" data-for="robots"></span>
+                                </div>
+                            </div>
+
+                            <div class="text-end">
+                                <a href="/view-seo" class="btn btn-secondary me-2">Cancel</a>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save"></i> Save SEO Settings
+                                </button>
+                            </div>
+                        </form>
+
+    
+
+                        <!-- #endregion -->
+                        
+                        <div id="responseMessage" class="mt-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+
+        if (id) {
+            $('#formTitle').text('Edit');
+            loadSeoData(id);
+        }
+
+        $('#seoForm').on('submit', function (e) {
+            e.preventDefault();
+            if (validateSeoForm()) {
+                saveSeoSettings();
+            }
+        });
+
+        $('#seoForm').on('input change', '.form-control, .form-select', function () {
+            const name = $(this).attr('id');
+            showError(name, '');
+        });
+    });
+
+    function showError(fieldId, message) {
+        const $field = $('#' + fieldId);
+        const $errorSpan = $('.error-message[data-for="' + fieldId + '"]');
+
+        if (message) {
+            $field.addClass('is-invalid');
+            $errorSpan.text(message);
+        } else {
+            $field.removeClass('is-invalid');
+            $errorSpan.text('');
+        }
+    }
+
+    function validateSeoForm() {
+        let isValid = true;
+
+        const fields = [
+            { id: 'pageTitle', message: 'Page title is required.' },
+            { id: 'pageUrl', message: 'Page URL is required.' },
+            { id: 'metaDescription', message: 'Meta description is required.' },
+            { id: 'metaKeywords', message: 'Meta keywords are required.' },
+            { id: 'metaAuthor', message: 'Meta author is required.' },
+            { id: 'ogTitle', message: 'OG title is required.' },
+            { id: 'ogImage', message: 'OG image URL is required.' },
+            { id: 'ogDescription', message: 'OG description is required.' },
+            { id: 'twitterCard', message: 'Twitter card type is required.' },
+            { id: 'twitterSite', message: 'Twitter site is required.' },
+            { id: 'canonicalUrl', message: 'Canonical URL is required.' },
+            { id: 'robots', message: 'Robots value is required.' }
+        ];
+
+        $('.error-message').text('');
+        $('.form-control, .form-select').removeClass('is-invalid');
+
+        fields.forEach(f => {
+            const val = $('#' + f.id).val();
+            if (!val || val.trim() === '') {
+                showError(f.id, f.message);
+                if (isValid) {
+                    $('#' + f.id).focus();
+                }
+                isValid = false;
+            }
+        });
+
+        return isValid;
+    }
+
+    function loadSeoData(id) {
+        $.ajax({
+            url: '/api/seo/get?id=' + id,
+            type: 'GET',
+            success: function (response) {
+                if (response.success) {
+                    const data = response.data;
+                    $('#seoId').val(data.id);
+                    $('#pageTitle').val(data.pageTitle);
+                    $('#pageUrl').val(data.pageUrl);
+                    $('#metaDescription').val(data.metaDescription);
+                    $('#metaKeywords').val(data.metaKeywords);
+                    $('#metaAuthor').val(data.metaAuthor);
+                    $('#ogTitle').val(data.ogTitle);
+                    $('#ogImage').val(data.ogImage);
+                    $('#ogDescription').val(data.ogDescription);
+                    $('#twitterCard').val(data.twitterCard);
+                    $('#twitterSite').val(data.twitterSite);
+                    $('#canonicalUrl').val(data.canonicalUrl);
+                    $('#robots').val(data.robots);
+                }
+            },
+            error: function () {
+                alert('Error loading SEO settings');
+            }
+        });
+    }
+
+    function saveSeoSettings() {
+        const formData = {
+            id: parseInt($('#seoId').val()),
+            pageTitle: $('#pageTitle').val(),
+            pageUrl: $('#pageUrl').val(),
+            metaDescription: $('#metaDescription').val(),
+            metaKeywords: $('#metaKeywords').val(),
+            metaAuthor: $('#metaAuthor').val(),
+            ogTitle: $('#ogTitle').val(),
+            ogImage: $('#ogImage').val(),
+            ogDescription: $('#ogDescription').val(),
+            twitterCard: $('#twitterCard').val(),
+            twitterSite: $('#twitterSite').val(),
+            canonicalUrl: $('#canonicalUrl').val(),
+            robots: $('#robots').val()
+        };
+
+        $.ajax({
+            url: '/api/seo/save',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(formData),
+            beforeSend: function () {
+                $('#responseMessage').html('<div class="alert alert-info"><i class="fas fa-spinner fa-spin"></i> Saving...</div>');
+            },
+            success: function (response) {
+                $('#responseMessage').html('<div class="alert alert-success"><i class="fas fa-check-circle"></i> ' + response.message + '</div>');
+                setTimeout(() => {
+                    window.location.href = 'view-seo';
+                }, 1500);
+            },
+            error: function (xhr) {
+                const error = xhr.responseJSON?.message || 'Failed to save SEO settings';
+                $('#responseMessage').html('<div class="alert alert-danger"><i class="fas fa-exclamation-circle"></i> ' + error + '</div>');
+            }
+        });
+    }
+</script>

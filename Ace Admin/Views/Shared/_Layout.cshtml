@@ -1,9 +1,46 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Ace_Admin</title>
+    <title>@ViewBag.PageTitle</title>
+
+    <meta name="description" content="@ViewBag.MetaDescription" />
+    <meta name="keywords" content="@ViewBag.MetaKeywords" />
+    @if (!string.IsNullOrEmpty(ViewBag.MetaAuthor))
+    {
+        <meta name="author" content="@ViewBag.MetaAuthor" />
+    }
+    <meta name="robots" content="@ViewBag.Robots" />
+
+    @if (!string.IsNullOrEmpty(ViewBag.CanonicalUrl))
+    {
+        <link rel="canonical" href="@ViewBag.CanonicalUrl" />
+    }
+
+    <meta property="og:title" content="@ViewBag.OgTitle" />
+    <meta property="og:description" content="@ViewBag.OgDescription" />
+    <meta property="og:type" content="website" />
+    @if (!string.IsNullOrEmpty(ViewBag.OgImage))
+    {
+        <meta property="og:image" content="@ViewBag.OgImage" />
+    }
+
+    <meta name="twitter:card" content="@ViewBag.TwitterCard" />
+    <meta name="twitter:title" content="@ViewBag.OgTitle" />
+    <meta name="twitter:description" content="@ViewBag.OgDescription" />
+    @if (!string.IsNullOrEmpty(ViewBag.TwitterSite))
+    {
+        <meta name="twitter:site" content="@ViewBag.TwitterSite" />
+    }
+    @if (!string.IsNullOrEmpty(ViewBag.OgImage))
+    {
+        <meta name="twitter:image" content="@ViewBag.OgImage" />
+    }
+
+    <link rel="icon" type="image/png" href="~/assets/favicon.png" />
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 
@@ -27,10 +64,18 @@
             display: none;
         }
     </style>
-  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XXXXXXX'); // your GA4 measurement ID
+    </script>
 </head>
 
 <body>
+    <!-- # MAIN BODY -->
     <div class="body-container">
         <nav class="navbar navbar-expand-lg navbar-fixed navbar-blue">
             <div class="navbar-inner">
@@ -69,7 +114,7 @@
                 <!-- mobile #navbarMenu toggler button -->
                 <button class="navbar-toggler ml-1 mr-2 px-1" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navbar menu">
                     <span class="pos-rel">
-                        <img class="border-2 brc-white-tp1 radius-round" width="36" src="~/assets/image/avatar/avatar6.jpg" alt="Jason's Photo">
+                        <img id="profilepic" class="border-2 brc-white-tp1 radius-round" width="36" src="" alt="Jason's Photo">
                         <span class="bgc-warning radius-round border-2 brc-white p-1 position-tr mr-n1px mt-n1px"></span>
                     </span>
                 </button>
@@ -257,7 +302,7 @@
                                         <li class="nav-item">
                                             <a class="d-style px-0 mx-0 py-3 nav-link text-600 brc-purple-m1 text-dark-tp5 bgc-h-purple-l4" data-toggle="tab" href="#navbar-notif-tab-2" role="tab">
                                                 <span class="d-active text-purple-d1 text-105">Messages</span>
-                                                <span class="d-n-active">Messages</span>
+                                                <span class="d-n-active">Messages<span b-k23lotuxzt="" id="messscount" class="badge badge-sm bgc-warning-d2 text-white radius-round text-85 border-1 brc-white-tp5">3</span></span>
                                             </a>
                                         </li>
                                     </ul><!-- .nav-tabs -->
@@ -298,82 +343,15 @@
 
                                         <div class="tab-pane mh-none pl-md-2" id="navbar-notif-tab-2" role="tabpanel">
                                             <div data-ace-scroll='{"ignore": "mobile", "height": 300, "smooth":true}'>
-                                                <a href="#" class="d-flex mb-0 border-0 list-group-item list-group-item-action btn-h-lighter-secondary">
-                                                    <img alt="Alex's avatar" src="~/assets/image/avatar/avatar.png" width="48" class="align-self-start border-2 brc-primary-m3 p-1px mr-2 radius-round" />
-                                                    <div>
-                                                        <span class="text-primary-m1 font-bolder">Alex:</span>
-                                                        <span class="text-grey text-90">Ciao sociis natoque penatibus et auctor ...</span>
-                                                        <br />
-                                                        <span class="text-grey-m1 text-85">
-                                                            <i class="far fa-clock"></i>
-                                                            a moment ago
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                                <hr class="my-1px brc-grey-l3" />
-                                                <a href="#" class="d-flex mb-0 border-0 list-group-item list-group-item-action btn-h-lighter-secondary">
-                                                    <img alt="Susan's avatar" src="~/assets/image/avatar/avatar3.png" width="48" class="align-self-start border-2 brc-primary-m3 p-1px mr-2 radius-round" />
-                                                    <div>
-                                                        <span class="text-primary-m1 font-bolder">Susan:</span>
-                                                        <span class="text-grey text-90">Vestibulum id ligula porta felis euismod ...</span>
-                                                        <br />
-                                                        <span class="text-grey-m1 text-85">
-                                                            <i class="far fa-clock"></i>
-                                                            20 minutes ago
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                                <hr class="my-1px brc-grey-l3" />
-                                                <a href="#" class="d-flex mb-0 border-0 list-group-item list-group-item-action btn-h-lighter-secondary">
-                                                    <img alt="Bob's avatar" src="~/assets/image/avatar/avatar4.png" width="48" class="align-self-start border-2 brc-primary-m3 p-1px mr-2 radius-round" />
-                                                    <div>
-                                                        <span class="text-primary-m1 font-bolder">Bob:</span>
-                                                        <span class="text-grey text-90">Nullam quis risus eget urna mollis ornare ...</span>
-                                                        <br />
-                                                        <span class="text-grey-m1 text-85">
-                                                            <i class="far fa-clock"></i>
-                                                            3:15 pm
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                                <hr class="my-1px brc-grey-l3" />
-                                                <a href="#" class="d-flex mb-0 border-0 list-group-item list-group-item-action btn-h-lighter-secondary">
-                                                    <img alt="Kate's avatar" src="~/assets/image/avatar/avatar2.png" width="48" class="align-self-start border-2 brc-primary-m3 p-1px mr-2 radius-round" />
-                                                    <div>
-                                                        <span class="text-primary-m1 font-bolder">Kate:</span>
-                                                        <span class="text-grey text-90">Ciao sociis natoque eget urna mollis ornare ...</span>
-                                                        <br />
-                                                        <span class="text-grey-m1 text-85">
-                                                            <i class="far fa-clock"></i>
-                                                            1:33 pm
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                                <hr class="my-1px brc-grey-l3" />
-                                                <a href="#" class="d-flex mb-0 border-0 list-group-item list-group-item-action btn-h-lighter-secondary">
-                                                    <img alt="Fred's avatar" src="~/assets/image/avatar/avatar5.png" width="48" class="align-self-start border-2 brc-primary-m3 p-1px mr-2 radius-round" />
-                                                    <div>
-                                                        <span class="text-primary-m1 font-bolder">Fred:</span>
-                                                        <span class="text-grey text-90">Vestibulum id penatibus et auctor  ...</span>
-                                                        <br />
-                                                        <span class="text-grey-m1 text-85">
-                                                            <i class="far fa-clock"></i>
-                                                            10:09 am
-                                                        </span>
-                                                    </div>
-                                                </a>
+                                                <div id="messageSection" class="list-group">
+                                                    <!-- Messages will appear here -->
+                                                </div>
 
-                                            </div><!-- ace-scroll -->
+                                            </div><!-- .tab-pane : messages -->
 
-                                            <hr class="my-1px brc-secondary-l2 border-double" />
-                                            <a href="page-inbox.html" class="mb-0 py-3 border-0 list-group-item text-purple text-uppercase text-center text-85 font-bolder">
-                                                See All Messages
-                                                <i class="ml-2 fa fa-arrow-right text-muted"></i>
-                                            </a>
-                                        </div><!-- .tab-pane : messages -->
-
+                                        </div>
                                     </div>
-                                </div>
+                                    </div>
                             </li>
 
 
@@ -451,7 +429,7 @@
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                     <img id="id-navbar-user-image" class="d-none d-lg-inline-block radius-round border-2 brc-white-tp1 mr-2 w-6" src="~/assets/image/avatar/avatar6.jpg" alt="Jason's Photo">
                                     <span class="d-inline-block d-lg-none d-xl-inline-block">
-                                        <span class="text-90" >Welcome,</span>
+                                        <span class="text-90">Welcome,</span>
                                         <span class="nav-user-name" id="id-user-welcome">Jason</span>
                                     </span>
 
@@ -588,7 +566,6 @@
                                         <span>Dashboard</span>
                                     </span>
 
-
                                 </a>
 
                                 <b class="sub-arrow"></b>
@@ -598,145 +575,15 @@
 
                             <li class="nav-item">
 
-                                <a href="#" class="nav-link dropdown-toggle collapsed">
+                                <a href="/instruments" class="nav-link ">
                                     <i class="nav-icon fa fa-cube"></i>
                                     <span class="nav-text fadeable">
-                                        <span>Layouts</span>
+                                        <span>Instruments</span>
                                     </span>
 
-                                    <b class="caret fa fa-angle-left rt-n90"></b>
 
-                                    <!-- or you can use custom icons. first add `d-style` to 'A' -->
-                                    <!--
-                                       <b class="caret d-n-collapsed fa fa-minus text-80"></b>
-                                       <b class="caret d-collapsed fa fa-plus text-80"></b>
-                                    -->
                                 </a>
 
-                                <div class="hideable submenu collapse">
-                                    <ul class="submenu-inner">
-
-                                        <li class="nav-item">
-
-                                            <a href="dashboard-2.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Dashboard 2</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="dashboard-3.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Dashboard 3</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="dashboard-4.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Dashboard 4</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="horizontal.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Horizontal Menu</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="two-menus-1.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Two Menus</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="landing-page-1.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Landing Page 1</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="landing-page-2.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Landing Page 2</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="coming-soon.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Coming Soon</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-                                    </ul>
-                                </div>
 
                                 <b class="sub-arrow"></b>
 
@@ -748,7 +595,7 @@
                                 <a href="#" class="nav-link dropdown-toggle collapsed">
                                     <i class="nav-icon fa fa-desktop"></i>
                                     <span class="nav-text fadeable">
-                                        <span>UI Elements</span>
+                                        <span>Profile</span>
                                     </span>
 
                                     <b class="caret fa fa-angle-left rt-n90"></b>
@@ -765,346 +612,62 @@
 
                                         <li class="nav-item">
 
-                                            <a href="buttons.html" class="nav-link">
+                                            <a href="/emp-profile" class="nav-link">
 
                                                 <span class="nav-text">
-                                                    <span>Buttons</span>
+                                                    <span>My Profile</span>
                                                 </span>
 
-
                                             </a>
-
-
                                         </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="button-groups.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Button Groups</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="alerts.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Alerts</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="modals.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Modals</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="asides.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Asides</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="tabs.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Tabs</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="accordions.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Accordions</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="tooltips.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Tooltips &amp; Popovers</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="badges.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Badges</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="pagination.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Pagination</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="dropdowns.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Dropdowns</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="icons.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Icons</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="typography.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Typography</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="charts.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Charts</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="treeview.html" class="nav-link">
-
-                                                <span class="nav-text">
-                                                    <span>Treeview</span>
-                                                </span>
-
-
-                                            </a>
-
-
-                                        </li>
-
-
-                                        <li class="nav-item">
-
-                                            <a href="#" class="nav-link dropdown-toggle collapsed">
-
-                                                <span class="nav-text">
-                                                    <span>Nested Links</span>
-                                                </span>
-
-                                                <b class="caret fa fa-angle-left rt-n90"></b>
-
-                                                <!-- or you can use custom icons. first add `d-style` to 'A' -->
-                                                <!--
-                                                      <b class="caret d-n-collapsed fa fa-minus text-80"></b>
-                                                      <b class="caret d-collapsed fa fa-plus text-80"></b>
-                                                   -->
-                                            </a>
-
-                                            <div class=" submenu collapse">
-                                                <ul class="submenu-inner">
-
-                                                    <li class="nav-item">
-
-                                                        <a href="#" class="nav-link dropdown-toggle collapsed">
-                                                            <i class="nav-icon fa fa-caret-right text-blue-l2 mr-2"></i>
-                                                            <span class="nav-text">
-                                                                <span>Third Level Menu</span>
-                                                            </span>
-
-                                                            <b class="caret fa fa-angle-left rt-n90"></b>
-
-                                                            <!-- or you can use custom icons. first add `d-style` to 'A' -->
-                                                            <!--
-                                                                        <b class="caret d-n-collapsed fa fa-minus text-80"></b>
-                                                                        <b class="caret d-collapsed fa fa-plus text-80"></b>
-                                                                     -->
-                                                        </a>
-
-                                                        <div class=" submenu collapse">
-                                                            <ul class="submenu-inner">
-
-                                                                <li class="nav-item">
-
-                                                                    <a href="#" class="nav-link dropdown-toggle collapsed">
-                                                                        <i class="nav-icon fa fa-leaf text-success-l2 text-90 mr-2"></i>
-                                                                        <span class="nav-text">
-                                                                            <span>Fourth Level</span>
-                                                                        </span>
-
-                                                                        <b class="caret fa fa-angle-left rt-n90"></b>
-
-                                                                        <!-- or you can use custom icons. first add `d-style` to 'A' -->
-                                                                        <!--
-                                                                                          <b class="caret d-n-collapsed fa fa-minus text-80"></b>
-                                                                                          <b class="caret d-collapsed fa fa-plus text-80"></b>
-                                                                                       -->
-                                                                    </a>
-
-                                                                    <div class=" submenu collapse">
-                                                                        <ul class="submenu-inner">
-
-                                                                            <li class="nav-item">
-
-                                                                                <a href="#" class="nav-link">
-                                                                                    <i class="nav-icon fa fa-stop text-warning-l1 text-80 mx-2"></i>
-                                                                                    <span class="nav-text">
-                                                                                        <span>5th Level</span>
-                                                                                    </span>
-
-
-                                                                                </a>
-
-
-                                                                            </li>
-
-
-                                                                            <li class="nav-item">
-
-                                                                                <a href="#" class="nav-link">
-                                                                                    <i class="nav-icon fa fa-stop text-warning-l1 text-80 mx-2"></i>
-                                                                                    <span class="nav-text">
-                                                                                        <span>5th Level</span>
-                                                                                    </span>
-
-
-                                                                                </a>
-
-
-                                                                            </li>
-
-                                                                        </ul>
-                                                                    </div>
-
-                                                                    <b class="sub-arrow"></b>
-
-                                                                </li>
-
-                                                            </ul>
-                                                        </div>
-
-                                                        <b class="sub-arrow"></b>
-
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-
-                                            <b class="sub-arrow"></b>
-
-                                        </li>
-
                                     </ul>
                                 </div>
 
                                 <b class="sub-arrow"></b>
 
                             </li>
+                            <li class="nav-item">
 
+                                <a href="#" class="nav-link dropdown-toggle collapsed">
+                                    <i class="nav-icon fa fa-desktop"></i>
+                                    <span class="nav-text fadeable">
+                                        <span>Seo Management</span>
+                                    </span>
+
+                                    <b class="caret fa fa-angle-left rt-n90"></b>
+
+
+                                </a>
+
+                                <div class="hideable submenu collapse">
+                                    <ul class="submenu-inner">
+
+                                        <li class="nav-item">
+
+                                            <a href="/set-seo" class="nav-link">
+
+                                                <span class="nav-text">
+                                                    <span>Set Seo</span>
+                                                </span>
+
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+
+                                            <a href="/view-seo" class="nav-link">
+
+                                                <span class="nav-text">
+                                                    <span>View Seo</span>
+                                                </span>
+
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <b class="sub-arrow"></b>
+
+                            </li>
 
                             <li class="nav-item">
 
@@ -1555,7 +1118,7 @@
             </div>
             <div class="main-content">
                 <div class="page-content container container-plus">
-               
+
                     <div class="page-header pb-2">
                         <h1 class="page-title text-primary-d2 text-150">
                             <nav aria-label="breadcrumb">
@@ -1592,7 +1155,7 @@
                             </div>
                         </div>
                     </div>
-                @RenderBody()
+                    @RenderBody()
                 </div>
             </div>
 
@@ -1642,6 +1205,8 @@
             </div>
         </footer>
     </div>
+    <!-- # MAIN BODY -->
+    <!-- # CHATBOT -->
     <div class="ai-chat-container">
         <button class="ai-chat-button" id="aiChatToggle">
             <i class="fas fa-robot"></i>
@@ -1700,6 +1265,8 @@
             </div>
         </div>
     </div>
+    <!-- # CHATBOT -->
+    <!-- # JAVASCRIPT-->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -1710,80 +1277,28 @@
     <script src="~/js/site.js"></script>
     <script src="~/js/popper.js"></script>
     <script src="~/js/chatbot.js"></script>
+    @inject IConfiguration Config;
     <script>
+        const FRONTEND_SECRET = '@Config["CorsSettings:FrontendSecret"]';
         $(document).ready(function () {
             login_check();
+            loadMessages();
             var message = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(TempData["Message"] ?? ""));
             var type = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(TempData["AlertType"] ?? ""));
 
-            
-
             if (message && message !== "") {
-                showAlert(type, message);
+                showAlert({ type: type, message: message });
             }
         });
 
-        function showAlert(type, message) {
-            let bgClass = 'bgc-white-tp1 shadow border-0'; // outer container
-            let iconClass = '';
-            let iconBgClass = '';
-            let title = '';
-
-            switch (type.toLowerCase()) {
-                case 'success':
-                    iconClass = 'fa fa-check text-150';
-                    iconBgClass = 'bgc-green-d1 text-white';
-                    title = 'Success';
-                    break;
-                case 'error':
-                    iconClass = 'fa fa-times text-150';
-                    iconBgClass = 'bgc-red-d1 text-white';
-                    title = 'Error';
-                    break;
-                case 'warning':
-                    iconClass = 'fa fa-exclamation-triangle text-150';
-                    iconBgClass = 'bgc-orange-d1 text-white';
-                    title = 'Warning';
-                    break;
-                default:
-                    iconClass = 'fa fa-info text-150';
-                    iconBgClass = 'bgc-blue-d1 text-white';
-                    title = 'Info';
-            }
-
-            $.aceToaster.add({
-                placement: 'tr',
-                width: 420,
-                delay: 5000,
-                close: false,
-                className: bgClass,
-                bodyClass: 'd-flex border-0 p-0 text-dark-tp2',
-                headerClass: 'd-none',
-                body: `
-                    <div class="${iconBgClass} px-3 pt-3">
-                        <div class="border-2 brc-white px-3 py-25 radius-round">
-                            <i class="${iconClass}"></i>
-                        </div>
-                    </div>
-                    <div class="p-3 mb-0 flex-grow-1">
-                        <h4 class="text-130">${title}</h4>
-                        ${message}
-                    </div>
-                    <button data-dismiss="toast" class="align-self-start btn btn-xs btn-outline-grey btn-h-light-grey py-2px mr-1 mt-1 border-0 text-150">&times;</button>
-                `
-            });
-        }
-
-             function showAlert(jsonData) {
+        function showAlert(jsonData) {
             if (!jsonData) return;
-
-            // Extract type and message from JSON object
             let type = jsonData.type || 'info';
             let message = jsonData.message || '';
 
             if (!message) return;
 
-            let bgClass = 'bgc-white-tp1 shadow border-0'; // outer container
+            let bgClass = 'bgc-white-tp1 shadow border-0';
             let iconClass = '';
             let iconBgClass = '';
             let title = '';
@@ -1832,59 +1347,51 @@
                 `
             });
         }
-                function login_check() {
-            const token = localStorage.getItem('employeeToken');
 
-            if (!token) {
-                // 🔒 Token missing — redirect to login
-                window.location.href = "/login";
-                return;
-            }
+        function login_check() {
+            //const token = localStorage.getItem('employeeToken');
+
+            // if (!token) {
+            //     // Token missing — redirect to login
+            //     window.location.href = "/login";
+            //     return;
+            // }
 
             $.ajax({
                 type: "POST",
                 url: "/token-check",
                 contentType: "application/json; charset=utf-8",
-                headers: {
-                    'Authorization': 'Bearer ' + token
-                },
+                xhrFields: { withCredentials: true },
+
                 dataType: "json",
                 success: function (response) {
                     if (response.success && response.statusCode === 200) {
-                        // ✅ Token valid — show page and load user data
                         $("body").show();
 
                         const user = response.data;
                         if (!user) {
-                            // In case no user data returned
                             localStorage.removeItem('employeeToken');
                             window.location.href = "/login";
                             return;
                         }
-
-                        // ✅ Display employee name
-                        $("#id-user-welcome").text(user.empName || user.EmpName || "User");
-                        $("#id-user-welcome1").text(user.empName || user.EmpName || "User");
-
-                        // ✅ Handle profile image
+                        $("#id-user-welcome").text(user.fullName || user.EmpName || "User");
+                        $("#id-user-welcome1").text(user.fullName || user.EmpName || "User");
                         let imageUrl = "";
-                        if (!user.filePathPic || user.filePathPic.trim() === "") {
+                        if (!user.avatarUrl || user.avatarUrl.trim() === "") {
                             imageUrl = user.gender === 0
                                 ? "../Administrator/Theme/assets/img/avatars/1.png"
                                 : "../Administrator/Theme/assets/img/avatars/6.png";
                         } else {
-                            imageUrl = user.filePathPic;
+                            imageUrl = user.avatarUrl;
                         }
 
-                        $(".user-avatar").attr("src", imageUrl);
+                        $("#profilepic").attr("src", imageUrl);
                         $("#currentProfilePic").attr("src", imageUrl);
 
-                        localStorage.setItem("currentUserId", user.empId || user.EmpId || user.id);
-
-                
+                        localStorage.setItem("currentUserId", user.id || user.EmpId || user.id);
                     }
                     else if (response.statusCode === 401) {
-                        // ❌ Unauthorized
+              
                         localStorage.removeItem('employeeToken');
                         showAlert({
                             type: 'error',
@@ -1893,7 +1400,6 @@
                         setTimeout(() => window.location.href = "/login", 1500);
                     }
                     else {
-                        // ❌ Any other issue
                         localStorage.removeItem('employeeToken');
                         showAlert({
                             type: 'error',
@@ -1903,7 +1409,6 @@
                     }
                 },
                 error: function (xhr) {
-                    // ❌ Handles 401 or server failure
                     localStorage.removeItem('employeeToken');
                     showAlert({
                         type: 'error',
@@ -1913,57 +1418,106 @@
                 }
             });
         }
-                    function logoutUser() {
-            // Clear token
-            localStorage.removeItem('employeeToken');
 
-            // Show alert
-            showAlert({
-                type: 'success',
-                message: 'You have been logged out successfully!'
+        function logoutUser() {
+
+            $.ajax({
+                type: "POST",
+                url: "/logout",
+                xhrFields: { withCredentials: true },
+                success: function () {
+
+                    showAlert({
+                        type: "success",
+                        message: "You have been logged out successfully!"
+                    });
+
+                    setTimeout(() => {
+                        window.location.href = "/login";
+                    }, 800);
+                },
+                error: function () {
+                    window.location.href = "/login";
+                }
             });
-
-            // Redirect after short delay
-            setTimeout(function () {
-                window.location.href = '/login'; // or your login page URL
-            }, 1500);
         }
-    </script>
-    <script>
-        // AI Chatbot functionality for MVC + AJAX
-       
-    </script>
-    <script>
-        // Get the breadcrumb container
+
+        function loadMessages() {
+            //const token = localStorage.getItem('employeeToken');
+
+            $.ajax({
+                url: '/messages/recent',
+                type: 'GET',
+                xhrFields: { withCredentials: true },
+                success: function (data) {
+                    let html = '';
+                    let countHtml = '';
+                  const count = data && data.length ? data.length : 0;
+                  $('#messscount').text(count);
+                    if (!data || data.length === 0) {
+                        html = '<p class="text-center text-muted my-3">No recent messages</p>';
+                    } else {
+                        data.forEach(item => {
+                            const avatar = item.senderPic && item.senderPic.trim() !== ""
+                                ? item.senderPic
+                                : '/assets/image/avatar/avatar2.png';
+
+                            html += `
+                            <a href="#" class="d-flex mb-0 border-0 list-group-item list-group-item-action btn-h-lighter-secondary">
+                                <img alt="${item.senderName}'s avatar"
+                                     src="${avatar}"
+                                     width="48"
+                                     class="align-self-start border-2 brc-primary-m3 p-1px mr-2 radius-round" />
+                                <div>
+                                    <span class="text-primary-m1 font-bolder">${item.senderName}:</span>
+                                    <span class="text-grey text-90">${item.text}</span>
+                                    <br />
+                                    <span class="text-grey-m1 text-85">
+                                        <i class="far fa-clock"></i> ${item.sentTime}
+                                    </span>
+                                </div>
+                            </a>
+                            <hr class="my-1px brc-grey-l3" />`;
+                        });
+                    }
+
+                    $('#messageSection').html(html);
+                },
+                error: function (err) {
+                    console.error("Failed to load messages", err);
+                }
+            });
+        }
         const breadcrumbNav = document.getElementById('breadcrumbNav');
 
-        // Get current path and split it
-        const pathSegments = window.location.pathname.split('/').filter(seg => seg);
+        if (breadcrumbNav) {
+            const pathSegments = window.location.pathname.split('/').filter(seg => seg);
 
-        // Always start with Home
-        const homeLi = document.createElement('li');
-        homeLi.classList.add('breadcrumb-item');
-        homeLi.innerHTML = `<a href="/home"><i class="fa fa-home mr-1"></i>Home</a>`;
-        breadcrumbNav.appendChild(homeLi);
+            const homeLi = document.createElement('li');
+            homeLi.classList.add('breadcrumb-item');
+            homeLi.innerHTML = `<a href="/home"><i class="fa fa-home mr-1"></i>Home</a>`;
+            breadcrumbNav.appendChild(homeLi);
 
-        let accumulatedPath = '';
-        pathSegments.forEach((segment, index) => {
-            accumulatedPath += '/' + segment;
+            let accumulatedPath = '';
+            pathSegments.forEach((segment, index) => {
+                accumulatedPath += '/' + segment;
 
-            const li = document.createElement('li');
-            li.classList.add('breadcrumb-item');
+                const li = document.createElement('li');
+                li.classList.add('breadcrumb-item');
 
-            // Last segment is active
-            if (index === pathSegments.length - 1) {
-                li.classList.add('active');
-                li.setAttribute('aria-current', 'page');
-                li.textContent = decodeURIComponent(segment.replace(/-/g, ' '));
-            } else {
-                li.innerHTML = `<a href="${accumulatedPath}">${decodeURIComponent(segment.replace(/-/g, ' '))}</a>`;
-            }
+                if (index === pathSegments.length - 1) {
+                    li.classList.add('active');
+                    li.setAttribute('aria-current', 'page');
+                    li.textContent = decodeURIComponent(segment.replace(/-/g, ' '));
+                } else {
+                    li.innerHTML = `<a href="${accumulatedPath}">${decodeURIComponent(segment.replace(/-/g, ' '))}</a>`;
+                }
 
-            breadcrumbNav.appendChild(li);
-        });
+                breadcrumbNav.appendChild(li);
+            });
+        }
     </script>
+    <!-- # JAVASCRIPT -->
+
 </body>
 </html>

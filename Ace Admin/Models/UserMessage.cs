@@ -20,7 +20,7 @@ public partial class UserMessage
     public DateTime? DeliveredAt { get; set; }
 
     public int? ChatRoomId { get; set; }
-     
+
     public string? AttachmentUrl { get; set; }
 
     public string? MessageType { get; set; }

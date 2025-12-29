@@ -55,8 +55,7 @@ namespace Ace_Admin.Controllers
                     IsDeleted = false
                 };
 
-                switch (payment.Method)
-                {
+                switch (payment.Method) {
                     case "upi":
                         payout.Type = "upi";
                         payout.UpiId = payment.Vpa;
@@ -86,7 +85,7 @@ namespace Ace_Admin.Controllers
 
                 if (wallet == null)
                 {
-                    wallet = new Wallet { UserId = userId, Balance = amount };
+                    wallet = new Wallet { UserId = (int)userId, Balance = amount };
                     _context.Wallets.Add(wallet);
                 }
                 else
@@ -134,8 +133,6 @@ namespace Ace_Admin.Controllers
                 return StatusCode(500, ApiResponse<object>.InternalServerError($"Error verifying payment: {ex.Message}"));
             }
         }
-
-        
 
     }
 

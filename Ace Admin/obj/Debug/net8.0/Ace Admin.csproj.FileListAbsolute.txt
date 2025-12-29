@@ -7,9 +7,14 @@ C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Ace Admin.deps.json
 C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Ace Admin.runtimeconfig.json
 C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Ace Admin.dll
 C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Ace Admin.pdb
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\AutoMapper.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Azure.Core.dll
 C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Azure.Identity.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\CsvHelper.dll
 C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Humanizer.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\System.Net.Http.Formatting.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\System.Web.Http.dll
 C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Microsoft.Build.Locator.dll
@@ -46,6 +51,8 @@ C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.
 C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
 C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\System.ClientModel.dll
 C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\System.CodeDom.dll
 C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\System.Composition.AttributedModel.dll
@@ -165,8 +172,27 @@ C:\node_pro\Ace Admin\Ace Admin\obj\Debug\net8.0\refint\Ace Admin.dll
 C:\node_pro\Ace Admin\Ace Admin\obj\Debug\net8.0\Ace Admin.pdb
 C:\node_pro\Ace Admin\Ace Admin\obj\Debug\net8.0\Ace Admin.genruntimeconfig.cache
 C:\node_pro\Ace Admin\Ace Admin\obj\Debug\net8.0\ref\Ace Admin.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Serilog.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Serilog.AspNetCore.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Serilog.Sinks.File.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\System.Management.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Management.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\StackExchange.Redis.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\System.IO.Hashing.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Program.cs
 C:\node_pro\Ace Admin\Ace Admin\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
-C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\System.Net.Http.Formatting.dll
-C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\System.Web.Http.dll
-C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Newtonsoft.Json.dll
-C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Quartz.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Quartz.Extensions.DependencyInjection.dll
+C:\node_pro\Ace Admin\Ace Admin\bin\Debug\net8.0\Quartz.Extensions.Hosting.dll

@@ -1,0 +1,86 @@
+2025-11-17 15:15:48.826 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-17 15:17:38.611 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-17 15:40:13.462 +05:30 [ERR] Error during login for user rakesh.n
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Security.Cryptography.RSABCrypt'.
+   at System.Security.Cryptography.RSABCrypt.GetKey()
+   at System.Security.Cryptography.RSABCrypt.TrySignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding, Int32& bytesWritten)
+   at System.Security.Cryptography.RSA.SignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at System.Security.Cryptography.RSABCrypt.SignHash(Byte[] hash, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.SignRsa(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.Sign(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at Ace_Admin.Models.assymmetricTokenGenerate.GenerateJwtToken(String username, Int32 empId, String machineid)
+   at Ace_Admin.Controllers.HomeController.Login(LoginView model)
+2025-11-17 15:40:53.049 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-17 15:40:58.687 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-17 15:41:51.443 +05:30 [ERR] Error during login for user rakesh.n
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Security.Cryptography.RSABCrypt'.
+   at System.Security.Cryptography.RSABCrypt.GetKey()
+   at System.Security.Cryptography.RSABCrypt.TrySignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding, Int32& bytesWritten)
+   at System.Security.Cryptography.RSA.SignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at System.Security.Cryptography.RSABCrypt.SignHash(Byte[] hash, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.SignRsa(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.Sign(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at Ace_Admin.Models.assymmetricTokenGenerate.GenerateJwtToken(String username, Int32 empId, String machineid)
+   at Ace_Admin.Controllers.HomeController.Login(LoginView model)
+2025-11-17 15:42:17.195 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-17 15:42:19.062 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-17 15:53:47.544 +05:30 [WRN] Unauthorized login attempt (invalid frontend secret).
+2025-11-17 15:53:54.061 +05:30 [WRN] Unauthorized login attempt (invalid frontend secret).
+2025-11-17 15:54:22.740 +05:30 [WRN] Unauthorized login attempt (invalid frontend secret).
+2025-11-17 15:55:37.895 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-17 15:55:39.696 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-17 16:22:21.579 +05:30 [ERR] Error during login for user rakesh.n
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Security.Cryptography.RSABCrypt'.
+   at System.Security.Cryptography.RSABCrypt.GetKey()
+   at System.Security.Cryptography.RSABCrypt.TrySignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding, Int32& bytesWritten)
+   at System.Security.Cryptography.RSA.SignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at System.Security.Cryptography.RSABCrypt.SignHash(Byte[] hash, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.SignRsa(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.Sign(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at Ace_Admin.Models.assymmetricTokenGenerate.GenerateJwtToken(String username, Int32 empId, String machineid)
+   at Ace_Admin.Controllers.HomeController.Login(LoginView model)
+2025-11-17 16:23:10.106 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-17 16:23:57.501 +05:30 [ERR] Error during login for user rakesh.n
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Security.Cryptography.RSABCrypt'.
+   at System.Security.Cryptography.RSABCrypt.GetKey()
+   at System.Security.Cryptography.RSABCrypt.TrySignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding, Int32& bytesWritten)
+   at System.Security.Cryptography.RSA.SignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at System.Security.Cryptography.RSABCrypt.SignHash(Byte[] hash, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.SignRsa(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.Sign(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at Ace_Admin.Models.assymmetricTokenGenerate.GenerateJwtToken(String username, Int32 empId, String machineid)
+   at Ace_Admin.Controllers.HomeController.Login(LoginView model)
+2025-11-17 16:25:04.937 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-17 16:26:08.056 +05:30 [ERR] Error during login for user rakesh.n
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Security.Cryptography.RSABCrypt'.
+   at System.Security.Cryptography.RSABCrypt.GetKey()
+   at System.Security.Cryptography.RSABCrypt.TrySignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding, Int32& bytesWritten)
+   at System.Security.Cryptography.RSA.SignHash(ReadOnlySpan`1 hash, Span`1 destination, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at System.Security.Cryptography.RSABCrypt.SignHash(Byte[] hash, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.SignRsa(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.Sign(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at Ace_Admin.Models.assymmetricTokenGenerate.GenerateJwtToken(String username, Int32 empId, String machineid)
+   at Ace_Admin.Controllers.HomeController.Login(LoginView model)
+2025-11-17 16:26:18.854 +05:30 [INF] User rakesh.n logged in successfully.
+2025-11-17 16:45:22.966 +05:30 [WRN] No store type was specified for the decimal property 'TickSize' on entity type 'Instrument'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-17 16:45:24.756 +05:30 [INF] User rakesh.n logged in successfully.
